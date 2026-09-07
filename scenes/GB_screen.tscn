@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck8sbvbqxrcuu"]
+
+[ext_resource type="PackedScene" uid="uid://ce0vx2wd8ycl1" path="res://scenes/game.tscn" id="1_517au"]
+[ext_resource type="Shader" uid="uid://c0bym5a5lp7m3" path="res://shaders/gb_palette.gdshader" id="1_bxokd"]
+[ext_resource type="Script" uid="uid://cd34x6o3wjjqa" path="res://scripts/link_viewport_to_output.gd" id="1_nkerh"]
+[ext_resource type="Script" uid="uid://7iogc408ueuv" path="res://scripts/link_shader_to_palette.gd" id="4_nkerh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qx0y"]
+shader = ExtResource("1_bxokd")
+shader_parameter/darkest = Color(0, 0, 0, 1)
+shader_parameter/dark = Color(0, 0, 0, 1)
+shader_parameter/light = Color(0, 0, 0, 1)
+shader_parameter/lightest = Color(0, 0, 0, 1)
+
+[node name="GB_Screen_Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+script = ExtResource("1_nkerh")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+texture_filter = 1
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(160, 144)
+render_target_update_mode = 4
+
+[node name="Game" parent="SubViewport/SubViewport" instance=ExtResource("1_517au")]
+
+[node name="Output" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5qx0y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_nkerh")

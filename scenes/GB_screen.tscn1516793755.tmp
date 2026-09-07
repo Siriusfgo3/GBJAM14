@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck8sbvbqxrcuu"]
+
+[ext_resource type="PackedScene" uid="uid://ce0vx2wd8ycl1" path="res://scenes/game.tscn" id="1_517au"]
+[ext_resource type="Shader" uid="uid://c0bym5a5lp7m3" path="res://shaders/gb_palette.gdshader" id="1_bxokd"]
+[ext_resource type="PackedScene" uid="uid://4hu07kywalfo" path="res://scenes/UI.tscn" id="2_hn4ux"]
+[ext_resource type="Script" uid="uid://7iogc408ueuv" path="res://scenes/render_output.gd" id="4_nkerh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkerh"]
+shader = ExtResource("1_bxokd")
+shader_parameter/darkest = Color(0.0588, 0.2196, 0.0588, 1)
+shader_parameter/dark = Color(0.1882, 0.3843, 0.1882, 1)
+shader_parameter/light = Color(0.5451, 0.6745, 0.0588, 1)
+shader_parameter/lightest = Color(0.6078, 0.7373, 0.0588, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qx0y"]
+shader = ExtResource("1_bxokd")
+shader_parameter/darkest = Color(0, 0, 0, 1)
+shader_parameter/dark = Color(0, 0, 0, 1)
+shader_parameter/light = Color(0, 0, 0, 1)
+shader_parameter/lightest = Color(0, 0, 0, 1)
+
+[node name="GB_Screen_Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_nkerh")
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+size = Vector2i(160, 144)
+
+[node name="Background" type="ColorRect" parent="SubViewport/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game" parent="SubViewport/SubViewport" instance=ExtResource("1_517au")]
+
+[node name="UI" parent="SubViewport/SubViewport" instance=ExtResource("2_hn4ux")]
+
+[node name="Output" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_5qx0y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_nkerh")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce0vx2wd8ycl1"]
+
+[ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://4hu07kywalfo" path="res://scenes/UI.tscn" id="2_yqjtg"]
+
+[sub_resource type="Gradient" id="Gradient_yqjtg"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lnu2h"]
+gradient = SubResource("Gradient_yqjtg")
+width = 160
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqjtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uwrxv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+
+[node name="Background" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_lnu2h")
+
+[node name="UI" parent="Background" instance=ExtResource("2_yqjtg")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 72)
+sprite_frames = SubResource("SpriteFrames_yqjtg")
+
+[node name="Foreground" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+
+[node name="Hello_text" type="Label" parent="Foreground"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_top = 39.0
+offset_right = 15.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_lnu2h")
+theme_override_font_sizes/font_size = 6
+text = "Hello"
+horizontal_alignment = 1
