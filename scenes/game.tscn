@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce0vx2wd8ycl1"]
+[gd_scene format=3 uid="uid://ce0vx2wd8ycl1"]
 
 [ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://4hu07kywalfo" path="res://scenes/UI.tscn" id="2_yqjtg"]
@@ -10,15 +10,15 @@
 gradient = SubResource("Gradient_yqjtg")
 width = 160
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1979309252]
 
-[node name="Background" type="Control" parent="."]
+[node name="Background" type="Control" parent="." unique_id=1471293259]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
 offset_bottom = 144.0
 
-[node name="Background" type="TextureRect" parent="Background"]
+[node name="Background" type="TextureRect" parent="Background" unique_id=599921460]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,20 +27,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_lnu2h")
 
-[node name="UI" parent="Background" instance=ExtResource("2_yqjtg")]
+[node name="UI" parent="Background" unique_id=1744747522 instance=ExtResource("2_yqjtg")]
 
-[node name="SplashScreen" type="Sprite2D" parent="."]
+[node name="SplashScreen" type="Sprite2D" parent="." unique_id=434070134]
 position = Vector2(80, 72)
 texture = ExtResource("4_lbhrr")
 
-[node name="Foreground" type="Control" parent="."]
+[node name="Foreground" type="Control" parent="." unique_id=1942704628]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
 offset_bottom = 144.0
 
-[node name="Hello_text" type="Label" parent="Foreground"]
+[node name="Hello_text" type="Label" parent="Foreground" unique_id=2119457060]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
