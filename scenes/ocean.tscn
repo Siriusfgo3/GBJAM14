@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="1_7i2eo"]
 [ext_resource type="Script" uid="uid://cbl3n27tk2sgb" path="res://scenes/character_body_2d.gd" id="2_fiuhb"]
+[ext_resource type="Texture2D" uid="uid://wlu24823d8h7" path="res://scenes/tentacle.png" id="3_mn261"]
+[ext_resource type="Script" uid="uid://cxr1mvapdmhyy" path="res://scenes/sprite_2d.gd" id="4_a1ohp"]
 
 [node name="Ocean" type="Node2D" unique_id=129563336]
 
@@ -17,3 +19,8 @@ script = ExtResource("2_fiuhb")
 position = Vector2(80, 73)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1526587008]
+position = Vector2(82, 153.00002)
+rotation = -1.5707964
+scale = Vector2(0.19388366, 0.07439553)
+texture = ExtResource("3_mn261")
+script = ExtResource("4_a1ohp")
