@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bbulqmmxm7b5v"]
+
+[ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="1_7i2eo"]
+[ext_resource type="Script" uid="uid://cbl3n27tk2sgb" path="res://scenes/character_body_2d.gd" id="2_fiuhb"]
+
+[node name="Ocean" type="Node2D" unique_id=129563336]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=686120703]
+position = Vector2(614, 72.5)
+scale = Vector2(9.625, 1.1484375)
+texture = ExtResource("1_7i2eo")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=435733063]
+script = ExtResource("2_fiuhb")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=574685030]
+position = Vector2(80, 73)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1526587008]
