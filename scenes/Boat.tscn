@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdmf1rnqf5dwt"]
+
+[ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="1_xwkqa"]
+[ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_mlulb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(128, 128)
+
+[node name="Boat" type="CharacterBody2D" unique_id=1998020412]
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
+shape = SubResource("RectangleShape2D_e77pp")
+
+[node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
+texture = ExtResource("1_xwkqa")
+
+[node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
+script = ExtResource("2_mlulb")
+_body = NodePath("..")
+sailDirectionTimer = NodePath("RandomSailDirectionTimer")
+
+[node name="RandomSailDirectionTimer" type="Timer" parent="BoatMovement" unique_id=828518960]
