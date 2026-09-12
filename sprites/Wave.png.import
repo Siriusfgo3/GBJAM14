@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0txjs4nejd1o"
-path="res://.godot/imported/Inventory slot-1.png (1).png-318960f51f6c97c2dd4592cc429b15b6.ctex"
+uid="uid://c2a5k5v8ixvpn"
+path="res://.godot/imported/Wave.png-bb38701b070c9838671c0b339c9a813a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/Inventory slot-1.png (1).png"
-dest_files=["res://.godot/imported/Inventory slot-1.png (1).png-318960f51f6c97c2dd4592cc429b15b6.ctex"]
+source_file="res://sprites/Wave.png"
+dest_files=["res://.godot/imported/Wave.png-bb38701b070c9838671c0b339c9a813a.ctex"]
 
 [params]
 
