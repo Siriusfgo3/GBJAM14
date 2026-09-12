@@ -12,14 +12,11 @@ func SpawnLoot():
 	pass
 
 func GenerateBoatVisual():
-	print("Matching boat type")
 	match boatType:
 		"null":
-			print("Setting texture")
-			sprite.texture = BOAT_PLACEHOLDER
+			pass
 
 func OnSpawn(type: String, tier: String) -> void:
-	print("Boat Spawned")
 	boatType = type
 	boatTier = tier
 	position.y = 100
