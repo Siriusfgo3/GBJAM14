@@ -10,6 +10,81 @@
 [ext_resource type="Script" uid="uid://c0qp0idnit2hq" path="res://scripts/Inventory/inventory_manager.gd" id="8_sup3w"]
 [ext_resource type="Resource" uid="uid://b1jntnohw5gtd" path="res://resources/inventory/Inventories/player_inventory.tres" id="9_46w5d"]
 [ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="10_46w5d"]
+[ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Wave.png" id="11_tv676"]
+[ext_resource type="Script" uid="uid://bix2dhwwhjmi4" path="res://scenes/wave_movement.gd" id="12_vkfeh"]
+
+[sub_resource type="Animation" id="Animation_vkfeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-147, 112)]
+}
+
+[sub_resource type="Animation" id="Animation_6ti71"]
+resource_name = "Wave_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:offset_transform_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-179, 112), Vector2(-147, 112)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_isiwr"]
+_data = {
+&"RESET": SubResource("Animation_vkfeh"),
+&"Wave_animation": SubResource("Animation_6ti71")
+}
 
 [node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "player_state", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
@@ -45,3 +120,20 @@ offset_transform_position = Vector2(35, 34)
 
 [node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 node_paths=PackedStringArray("player") instance=ExtResource("6_vjho5")]
 player = NodePath("../../PlayerCamera")
+
+[node name="Waves" type="Node2D" parent="." unique_id=280272154]
+
+[node name="TextureRect" type="TextureRect" parent="Waves" unique_id=492113491]
+texture_repeat = 2
+offset_left = -147.0
+offset_top = 112.0
+offset_right = 1465.0
+offset_bottom = 144.0
+texture = ExtResource("11_tv676")
+stretch_mode = 1
+script = ExtResource("12_vkfeh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Waves" unique_id=1742741730]
+root_node = NodePath("../TextureRect")
+libraries/ = SubResource("AnimationLibrary_isiwr")
+autoplay = &"Wave_animation"
