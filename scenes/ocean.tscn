@@ -32,7 +32,7 @@ script = ExtResource("4_5neuy")
 
 [node name="PortCanvasLayer" type="CanvasLayer" parent="." unique_id=426498679]
 
-[node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 instance=ExtResource("6_vjho5")]
-visible = false
+[node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 node_paths=PackedStringArray("player") instance=ExtResource("6_vjho5")]
+player = NodePath("../../PlayerCamera")
 
 [node name="InventoryManager" type="Node2D" parent="." unique_id=1427186610]
