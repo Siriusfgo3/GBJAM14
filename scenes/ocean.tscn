@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://bbulqmmxm7b5v"]
 
-[ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="1_7i2eo"]
-[ext_resource type="Script" uid="uid://cbl3n27tk2sgb" path="res://scenes/character_body_2d.gd" id="2_fiuhb"]
-[ext_resource type="Texture2D" uid="uid://wlu24823d8h7" path="res://scenes/tentacle.png" id="3_mn261"]
-[ext_resource type="Script" uid="uid://cxr1mvapdmhyy" path="res://scenes/sprite_2d.gd" id="4_a1ohp"]
+[ext_resource type="Texture2D" uid="uid://ceh00n5tepk54" path="res://sprites/OceanBGPlaceholder.png" id="1_7i2eo"]
+[ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
+[ext_resource type="PackedScene" uid="uid://c0xal0urxobe4" path="res://scenes/PlayerCamera.tscn" id="2_fiuhb"]
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat.tscn" id="2_mn261"]
+[ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/BoatSpawner.tscn" id="5_vjho5"]
 
-[node name="Ocean" type="Node2D" unique_id=129563336]
+[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("boatSpawner", "oceanTimer")]
+script = ExtResource("1_ogne1")
+boatSpawner = NodePath("BoatSpawner")
+oceanTimer = NodePath("OceanTimer")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=686120703]
-position = Vector2(614, 72.5)
-scale = Vector2(9.625, 1.1484375)
 texture = ExtResource("1_7i2eo")
+centered = false
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=435733063]
-script = ExtResource("2_fiuhb")
+[node name="Boat" parent="." unique_id=1998020412 instance=ExtResource("2_mn261")]
+visible = false
+position = Vector2(500, 100)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=574685030]
-position = Vector2(80, 73)
+[node name="PlayerCamera" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1526587008]
-position = Vector2(82, 153.00002)
-rotation = -1.5707964
-scale = Vector2(0.19388366, 0.07439553)
-texture = ExtResource("3_mn261")
-script = ExtResource("4_a1ohp")
+[node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
+
+[node name="BoatSpawner" parent="." unique_id=2108683805 instance=ExtResource("5_vjho5")]

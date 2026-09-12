@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0xal0urxobe4"]
+
+[ext_resource type="Script" uid="uid://b8wtbmw0b2ssj" path="res://scripts/PlayerCameraMovement.gd" id="1_lp7lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(160, 145)
+
+[node name="PlayerCamera" type="CharacterBody2D" unique_id=2007000961]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=685323174]
+anchor_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
+position = Vector2(80, 72.5)
+shape = SubResource("RectangleShape2D_e77pp")
+
+[node name="Node" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body")]
+script = ExtResource("1_lp7lw")
+_body = NodePath("..")

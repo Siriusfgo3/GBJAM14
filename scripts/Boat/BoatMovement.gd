@@ -17,7 +17,7 @@ func _ready() -> void:
 	_on_timeout()
 
 func _on_timeout() -> void:
-	direction *= -1
+	#direction *= -1
 	_body.velocity.x = direction * speed
 	sailDirectionTimer.start(randf_range(min_dt, max_dt))
 	

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://56c4rd53st28"]
+
+[ext_resource type="Script" uid="uid://cbtsyysgfso4l" path="res://scripts/BoatSpawner.gd" id="1_67uh1"]
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat.tscn" id="2_tq1w6"]
+
+[node name="BoatSpawner" type="Node" unique_id=2108683805]
+script = ExtResource("1_67uh1")
+boat_scene = ExtResource("2_tq1w6")

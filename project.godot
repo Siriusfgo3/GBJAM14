@@ -19,12 +19,20 @@ run/main_scene="uid://ck8sbvbqxrcuu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
+[autoload]
+
+GlobalVariables="*uid://bymcb6qjduhxb"
+
 [display]
 
 window/size/viewport_width=160
 window/size/viewport_height=144
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+
+[dotnet]
+
+project/assembly_name="GBJAM14"
 
 [input]
 
