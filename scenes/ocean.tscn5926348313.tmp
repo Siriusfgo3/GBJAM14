@@ -131,6 +131,10 @@ position = Vector2(42, 97)
 script = ExtResource("8_sup3w")
 inv = ExtResource("9_46w5d")
 
+[node name="PlayerCamera_PlayerInventoryManager#Inventory_UI" parent="." unique_id=1313293279 instance=ExtResource("10_46w5d")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(35, 34)
+
 [node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
 
 [node name="BoatSpawner" parent="." unique_id=2108683805 instance=ExtResource("5_vjho5")]
@@ -146,10 +150,6 @@ player = NodePath("../../Player")
 seaport = NodePath("../../Seaport")
 
 [node name="PortUi2" parent="PortCanvasLayer" unique_id=1793100457 instance=ExtResource("6_vjho5")]
-
-[node name="PlayerCamera_PlayerInventoryManager#Inventory_UI" parent="PortCanvasLayer" unique_id=1313293279 instance=ExtResource("10_46w5d")]
-offset_transform_enabled = true
-offset_transform_position = Vector2(35, 34)
 
 [node name="InventoryManager" type="Node2D" parent="." unique_id=1050553061]
 
