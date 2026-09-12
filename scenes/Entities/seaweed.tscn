@@ -1,8 +1,105 @@
 [gd_scene format=3 uid="uid://cxcvc8rta01i4"]
 
+[ext_resource type="Script" uid="uid://c75aq8utys788" path="res://scripts/seaweed.gd" id="1_6kbo7"]
 [ext_resource type="Texture2D" uid="uid://wu3ax7h24d4o" path="res://sprites/Items/Seaweed-1.png.png" id="1_rm6j6"]
 
-[node name="Seaweed" type="Node2D" unique_id=2142557652]
+[sub_resource type="Animation" id="Animation_51c4k"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6kbo7"]
+resource_name = "bobbing"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.5, 0, 1.9333333, 2, 14, -1.8000001, -2, 0.4666667, -1),
+"times": PackedFloat32Array(0, 2.9666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.75, 0, 0.75, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 1.9333333, 2, 14, -1.4666667, 0, 1.4666667, 0),
+"times": PackedFloat32Array(0, 2.9666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqbrh"]
+_data = {
+&"RESET": SubResource("Animation_51c4k"),
+&"bobbing": SubResource("Animation_6kbo7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7vtl"]
+radius = 7.0
+
+[node name="Seaweed_collectable" type="Node2D" unique_id=2142557652]
+script = ExtResource("1_6kbo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1502771902]
+position = Vector2(0, 3)
 texture = ExtResource("1_rm6j6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1142743296]
+libraries/ = SubResource("AnimationLibrary_nqbrh")
+autoplay = &"bobbing"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1703089639]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1728709215]
+shape = SubResource("CircleShape2D_c7vtl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
