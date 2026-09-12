@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="4_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/BoatSpawner.tscn" id="5_vjho5"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
+[ext_resource type="Script" uid="uid://c0qp0idnit2hq" path="res://scripts/Inventory/inventory_manager.gd" id="8_sup3w"]
+[ext_resource type="Resource" uid="uid://b1jntnohw5gtd" path="res://resources/inventory/Inventories/player_inventory.tres" id="9_46w5d"]
+[ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="10_46w5d"]
 
 [node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "player_state", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
@@ -26,6 +29,14 @@ script = ExtResource("4_5neuy")
 
 [node name="PlayerCamera" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
 
+[node name="PlayerInventoryManager" type="Node2D" parent="PlayerCamera" unique_id=1427186610]
+script = ExtResource("8_sup3w")
+inv = ExtResource("9_46w5d")
+
+[node name="Inventory_UI" parent="PlayerCamera/PlayerInventoryManager" unique_id=1313293279 instance=ExtResource("10_46w5d")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(35, 34)
+
 [node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
 
 [node name="BoatSpawner" parent="." unique_id=2108683805 instance=ExtResource("5_vjho5")]
@@ -34,5 +45,3 @@ script = ExtResource("4_5neuy")
 
 [node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 instance=ExtResource("6_vjho5")]
 visible = false
-
-[node name="InventoryManager" type="Node2D" parent="." unique_id=1427186610]
