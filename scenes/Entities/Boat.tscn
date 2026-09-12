@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://bdmf1rnqf5dwt"]
 
-[ext_resource type="Script" uid="uid://3gydpiqldodb" path="res://scripts/Boat/BoatClass.gd" id="1_nai5d"]
-[ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_mlulb"]
+[ext_resource type="Script" uid="uid://3gydpiqldodb" path="res://scripts/Boat/BoatClass.gd" id="1_g4cen"]
+[ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_1gyrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(36, 36)
 
 [node name="Boat" type="CharacterBody2D" unique_id=1998020412 node_paths=PackedStringArray("sprite")]
 collision_layer = 2
-script = ExtResource("1_nai5d")
+collision_mask = 2
+script = ExtResource("1_g4cen")
 sprite = NodePath("BoatVisual")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
@@ -17,7 +18,7 @@ shape = SubResource("RectangleShape2D_e77pp")
 [node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
 
 [node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
-script = ExtResource("2_mlulb")
+script = ExtResource("2_1gyrj")
 _body = NodePath("..")
 sailDirectionTimer = NodePath("RandomSailDirectionTimer")
 

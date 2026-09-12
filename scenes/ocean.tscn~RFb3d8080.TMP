@@ -3,26 +3,26 @@
 [ext_resource type="Texture2D" uid="uid://ceh00n5tepk54" path="res://sprites/OceanBGPlaceholder.png" id="1_7i2eo"]
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
 [ext_resource type="PackedScene" uid="uid://c0xal0urxobe4" path="res://scenes/PlayerCamera.tscn" id="2_fiuhb"]
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Entities/Boat.tscn" id="2_mn261"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
-[ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="4_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/BoatSpawner.tscn" id="5_vjho5"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 
-[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "player_state", "boatSpawner", "oceanTimer")]
+[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
-port = NodePath("Port")
-port_ui = NodePath("PortCanvasLayer/PortUi")
-player_state = NodePath("PlayerCamera")
 boatSpawner = NodePath("BoatSpawner")
 oceanTimer = NodePath("OceanTimer")
 
-[node name="BackGround" type="Sprite2D" parent="." unique_id=686120703]
+[node name="BG" type="Sprite2D" parent="." unique_id=686120703]
 texture = ExtResource("1_7i2eo")
 centered = false
 
 [node name="Port" parent="." unique_id=791655370 instance=ExtResource("3_4imn2")]
 position = Vector2(1180, 0)
-script = ExtResource("4_5neuy")
+
+[node name="Boat" parent="." unique_id=1998020412 instance=ExtResource("2_mn261")]
+visible = false
+position = Vector2(500, 100)
 
 [node name="PlayerCamera" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
 
@@ -34,5 +34,3 @@ script = ExtResource("4_5neuy")
 
 [node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 instance=ExtResource("6_vjho5")]
 visible = false
-
-[node name="InventoryManager" type="Node2D" parent="." unique_id=1427186610]
