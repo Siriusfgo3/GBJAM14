@@ -24,3 +24,5 @@ position = Vector2(500, 100)
 [node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
 
 [node name="BoatSpawner" parent="." unique_id=2108683805 instance=ExtResource("5_vjho5")]
+
+[node name="InventoryManager" type="Node2D" parent="." unique_id=1427186610]
