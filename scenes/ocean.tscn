@@ -11,10 +11,14 @@
 [ext_resource type="Script" uid="uid://c0qp0idnit2hq" path="res://scripts/Inventory/inventory_manager.gd" id="8_sup3w"]
 [ext_resource type="Resource" uid="uid://b1jntnohw5gtd" path="res://resources/inventory/Inventories/player_inventory.tres" id="9_46w5d"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
+[ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
 [ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="10_46w5d"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Wave.png" id="11_tv676"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(160, 1000)
 size = Vector2(160, 1000)
 
 [sub_resource type="Animation" id="Animation_vkfeh"]
@@ -130,6 +134,10 @@ position = Vector2(42, 97)
 [node name="PlayerCamera#PlayerInventoryManager" type="Node2D" parent="." unique_id=1427186610]
 script = ExtResource("8_sup3w")
 inv = ExtResource("9_46w5d")
+
+[node name="PlayerCamera_PlayerInventoryManager#Inventory_UI" parent="." unique_id=1313293279 instance=ExtResource("10_46w5d")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(35, 34)
 
 [node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
 
