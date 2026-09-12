@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpwgsdwqo2nch"]
 
-[ext_resource type="Script" uid="uid://dyxitsm7fwn8t" path="res://scenes/GameLogic/Spawners/seaweed_spawner.gd" id="1_va8ou"]
+[ext_resource type="Script" uid="uid://dyxitsm7fwn8t" path="res://scripts/seaweed_spawner.gd" id="1_va8ou"]
 [ext_resource type="PackedScene" uid="uid://cxcvc8rta01i4" path="res://scenes/Entities/seaweed.tscn" id="2_isq60"]
 
 [node name="SeaweedSpawner" type="Node" unique_id=1925882102]
