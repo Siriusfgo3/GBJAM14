@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm3onpcfrxkqe"
-path="res://.godot/imported/BoatPlaceholder.png-1a73e8c91f752e07e46880e9e0ac227e.ctex"
+path="res://.godot/imported/BoatPlaceholder.png-280bbe84a83f12f7ebebca03c3128e3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/BoatPlaceholder.png"
-dest_files=["res://.godot/imported/BoatPlaceholder.png-1a73e8c91f752e07e46880e9e0ac227e.ctex"]
+source_file="res://sprites/Random_placeholders/BoatPlaceholder.png"
+dest_files=["res://.godot/imported/BoatPlaceholder.png-280bbe84a83f12f7ebebca03c3128e3f.ctex"]
 
 [params]
 

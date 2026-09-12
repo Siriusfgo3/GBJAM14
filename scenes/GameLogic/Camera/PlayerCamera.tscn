@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ciq0ph487ae8t" path="res://scripts/Player/PlayerStateMachine.gd" id="1_tae3d"]
 [ext_resource type="Script" uid="uid://b8wtbmw0b2ssj" path="res://scripts/Player/PlayerMovement.gd" id="2_6tnq5"]
-[ext_resource type="Texture2D" uid="uid://wlu24823d8h7" path="res://sprites/tentacle.png" id="3_6tnq5"]
+[ext_resource type="Texture2D" uid="uid://wlu24823d8h7" path="res://sprites/Random_placeholders/tentacle.png" id="3_6tnq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(20, 40)

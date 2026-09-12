@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2a5k5v8ixvpn"
-path="res://.godot/imported/Wave.png-bb38701b070c9838671c0b339c9a813a.ctex"
+uid="uid://ceh00n5tepk54"
+path="res://.godot/imported/OceanBGPlaceholder.png-0f5a12e1e9e4025d096c202f59924a07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Wave.png"
-dest_files=["res://.godot/imported/Wave.png-bb38701b070c9838671c0b339c9a813a.ctex"]
+source_file="res://sprites/Random_placeholders/OceanBGPlaceholder.png"
+dest_files=["res://.godot/imported/OceanBGPlaceholder.png-0f5a12e1e9e4025d096c202f59924a07.ctex"]
 
 [params]
 

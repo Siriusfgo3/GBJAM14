@@ -5,7 +5,8 @@ extends CharacterBody2D
 var boatType: String = "null"
 var boatTier: String = "null"
 
-const BOAT_PLACEHOLDER = preload("res://sprites/BoatPlaceholder.png")
+
+var BOAT_PLACEHOLDER = sprite
 
 func SpawnLoot():
 	pass

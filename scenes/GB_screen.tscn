@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ce0vx2wd8ycl1" path="res://scenes/game.tscn" id="1_517au"]
 [ext_resource type="Shader" uid="uid://c0bym5a5lp7m3" path="res://shaders/gb_palette.gdshader" id="1_bxokd"]
 [ext_resource type="Script" uid="uid://cd34x6o3wjjqa" path="res://scripts/link_viewport_to_output.gd" id="1_nkerh"]
-[ext_resource type="PackedScene" uid="uid://bbulqmmxm7b5v" path="res://scenes/ocean.tscn" id="3_5qx0y"]
+[ext_resource type="PackedScene" uid="uid://bbulqmmxm7b5v" path="res://scenes/Locations/ocean.tscn" id="3_5qx0y"]
 [ext_resource type="Script" uid="uid://7iogc408ueuv" path="res://scripts/link_shader_to_palette.gd" id="4_nkerh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qx0y"]
@@ -33,7 +33,6 @@ render_target_update_mode = 4
 visible = false
 
 [node name="Ocean" parent="SubViewport/SubViewport" unique_id=129563336 instance=ExtResource("3_5qx0y")]
-position = Vector2(-70.124794, 261.71732)
 
 [node name="Output" type="TextureRect" parent="." unique_id=854136483]
 texture_filter = 1

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://3gydpiqldodb" path="res://scripts/Boat/BoatClass.gd" id="1_g4cen"]
 [ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_1gyrj"]
-[ext_resource type="Texture2D" uid="uid://bm3onpcfrxkqe" path="res://sprites/Random_placeholders/BoatPlaceholder.png" id="2_nw70s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(36, 36)
@@ -17,7 +16,6 @@ sprite = NodePath("BoatVisual")
 shape = SubResource("RectangleShape2D_e77pp")
 
 [node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
-texture = ExtResource("2_nw70s")
 
 [node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
 script = ExtResource("2_1gyrj")

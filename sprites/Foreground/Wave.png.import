@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doy3wrb5hd6d5"
-path="res://.godot/imported/Map.png-ff358cf841341730a169cb675d3a3d8e.ctex"
+uid="uid://c2a5k5v8ixvpn"
+path="res://.godot/imported/Wave.png-61cd56e864bcd62fb807ae6972242b15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Map.png"
-dest_files=["res://.godot/imported/Map.png-ff358cf841341730a169cb675d3a3d8e.ctex"]
+source_file="res://sprites/Foreground/Wave.png"
+dest_files=["res://.godot/imported/Wave.png-61cd56e864bcd62fb807ae6972242b15.ctex"]
 
 [params]
 

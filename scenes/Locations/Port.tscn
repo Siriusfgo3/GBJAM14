@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cthf46o5s23yy"]
 
-[ext_resource type="Texture2D" uid="uid://dv6k5b1wh8gi" path="res://sprites/PortPlaceholder.png" id="1_5usap"]
+[ext_resource type="Texture2D" uid="uid://dv6k5b1wh8gi" path="res://sprites/Random_placeholders/PortPlaceholder.png" id="1_5usap"]
 [ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="1_no654"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]

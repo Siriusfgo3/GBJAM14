@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce0vx2wd8ycl1"]
 
 [ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://4hu07kywalfo" path="res://scenes/UI.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://4hu07kywalfo" path="res://scenes/UI/UI.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://bmreddrvtswds" path="res://sprites/Splash screen.png" id="4_lbhrr"]
 
 [sub_resource type="Gradient" id="Gradient_yqjtg"]
