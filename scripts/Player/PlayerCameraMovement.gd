@@ -2,7 +2,7 @@ extends Node
 
 @export var _body: CharacterBody2D
 @export var MIN_X: int = 0
-@export var MAX_X: int = 1280 - GlobalVariables.CAMERA_WIDTH
+@export var MAX_X: int = 1280 - 0.5 * (GlobalVariables.CAMERA_WIDTH - GlobalVariables.PLAYER_WIDTH)
 @export var SPEED: float = 200
 
 var can_move = true
