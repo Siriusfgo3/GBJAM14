@@ -4,15 +4,22 @@
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
 [ext_resource type="PackedScene" uid="uid://c0xal0urxobe4" path="res://scenes/PlayerCamera.tscn" id="2_fiuhb"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
-[ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="4_5neuy"]
+[ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/PlayerFollowCamera.tscn" id="3_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/BoatSpawner.tscn" id="5_vjho5"]
+[ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
+[ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
 
-[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "player_state", "boatSpawner", "oceanTimer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(160, 1000)
+
+[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "player_state", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
 port = NodePath("Port")
 port_ui = NodePath("PortCanvasLayer/PortUi")
-player_state = NodePath("PlayerCamera")
+seaport = NodePath("Seaport")
+seaport_ui = NodePath("PortCanvasLayer/SeaportUi")
+player_state = NodePath("Player")
 boatSpawner = NodePath("BoatSpawner")
 oceanTimer = NodePath("OceanTimer")
 
@@ -20,11 +27,28 @@ oceanTimer = NodePath("OceanTimer")
 texture = ExtResource("1_7i2eo")
 centered = false
 
-[node name="Port" parent="." unique_id=791655370 instance=ExtResource("3_4imn2")]
-position = Vector2(1180, 0)
-script = ExtResource("4_5neuy")
+[node name="Seaport" parent="." unique_id=791655370 instance=ExtResource("6_sup3w")]
+position = Vector2(0, 250)
 
-[node name="PlayerCamera" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
+[node name="WorldBorder" type="Node2D" parent="." unique_id=654299881]
+
+[node name="Area2D" type="StaticBody2D" parent="WorldBorder" unique_id=1587334156]
+position = Vector2(1280, 0)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D" unique_id=1553305408]
+position = Vector2(-50, 644)
+shape = SubResource("RectangleShape2D_e77pp")
+
+[node name="PlayerFollowCamera" parent="." unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
+position = Vector2(100, 72)
+follow_target = NodePath("../Player")
+
+[node name="Port" parent="." unique_id=373208614 instance=ExtResource("3_4imn2")]
+position = Vector2(1121, 1)
+
+[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
+position = Vector2(42, 97)
 
 [node name="OceanTimer" type="Timer" parent="." unique_id=470704904]
 
@@ -32,7 +56,12 @@ script = ExtResource("4_5neuy")
 
 [node name="PortCanvasLayer" type="CanvasLayer" parent="." unique_id=426498679]
 
-[node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 node_paths=PackedStringArray("player") instance=ExtResource("6_vjho5")]
-player = NodePath("../../PlayerCamera")
+[node name="PortUi" parent="PortCanvasLayer" unique_id=919939360 node_paths=PackedStringArray("player", "port") instance=ExtResource("6_vjho5")]
+player = NodePath("../../Player")
+port = NodePath("../../Port")
+
+[node name="SeaportUi" parent="PortCanvasLayer" unique_id=1597455931 node_paths=PackedStringArray("player", "seaport") instance=ExtResource("9_sup3w")]
+player = NodePath("../../Player")
+seaport = NodePath("../../Seaport")
 
 [node name="InventoryManager" type="Node2D" parent="." unique_id=1427186610]

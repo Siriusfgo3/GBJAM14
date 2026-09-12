@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b6dvkphne0ylx"]
+
+[ext_resource type="Script" uid="uid://cdo4yv0eictns" path="res://scripts/Seaport.gd" id="1_ddtsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(1280, 144)
+
+[node name="Seaport" type="Node2D" unique_id=791655370 node_paths=PackedStringArray("collider")]
+script = ExtResource("1_ddtsl")
+collider = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1936151114]
+position = Vector2(640, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=243813736]
+shape = SubResource("RectangleShape2D_e77pp")

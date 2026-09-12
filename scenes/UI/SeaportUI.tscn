@@ -1,38 +1,38 @@
-[gd_scene format=3 uid="uid://b4khuiwq5pgyy"]
+[gd_scene format=3 uid="uid://dl6oqljw1fqk8"]
 
-[ext_resource type="Script" uid="uid://cqx1ag81ik4ej" path="res://scripts/UI/PortUI.gd" id="1_nbqdi"]
+[ext_resource type="Script" uid="uid://btb585owd7yr7" path="res://scripts/UI/SeaportUI.gd" id="1_qff1s"]
 
-[node name="PortUi" type="Control" unique_id=919939360 node_paths=PackedStringArray("transition_overlay", "port_background")]
+[node name="SeaportUi" type="Control" unique_id=919939360 node_paths=PackedStringArray("transition_overlay", "port_background")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nbqdi")
+script = ExtResource("1_qff1s")
 transition_overlay = NodePath("TransitionOverlay")
-port_background = NodePath("Control")
+port_background = NodePath("Seaport")
 
-[node name="Control" type="Control" parent="." unique_id=318640024]
+[node name="Seaport" type="Control" parent="." unique_id=318640024]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 160.0
-offset_right = 160.0
+offset_top = 144.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="Control" unique_id=751252624]
+[node name="Background" type="ColorRect" parent="Seaport" unique_id=751252624]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.56775707, 0.35658175, 0.20459488, 1)
+color = Color(0.61330026, 0.20861638, 0.64554226, 1)
 
-[node name="TestLabel" type="Label" parent="Control" unique_id=1227693154]
+[node name="TestLabel" type="Label" parent="Seaport" unique_id=1227693154]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 52.0
@@ -46,8 +46,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 160.0
-offset_right = 160.0
+offset_top = 144.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.8261928, 0.29540834, 0.59634745, 1)
+color = Color(0.24967033, 0.48960197, 1, 1)

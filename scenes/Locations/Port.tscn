@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://cthf46o5s23yy"]
 
 [ext_resource type="Texture2D" uid="uid://dv6k5b1wh8gi" path="res://sprites/PortPlaceholder.png" id="1_5usap"]
+[ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="1_no654"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
-size = Vector2(160, 144)
+size = Vector2(160, 288)
 
-[node name="Port" type="Node2D" unique_id=791655370]
+[node name="Port" type="Node2D" unique_id=791655370 node_paths=PackedStringArray("collider")]
+script = ExtResource("1_no654")
+collider = NodePath("Area2D/CollisionShape2D")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1936151114]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=243813736]
-position = Vector2(20, 72)
+position = Vector2(80, 144)
 shape = SubResource("RectangleShape2D_e77pp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246970015]

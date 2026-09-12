@@ -1,8 +1,8 @@
 extends Node2D
-class_name Port
+class_name Seaport
 
-signal port_entered
-signal port_exited
+signal seaport_entered
+signal seaport_exited
 
 @export var collider: CollisionShape2D
 
@@ -13,13 +13,12 @@ func _ready() -> void:
 
 func _on_body_exit(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		port_exited.emit()
+		seaport_exited.emit()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		port_entered.emit()
+		seaport_entered.emit()
 	pass
-		
-		
-func get_collision_shape() -> CollisionShape2D:
+	
+func get_collider() -> CollisionShape2D:
 	return collider
