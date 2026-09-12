@@ -10,6 +10,3 @@ func SpawnBoat(boatType: String, boatTier: String) -> void:
 	boat.OnSpawn(boatType, boatTier)
 	boat.global_position.x = SPAWN_POSITION
 	get_parent().add_child.call_deferred(boat)
-
-func _ready() -> void:
-	SpawnBoat("null", "null")

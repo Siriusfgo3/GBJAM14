@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7tnpojcb8n1u" path="res://scripts/Inventory/inv_ui_slot.gd" id="1_dmkqm"]
 [ext_resource type="Texture2D" uid="uid://bgvyhp2mxft7g" path="res://sprites/UI/inv_slot.png" id="2_kpss3"]
+[ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="3_kpss3"]
 
 [node name="inv_ui_slot" type="Panel" unique_id=914110943]
 self_modulate = Color(1, 1, 1, 0)
@@ -26,3 +27,16 @@ layout_mode = 2
 
 [node name="item_sprite" type="Sprite2D" parent="CenterContainer/Panel" unique_id=578741232]
 scale = Vector2(1, 0.96875)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=480795527]
+custom_minimum_size = Vector2(19, 8)
+custom_maximum_size = Vector2(19, -1)
+layout_mode = 0
+offset_left = -9.0
+offset_top = 2.0
+offset_right = 10.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("3_kpss3")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 2

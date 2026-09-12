@@ -91,13 +91,12 @@ _data = {
 &"Wave_animation": SubResource("Animation_6ti71")
 }
 
-[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "player_state", "boatSpawner", "oceanTimer")]
+[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
 port = NodePath("Port")
 port_ui = NodePath("UI/PortUi")
 seaport = NodePath("Seaport")
 seaport_ui = NodePath("UI/SeaportUi")
-player_state = NodePath("Player")
 boatSpawner = NodePath("Logic/BoatSpawner")
 oceanTimer = NodePath("Logic/OceanTimer")
 
@@ -137,17 +136,14 @@ root_node = NodePath("../TextureRect")
 libraries/ = SubResource("AnimationLibrary_isiwr")
 autoplay = &"Wave_animation"
 
-[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("2_fiuhb")]
-position = Vector2(42, 97)
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
 [node name="PortUi" parent="UI" unique_id=919939360 node_paths=PackedStringArray("player", "port") instance=ExtResource("6_vjho5")]
-player = NodePath("../../Player")
+player = NodePath("../../Player/CharacterBody2D")
 port = NodePath("../../Port")
 
 [node name="SeaportUi" parent="UI" unique_id=1597455931 node_paths=PackedStringArray("player", "seaport") instance=ExtResource("9_sup3w")]
-player = NodePath("../../Player")
+player = NodePath("../../Player/CharacterBody2D")
 seaport = NodePath("../../Seaport")
 
 [node name="Inventory_UI" parent="UI" unique_id=1313293279 instance=ExtResource("10_46w5d")]
@@ -162,10 +158,17 @@ offset_transform_position = Vector2(35, 34)
 
 [node name="OceanTimer" type="Timer" parent="Logic" unique_id=470704904]
 
+[node name="PlayerFollowCamera" parent="Logic" unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
+position = Vector2(100, 72)
+follow_target = NodePath("../../Player/CharacterBody2D")
+MAX_X = 10000
+
 [node name="PlayerInventoryManager" type="Node2D" parent="Logic" unique_id=1427186610]
 script = ExtResource("8_sup3w")
 inv = ExtResource("9_46w5d")
 
-[node name="PlayerFollowCamera" parent="Logic" unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
-position = Vector2(100, 72)
-follow_target = NodePath("../../Player")
+[node name="Player" parent="." unique_id=524166808 instance=ExtResource("2_fiuhb")]
+z_index = 1
+position = Vector2(87, 117)
+
+[editable path="Player"]

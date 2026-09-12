@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func UpdateTransition() -> void:
 	if not transition_enabled:
 		return
-	var relative_player_position = player.position.x + (GlobalVariables.PLAYER_WIDTH / 2) - port_width - port.position.x
+	var relative_player_position = player.global_position.x + (GlobalVariables.PLAYER_WIDTH / 2) - port_width - port.position.x
 	transition_overlay.position.x = GlobalVariables.CAMERA_WIDTH - 2 * relative_player_position
 	port_background.position.x = GlobalVariables.CAMERA_WIDTH - relative_player_position
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c75aq8utys788" path="res://scripts/seaweed.gd" id="1_6kbo7"]
 [ext_resource type="Texture2D" uid="uid://wu3ax7h24d4o" path="res://sprites/Items/Seaweed-1.png.png" id="1_rm6j6"]
+[ext_resource type="Resource" uid="uid://67gjmhyciwa3" path="res://resources/inventory/Items/seaweed.tres" id="2_nqbrh"]
 
 [sub_resource type="Animation" id="Animation_51c4k"]
 length = 0.001
@@ -88,6 +89,7 @@ radius = 7.0
 
 [node name="Seaweed_collectable" type="Node2D" unique_id=2142557652]
 script = ExtResource("1_6kbo7")
+item = ExtResource("2_nqbrh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1502771902]
 position = Vector2(0, 3)
