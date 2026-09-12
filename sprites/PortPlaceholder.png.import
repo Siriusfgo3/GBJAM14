@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wlu24823d8h7"
-path="res://.godot/imported/tentacle.png-bb7dbbbcbee3952293fe3d0708b119a2.ctex"
+uid="uid://dv6k5b1wh8gi"
+path="res://.godot/imported/PortPlaceholder.png-11f9d170aca67453eb04ffed69808609.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/tentacle.png"
-dest_files=["res://.godot/imported/tentacle.png-bb7dbbbcbee3952293fe3d0708b119a2.ctex"]
+source_file="res://sprites/PortPlaceholder.png"
+dest_files=["res://.godot/imported/PortPlaceholder.png-11f9d170aca67453eb04ffed69808609.ctex"]
 
 [params]
 

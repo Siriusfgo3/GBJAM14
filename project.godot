@@ -34,6 +34,10 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="GBJAM14"
 
+[global_group]
+
+Player="The group that the PlayerCamera lives in"
+
 [input]
 
 move_up={
