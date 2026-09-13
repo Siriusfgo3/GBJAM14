@@ -5,7 +5,6 @@ var mastsLeft: int
 @onready var boat = get_parent() as Boat
 
 func _ready() -> void:
-<<<<<<< Updated upstream
 	for mast in get_children():
 		if mast is boatMast:
 			masts.append(mast)
@@ -18,6 +17,3 @@ func checkMasts():
 			mastsLeft += 1 
 	if mastsLeft == 0:
 		boat.allMastsAreDown = true
-=======
-dd	masts = get_children() as Array[boatMast] 
->>>>>>> Stashed changes
