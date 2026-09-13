@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bbulqmmxm7b5v"]
 
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
-[ext_resource type="PackedScene" uid="uid://c0xal0urxobe4" path="res://scenes/GameLogic/Camera/PlayerCamera.tscn" id="2_fiuhb"]
 [ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="10_46w5d"]
 [ext_resource type="PackedScene" uid="uid://cpwgsdwqo2nch" path="res://scenes/GameLogic/Spawners/seaweed_spawner.tscn" id="11_og8du"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
+[ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(160, 1000)
@@ -96,7 +96,6 @@ _data = {
 texture = ExtResource("6_27b0x")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 8
-0:0/animation_speed = 2.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
@@ -160,27 +159,28 @@ autoplay = &"Wave_animation"
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="Waves" unique_id=534332332]
 position = Vector2(16, 8)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_hhkc5")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Waves" unique_id=394483856]
 position = Vector2(0, 16)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_hhkc5")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="Waves" unique_id=1627557539]
+z_index = 2
 position = Vector2(24, 32)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_hhkc5")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
 [node name="PortUi" parent="UI" unique_id=919939360 node_paths=PackedStringArray("player", "port") instance=ExtResource("6_vjho5")]
-player = NodePath("../../Player/CharacterBody2D")
+player = NodePath("../../Player")
 port = NodePath("../../Port")
 
 [node name="SeaportUi" parent="UI" unique_id=1597455931 node_paths=PackedStringArray("player", "seaport") instance=ExtResource("9_sup3w")]
-player = NodePath("../../Player/CharacterBody2D")
+player = NodePath("../../Player")
 seaport = NodePath("../../Seaport")
 
 [node name="Inventory_UI" parent="UI" unique_id=1313293279 instance=ExtResource("10_46w5d")]
@@ -197,15 +197,12 @@ offset_transform_position = Vector2(35, 34)
 
 [node name="PlayerFollowCamera" parent="Logic" unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
 position = Vector2(100, 72)
-follow_target = NodePath("../../Player/CharacterBody2D")
+follow_target = NodePath("../../Player")
 MAX_X = 10000
 
 [node name="PlayerInventoryManager" type="Node2D" parent="Logic" unique_id=1427186610]
 script = ExtResource("8_sup3w")
 inv = ExtResource("9_46w5d")
 
-[node name="Player" parent="." unique_id=524166808 instance=ExtResource("2_fiuhb")]
-z_index = 1
-position = Vector2(87, 117)
-
-[editable path="Player"]
+[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
+position = Vector2(69, 111)

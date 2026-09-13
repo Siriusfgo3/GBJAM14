@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dryyssojt8oep"]
+
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_8dav1"]
+[ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="1_434a0"]
+[ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="2_8dav1"]
+[ext_resource type="PackedScene" uid="uid://db88xwrylkurq" path="res://scenes/Boat/Cannon.tscn" id="2_ryabk"]
+
+[node name="CannonShootExample" type="Node2D" unique_id=910362642]
+
+[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("1_434a0")]
+position = Vector2(41, 99)
+
+[node name="PlayerFollowCamera" parent="." unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_8dav1")]
+follow_target = NodePath("../Player")
+MAX_X = 500
+
+[node name="Boat" parent="." unique_id=1998020412 instance=ExtResource("1_8dav1")]
+position = Vector2(39, 75)
+
+[node name="Cannon" parent="Boat" unique_id=545218438 instance=ExtResource("2_ryabk")]
+immediately_activate = true

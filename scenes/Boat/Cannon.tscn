@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://db88xwrylkurq"]
+
+[ext_resource type="Script" uid="uid://dndde3rs2fx8r" path="res://scripts/Boat/Cannon.gd" id="1_xystk"]
+[ext_resource type="PackedScene" uid="uid://daru2oju2yegc" path="res://scenes/Boat/CannonBall.tscn" id="2_e8apg"]
+
+[node name="Cannon" type="Node2D" unique_id=545218438 node_paths=PackedStringArray("muzzle", "cannonTimer")]
+script = ExtResource("1_xystk")
+muzzle = NodePath("MuzzlePosition")
+cannonTimer = NodePath("CannonTimer")
+cannonball_scene = ExtResource("2_e8apg")
+
+[node name="CannonTimer" type="Timer" parent="." unique_id=725434282]
+
+[node name="MuzzlePosition" type="Marker2D" parent="." unique_id=1910030696]

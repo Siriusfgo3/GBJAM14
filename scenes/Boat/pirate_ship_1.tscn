@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dewkt1wjfsup"]
+
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_vn4j8"]
+[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="2_5vrqt"]
+
+[node name="PirateShip1" unique_id=1998020412 instance=ExtResource("1_vn4j8")]
+
+[node name="Node" type="Node" parent="." index="3" unique_id=1126786532]
+
+[node name="BoatMast" parent="Node" index="0" unique_id=1430793648 instance=ExtResource("2_5vrqt")]
+
+[node name="BoatMast2" parent="Node" index="1" unique_id=1058404549 instance=ExtResource("2_5vrqt")]
+
+[node name="BoatMast3" parent="Node" index="2" unique_id=559761580 instance=ExtResource("2_5vrqt")]
+
+[editable path="Node/BoatMast"]
