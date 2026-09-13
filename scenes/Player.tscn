@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cn6hr64ahtpoh"]
+
+[ext_resource type="Script" uid="uid://m605ls26k74g" path="res://scripts/Player/player_body.gd" id="1_3li8b"]
+[ext_resource type="Script" uid="uid://ciq0ph487ae8t" path="res://scripts/Player/PlayerStateMachine.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://b8wtbmw0b2ssj" path="res://scripts/Player/PlayerMovement.gd" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://bfkjue67cte6i" path="res://sprites/Player/player_idle.png" id="3_3li8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
+size = Vector2(20, 40)
+
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 groups=["Player"]]
+collision_mask = 5
+script = ExtResource("1_3li8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
+shape = SubResource("RectangleShape2D_e77pp")
+
+[node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body")]
+script = ExtResource("2_3li8b")
+_body = NodePath("..")
+
+[node name="PlayerVisual" type="Sprite2D" parent="." unique_id=1338018884]
+position = Vector2(0, 50)
+texture = ExtResource("3_3li8b")
+
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=462509770]
+script = ExtResource("1_v6fml")
