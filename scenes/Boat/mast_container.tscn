@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://nl65xc2nyr1r"]
 
+[ext_resource type="Script" uid="uid://c3sa88kq80wi7" path="res://scripts/Boat/mast_container.gd" id="1_fv33m"]
+
 [node name="Mast_container" type="Node2D" unique_id=860835126]
+script = ExtResource("1_fv33m")
