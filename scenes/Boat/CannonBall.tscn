@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://daru2oju2yegc"]
+
+[ext_resource type="PackedScene" uid="uid://by4ohswfibyk2" path="res://scenes/Boat/EnemyProjectile.tscn" id="1_77mls"]
+[ext_resource type="Script" uid="uid://c3fu147ghhlqn" path="res://scripts/Boat/CannonBall.gd" id="2_f0cu8"]
+
+[node name="CannonBall" unique_id=2077818442 instance=ExtResource("1_77mls")]
+script = ExtResource("2_f0cu8")
+height = 12
