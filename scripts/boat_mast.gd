@@ -4,6 +4,7 @@ class_name boatMast
 @export var flag_sprite: Sprite2D
 @export var damaged_sprite: Sprite2D
 @export var area: Area2D
+@onready var mastContainer = get_parent()
 
 var isDestroyed: bool
 var player_is_touching: bool
@@ -31,3 +32,4 @@ func _process(delta: float) -> void:
 			area.disable_mode
 			flag_sprite.visible = false
 			damaged_sprite.visible = true
+			mastContainer.checkMasts()
