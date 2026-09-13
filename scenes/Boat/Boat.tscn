@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://3gydpiqldodb" path="res://scripts/Boat/BoatClass.gd" id="1_g4cen"]
 [ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_1gyrj"]
-[ext_resource type="Texture2D" uid="uid://bm3onpcfrxkqe" path="res://sprites/Random_placeholders/BoatPlaceholder.png" id="2_nw70s"]
+[ext_resource type="Texture2D" uid="uid://wq5qvo1eldbt" path="res://sprites/Ships/Small_ship.png" id="2_xpea6"]
+[ext_resource type="PackedScene" uid="uid://nl65xc2nyr1r" path="res://scenes/Boat/mast_container.tscn" id="4_th6ns"]
+[ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="5_kohsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(36, 36)
@@ -17,7 +19,7 @@ sprite = NodePath("BoatVisual")
 shape = SubResource("RectangleShape2D_e77pp")
 
 [node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
-texture = ExtResource("2_nw70s")
+texture = ExtResource("2_xpea6")
 
 [node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
 script = ExtResource("2_1gyrj")
@@ -25,3 +27,8 @@ _body = NodePath("..")
 sailDirectionTimer = NodePath("RandomSailDirectionTimer")
 
 [node name="RandomSailDirectionTimer" type="Timer" parent="BoatMovement" unique_id=828518960]
+
+[node name="Mast_container" parent="." unique_id=860835126 instance=ExtResource("4_th6ns")]
+
+[node name="Small_Boat_Mast" parent="Mast_container" unique_id=478684962 instance=ExtResource("5_kohsx")]
+position = Vector2(0, 4)

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://pi5t6qmyuc44"]
+
+[ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/boat_mast.gd" id="1_f3x8g"]
+[ext_resource type="Texture2D" uid="uid://bqxphp8y8ng55" path="res://sprites/Ships/Small_mast.png" id="2_30tc3"]
+[ext_resource type="Texture2D" uid="uid://cj4rmeohart25" path="res://sprites/Ships/Fisherman.png" id="3_jhclv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md3u7"]
+size = Vector2(3, 9)
+
+[node name="Small_Boat_Mast" type="Node2D" unique_id=478684962 node_paths=PackedStringArray("flag_sprite", "damaged_sprite", "area")]
+script = ExtResource("1_f3x8g")
+flag_sprite = NodePath("Mast_sprite")
+damaged_sprite = NodePath("Damaged_sprite")
+area = NodePath("Area_2D")
+
+[node name="Mast_sprite" type="Sprite2D" parent="." unique_id=266085353]
+texture = ExtResource("2_30tc3")
+
+[node name="Damaged_sprite" type="Sprite2D" parent="." unique_id=478857283]
+visible = false
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+texture = ExtResource("3_jhclv")
+
+[node name="Area_2D" type="Area2D" parent="." unique_id=1870828231]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_2D" unique_id=2075585826]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_md3u7")
