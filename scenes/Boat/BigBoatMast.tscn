@@ -28,5 +28,3 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_2D" unique_id=1325044028]
 position = Vector2(-0.5, -4.5)
 shape = SubResource("RectangleShape2D_qgu4t")
-
-[connection signal="body_entered" from="Area_2D" to="." method="_on_area_2d_body_entered"]
