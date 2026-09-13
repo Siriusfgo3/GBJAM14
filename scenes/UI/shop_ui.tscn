@@ -23,10 +23,12 @@ stretch_mode = 2
 
 [node name="NPC_row" type="HBoxContainer" parent="." unique_id=497587438]
 layout_mode = 1
-offset_top = 87.0
-offset_right = 160.0
-offset_bottom = 144.0
-offset_transform_enabled = true
+anchors_preset = -1
+anchor_top = 0.445
+anchor_bottom = 0.445
+offset_top = -57.0
+offset_right = 144.0
+grow_vertical = 0
 offset_transform_position = Vector2(0, -80)
 
 [node name="Npc" type="TextureRect" parent="NPC_row" unique_id=500054302]
