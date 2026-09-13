@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cwwwxohy8u06q"]
 
+[ext_resource type="Texture2D" uid="uid://dumprhaqbskue" path="res://sprites/Shop/Shop background.png" id="1_kaf8x"]
 [ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="1_smnh3"]
 [ext_resource type="Texture2D" uid="uid://c26g0plfavw6t" path="res://sprites/UI/Speech Bubble.png" id="2_qgjuh"]
+[ext_resource type="Texture2D" uid="uid://cf4kv4mjhd3g5" path="res://sprites/UI/Left Arrow.png" id="4_ajg7w"]
+[ext_resource type="Texture2D" uid="uid://crhvx1mb8c8qo" path="res://sprites/UI/Right Arrow.png" id="5_yxlag"]
 
 [node name="ShopUI" type="Control" unique_id=672772593]
 layout_mode = 3
@@ -11,32 +14,130 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1735954370]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=681989331]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 144.0
+texture = ExtResource("1_kaf8x")
+stretch_mode = 2
+
+[node name="NPC_row" type="HBoxContainer" parent="." unique_id=497587438]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 87.0
+offset_right = 160.0
+offset_bottom = 144.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -80)
 
-[node name="NPC_row" type="PanelContainer" parent="VBoxContainer" unique_id=959452219]
-layout_mode = 2
-
-[node name="Npc" type="TextureRect" parent="VBoxContainer/NPC_row" unique_id=500054302]
+[node name="Npc" type="TextureRect" parent="NPC_row" unique_id=500054302]
 layout_mode = 2
 texture = ExtResource("1_smnh3")
 stretch_mode = 2
 
-[node name="Speech_bubble" type="TextureRect" parent="VBoxContainer/NPC_row" unique_id=1873551309]
+[node name="Speech_bubble" type="TextureRect" parent="NPC_row" unique_id=1873551309]
 layout_mode = 2
 texture = ExtResource("2_qgjuh")
 stretch_mode = 2
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NPC_row/Speech_bubble" unique_id=1361171618]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = -29
+theme_override_constants/margin_right = 5
+
+[node name="Labeloffer" type="Label" parent="NPC_row/Speech_bubble/MarginContainer" unique_id=877658815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "hi traveller"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1735954370]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.66
+anchor_right = 0.602
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_right = 64.0
+grow_vertical = 0
+offset_transform_enabled = true
 
 [node name="their_items" type="HBoxContainer" parent="VBoxContainer" unique_id=1806152053]
 layout_mode = 2
 
-[node name="scale_row" type="HBoxContainer" parent="VBoxContainer" unique_id=667935912]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/their_items" unique_id=391559981]
+layout_mode = 2
+texture_normal = ExtResource("4_ajg7w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/their_items" unique_id=660961172]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=233975237]
 layout_mode = 2
 
-[node name="my_row" type="HBoxContainer" parent="VBoxContainer" unique_id=7952863]
+[node name="Button2" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=384543224]
 layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=1392545248]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=454569677]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/their_items" unique_id=949437586]
+layout_mode = 2
+texture_normal = ExtResource("5_yxlag")
+
+[node name="scale_row" type="Control" parent="VBoxContainer" unique_id=1252823711]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scale" type="TextureRect" parent="VBoxContainer/scale_row" unique_id=362837553]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="my_items" type="HBoxContainer" parent="VBoxContainer" unique_id=589134085]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/my_items" unique_id=894449203]
+layout_mode = 2
+texture_normal = ExtResource("4_ajg7w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/my_items" unique_id=1159040986]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1891384244]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1517194139]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1030223064]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1483883174]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/my_items" unique_id=529635822]
+layout_mode = 2
+texture_normal = ExtResource("5_yxlag")
+
+[node name="goldLabel" type="Label" parent="." unique_id=42776117]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "40g"
