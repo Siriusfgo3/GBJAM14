@@ -9,8 +9,8 @@ var isDestroyed: bool
 func _ready() -> void:
 	isDestroyed = false
 	flag_sprite.visible = true
-	damaged_sprite.visble = false
-		
+	damaged_sprite.visible = false
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var player = body
@@ -18,4 +18,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			isDestroyed = true
 			area.disable_mode
 			flag_sprite.visible = false
-			damaged_sprite.visble = true
+			damaged_sprite.visible = true
