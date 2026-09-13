@@ -1,7 +1,10 @@
 extends Node2D
 
-@export var follow_target: Node2D
+func exp_decay(a: Vector2, b: Vector2, decay, dt):
+	return b + (a - b)*exp(-decay*dt) 
 
+@export var follow_target: Node2D
+@export var cameraLag: float = 5
 @export var MIN_X: int = GlobalVariables.CAMERA_WIDTH / 2
 @export var MAX_X: int = GlobalVariables.OCEAN_WIDTH - GlobalVariables.CAMERA_WIDTH / 2
 
@@ -10,9 +13,8 @@ var MAX_Y: int = GlobalVariables.OCEAN_HEIGHT - GlobalVariables.CAMERA_HEIGHT / 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	global_position.x = follow_target.global_position.x
+	global_position = exp_decay(global_position, follow_target.global_position, cameraLag, delta)
+	global_position.y -= GlobalVariables.CAMERA_HEIGHT / 2
 	global_position.x = clamp(global_position.x, MIN_X, MAX_X)
-	
-	global_position.y = follow_target.global_position.y - GlobalVariables.CAMERA_HEIGHT / 2
 	global_position.y = clamp(global_position.y, MIN_Y, MAX_Y)
 	

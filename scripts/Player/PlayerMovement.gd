@@ -1,7 +1,7 @@
 extends Node
 
 @export var _body: CharacterBody2D
-@export var SPEED: float = 200
+@export var SPEED: float = 140
 
 var MIN_X: int = GlobalVariables.PLAYER_WIDTH / 2
 var MAX_X: int = GlobalVariables.OCEAN_WIDTH - GlobalVariables.PLAYER_WIDTH / 2
