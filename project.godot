@@ -17,7 +17,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="GBJAM14"
 run/main_scene="uid://ck8sbvbqxrcuu"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/use_filter=false
+boot_splash/image="uid://bmreddrvtswds"
 config/icon="res://sprites/icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 

@@ -7,4 +7,5 @@
 script = ExtResource("1_m3wav")
 name = "diamond"
 texture = ExtResource("2_2c2bg")
+basevalue = 10
 metadata/_custom_type_script = "uid://fpa6cpityo5p"

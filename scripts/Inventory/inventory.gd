@@ -16,3 +16,7 @@ func insert(item: InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
 	update.emit()
+
+func update_inventory():
+	pass
+	
