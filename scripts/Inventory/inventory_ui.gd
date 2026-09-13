@@ -27,7 +27,3 @@ func close():
 func open():
 	visible = true
 	is_open = true
-	
-
-	
-	

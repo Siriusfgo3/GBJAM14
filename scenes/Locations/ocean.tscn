@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cpwgsdwqo2nch" path="res://scenes/GameLogic/Spawners/seaweed_spawner.tscn" id="11_og8du"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
+[ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(160, 1000)
@@ -203,6 +204,8 @@ MAX_X = 10000
 [node name="PlayerInventoryManager" type="Node2D" parent="Logic" unique_id=1427186610]
 script = ExtResource("8_sup3w")
 inv = ExtResource("9_46w5d")
+
+[node name="GameController" parent="Logic" unique_id=1195633560 instance=ExtResource("15_opvkg")]
 
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
 position = Vector2(69, 111)

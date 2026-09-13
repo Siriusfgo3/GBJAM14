@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cuqngnc8quwvf"]
+
+[ext_resource type="Script" uid="uid://vn4gfxi3au21" path="res://scenes/GameLogic/game_controller.gd" id="1_08xgj"]
+
+[node name="GameController" type="Node" unique_id=1195633560]
+script = ExtResource("1_08xgj")
+
+[node name="spawnTimer" type="Timer" parent="." unique_id=263773946]
+wait_time = 20.0
+autostart = true

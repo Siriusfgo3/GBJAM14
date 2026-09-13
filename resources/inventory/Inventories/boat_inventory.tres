@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Inv" format=3 uid="uid://bd0mp6cgi200b"]
+
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="1_r37ud"]
+[ext_resource type="Script" uid="uid://2bs5c87g67d7" path="res://inv_slot.gd" id="2_4vv1a"]
+
+[sub_resource type="Resource" id="Resource_kpss3"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_mdaio"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_tanpg"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_vrh54"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_lkamp"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_nv37t"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_iim7b"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_r4uv7"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_taad1"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[sub_resource type="Resource" id="Resource_dgytv"]
+script = ExtResource("2_4vv1a")
+metadata/_custom_type_script = "uid://2bs5c87g67d7"
+
+[resource]
+script = ExtResource("1_r37ud")
+slots = Array[ExtResource("2_4vv1a")]([SubResource("Resource_kpss3"), SubResource("Resource_mdaio"), SubResource("Resource_tanpg"), SubResource("Resource_vrh54"), SubResource("Resource_lkamp"), SubResource("Resource_nv37t"), SubResource("Resource_iim7b"), SubResource("Resource_r4uv7"), SubResource("Resource_taad1"), SubResource("Resource_dgytv")])
+metadata/_custom_type_script = "uid://t4o77ojk51wi"
