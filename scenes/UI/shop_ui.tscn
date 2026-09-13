@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="1_smnh3"]
 [ext_resource type="Texture2D" uid="uid://c26g0plfavw6t" path="res://sprites/UI/Speech Bubble.png" id="2_qgjuh"]
 [ext_resource type="Texture2D" uid="uid://cf4kv4mjhd3g5" path="res://sprites/UI/Left Arrow.png" id="4_ajg7w"]
+[ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="5_ajg7w"]
 [ext_resource type="Texture2D" uid="uid://crhvx1mb8c8qo" path="res://sprites/UI/Right Arrow.png" id="5_yxlag"]
 
 [node name="ShopUI" type="Control" unique_id=672772593]
@@ -56,6 +57,8 @@ theme_override_font_sizes/font_size = 5
 text = "hi traveller"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1735954370]
+custom_maximum_size = Vector2(160, -1)
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.66
@@ -68,26 +71,28 @@ offset_transform_enabled = true
 
 [node name="their_items" type="HBoxContainer" parent="VBoxContainer" unique_id=1806152053]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer/their_items" unique_id=391559981]
 layout_mode = 2
 texture_normal = ExtResource("4_ajg7w")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/their_items" unique_id=660961172]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=233975237]
+[node name="inv_ui_slot" parent="VBoxContainer/their_items/HBoxContainer" unique_id=914110943 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=384543224]
+[node name="inv_ui_slot2" parent="VBoxContainer/their_items/HBoxContainer" unique_id=1481930527 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=1392545248]
+[node name="inv_ui_slot3" parent="VBoxContainer/their_items/HBoxContainer" unique_id=1609017490 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="VBoxContainer/their_items/HBoxContainer" unique_id=454569677]
+[node name="inv_ui_slot4" parent="VBoxContainer/their_items/HBoxContainer" unique_id=88914566 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
 [node name="TextureButton2" type="TextureButton" parent="VBoxContainer/their_items" unique_id=949437586]
@@ -105,31 +110,148 @@ offset_bottom = 40.0
 
 [node name="my_items" type="HBoxContainer" parent="VBoxContainer" unique_id=589134085]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/my_items" unique_id=894449203]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/my_items" unique_id=1597702012]
 layout_mode = 2
-texture_normal = ExtResource("4_ajg7w")
+size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/my_items" unique_id=1159040986]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/my_items/ScrollContainer" unique_id=1159040986]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1891384244]
+[node name="inv_ui_slot" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1136527644 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1517194139]
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot" unique_id=1977492252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot2" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=2110286820 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1030223064]
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot2" unique_id=529608025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot3" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=151905844 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="VBoxContainer/my_items/HBoxContainer" unique_id=1483883174]
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot3" unique_id=423236425]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot4" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1454343583 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/my_items" unique_id=529635822]
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot4" unique_id=647589002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot5" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1919855271 instance=ExtResource("5_ajg7w")]
 layout_mode = 2
-texture_normal = ExtResource("5_yxlag")
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot5" unique_id=2131765028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot6" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1295072233 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot6" unique_id=1180117203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot7" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1815477926 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot7" unique_id=2083432491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot8" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=705453081 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot8" unique_id=2132178732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot9" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=73357829 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot9" unique_id=430818013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot10" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=544028268 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot10" unique_id=1750196109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot11" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=1759531583 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot11" unique_id=497023084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="inv_ui_slot12" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer" unique_id=2126676209 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/my_items/ScrollContainer/HBoxContainer/inv_ui_slot12" unique_id=1354687760]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="goldLabel" type="Label" parent="." unique_id=42776117]
 layout_mode = 1
