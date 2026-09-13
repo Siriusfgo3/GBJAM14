@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cwwwxohy8u06q"]
+
+[ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="1_smnh3"]
+[ext_resource type="Texture2D" uid="uid://c26g0plfavw6t" path="res://sprites/UI/Speech Bubble.png" id="2_qgjuh"]
+
+[node name="ShopUI" type="Control" unique_id=672772593]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1735954370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NPC_row" type="PanelContainer" parent="VBoxContainer" unique_id=959452219]
+layout_mode = 2
+
+[node name="Npc" type="TextureRect" parent="VBoxContainer/NPC_row" unique_id=500054302]
+layout_mode = 2
+texture = ExtResource("1_smnh3")
+stretch_mode = 2
+
+[node name="Speech_bubble" type="TextureRect" parent="VBoxContainer/NPC_row" unique_id=1873551309]
+layout_mode = 2
+texture = ExtResource("2_qgjuh")
+stretch_mode = 2
+
+[node name="their_items" type="HBoxContainer" parent="VBoxContainer" unique_id=1806152053]
+layout_mode = 2
+
+[node name="scale_row" type="HBoxContainer" parent="VBoxContainer" unique_id=667935912]
+layout_mode = 2
+
+[node name="my_row" type="HBoxContainer" parent="VBoxContainer" unique_id=7952863]
+layout_mode = 2

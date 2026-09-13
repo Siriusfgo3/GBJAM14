@@ -6,3 +6,6 @@
 [node name="CannonBall" unique_id=2077818442 instance=ExtResource("1_77mls")]
 script = ExtResource("2_f0cu8")
 height = 12
+
+[node name="Placeholder" parent="." index="2" unique_id=1919949030]
+color = Color(0, 0, 0, 1)
