@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bbulqmmxm7b5v"]
 
-[ext_resource type="Texture2D" uid="uid://ceh00n5tepk54" path="res://sprites/Random_placeholders/OceanBGPlaceholder.png" id="1_7i2eo"]
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
 [ext_resource type="PackedScene" uid="uid://c0xal0urxobe4" path="res://scenes/GameLogic/Camera/PlayerCamera.tscn" id="2_fiuhb"]
+[ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/Spawners/BoatSpawner.tscn" id="5_vjho5"]
@@ -101,7 +101,8 @@ boatSpawner = NodePath("Logic/BoatSpawner")
 oceanTimer = NodePath("Logic/OceanTimer")
 
 [node name="BackGround" type="Sprite2D" parent="." unique_id=686120703]
-texture = ExtResource("1_7i2eo")
+scale = Vector2(1.321, 2.1625)
+texture = ExtResource("2_og8du")
 centered = false
 
 [node name="Seaport" parent="." unique_id=791655370 instance=ExtResource("6_sup3w")]
