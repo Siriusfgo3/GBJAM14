@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bbulqmmxm7b5v"]
+[gd_scene format=4 uid="uid://bbulqmmxm7b5v"]
 
 [ext_resource type="Texture2D" uid="uid://ceh00n5tepk54" path="res://sprites/Random_placeholders/OceanBGPlaceholder.png" id="1_7i2eo"]
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/Spawners/BoatSpawner.tscn" id="5_vjho5"]
+[ext_resource type="Texture2D" uid="uid://dfejmhipfvx3i" path="res://sprites/Foreground/Wave_spritesheet.png" id="6_27b0x"]
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="Script" uid="uid://c0qp0idnit2hq" path="res://scripts/Inventory/inventory_manager.gd" id="8_sup3w"]
@@ -91,6 +92,25 @@ _data = {
 &"Wave_animation": SubResource("Animation_6ti71")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27b0x"]
+texture = ExtResource("6_27b0x")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 8
+0:0/animation_speed = 2.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hhkc5"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_27b0x")
+
 [node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
 port = NodePath("Port")
@@ -123,6 +143,7 @@ position = Vector2(1121, 1)
 [node name="Waves" type="Node2D" parent="." unique_id=280272154]
 
 [node name="TextureRect" type="TextureRect" parent="Waves" unique_id=492113491]
+visible = false
 texture_repeat = 2
 offset_left = -147.0
 offset_top = 112.0
@@ -135,6 +156,21 @@ stretch_mode = 1
 root_node = NodePath("../TextureRect")
 libraries/ = SubResource("AnimationLibrary_isiwr")
 autoplay = &"Wave_animation"
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="Waves" unique_id=534332332]
+position = Vector2(16, 8)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hhkc5")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Waves" unique_id=394483856]
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hhkc5")
+
+[node name="TileMapLayer4" type="TileMapLayer" parent="Waves" unique_id=1627557539]
+position = Vector2(24, 32)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hhkc5")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
