@@ -8,6 +8,55 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(20, 40)
 
+[sub_resource type="Animation" id="Animation_mdl7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerVisual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qu4a1"]
+resource_name = "player_idle"
+length = 0.9
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerVisual:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70d11"]
+_data = {
+&"RESET": SubResource("Animation_mdl7e"),
+&"player_idle": SubResource("Animation_qu4a1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdl7e"]
+animation = &"player_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qu4a1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hhkc5"]
+states/player_idle/node = SubResource("AnimationNodeAnimation_mdl7e")
+states/player_idle/position = Vector2(408.8, 83.2)
+transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1")]
+
 [node name="Player" type="CharacterBody2D" unique_id=2007000961 groups=["Player"]]
 collision_mask = 5
 script = ExtResource("1_3li8b")
@@ -22,6 +71,14 @@ _body = NodePath("..")
 [node name="PlayerVisual" type="Sprite2D" parent="." unique_id=1338018884]
 position = Vector2(0, 50)
 texture = ExtResource("3_3li8b")
+hframes = 4
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=462509770]
 script = ExtResource("1_v6fml")
+
+[node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="." unique_id=160259437]
+libraries/ = SubResource("AnimationLibrary_70d11")
+
+[node name="PlayerAnimationTree" type="AnimationTree" parent="." unique_id=596919079]
+tree_root = SubResource("AnimationNodeStateMachine_hhkc5")
+anim_player = NodePath("../PlayerAnimationPlayer")
