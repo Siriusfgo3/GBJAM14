@@ -3,8 +3,8 @@ class_name Boat
 
 @export var sprite: Sprite2D
 
-var boatType: String = "null"
-var boatTier: String = "null"
+@export var boatType: String = "0"
+@export var boatTier: String = "0"
 var allMastsAreDown: bool
 
 
