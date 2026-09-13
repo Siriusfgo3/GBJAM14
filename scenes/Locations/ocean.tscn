@@ -126,7 +126,7 @@ texture = ExtResource("2_og8du")
 centered = false
 
 [node name="Seaport" parent="." unique_id=791655370 instance=ExtResource("6_sup3w")]
-position = Vector2(0, 250)
+position = Vector2(1, 249)
 
 [node name="WorldBorder" type="Node2D" parent="." unique_id=654299881]
 
