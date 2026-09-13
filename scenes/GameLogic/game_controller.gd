@@ -6,7 +6,8 @@ var boatSpawnRates: Array[float] = [1,0,0,0]
 var progression: float = 0
 
 @onready var spawnTimer: Timer = $spawnTimer
-@export var boat_scene: PackedScene
+#@export var boat_scene: PackedScene
+
 var SPAWN_POSITION: int = -50
 
 var lootTables: Array = [
@@ -14,6 +15,46 @@ var lootTables: Array = [
 	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0],
 	[0,0,0,0,0,0,0,0,0,0]
+]
+
+var lootLookup = [
+	# Imperial
+	[
+		("res://resources/inventory/Items/log.tres"),
+		"Gunpowder",
+		"Ivory",
+		"Amulet",
+		"Indigo Powder",
+        "Imperial Shields"
+	],
+
+	# Oriental
+	[
+		"Chicken Feet",
+		"Paper",
+		"Tea",
+		"Winged Armor",
+		"Fancy Lantern",
+        "Silk"
+	],
+
+	# Seafolk
+	[
+		"Seaweed",
+		"Harpoon Heads",
+		"Whale Blood",
+		"Seapig Armor",
+		"Seapearl",
+        "Clam Necklace"
+	],
+
+	# Pirate
+	[
+		"Rum",
+		"Eyeballs",
+		"Treasure Maps",
+        "Axehead Armor"
+	]
 ]
 
 var boatTables: Array = [
@@ -62,7 +103,6 @@ func generateLootTable(lootTables:Array) -> Array:
 			lootTables[j][i] = snapped(expCdf(i+1,i,favor[j]) + (expCdf(1000,10,favor[j]))/10,0.001)
 	return lootTables
 
-
 func convertedProgression():
 	return 3 * (1 - progression/1000) + 0.1 * progression/1000
 
@@ -72,6 +112,10 @@ func generateBoatTable(boatTables: Array) -> Array:
 		for i in range(4):
 			boatTables[j][i] = snapped(gamma2Cdf(i+1,i,convertedProgression())+gamma2Cdf(1000,4,convertedProgression())/4,0.001)
 	return boatTables
+
+func getItemPath(boatType: int):
+	var loot: int = weighted_probabilty(lootTables[boatType])
+	return lootLookup[loot]
 
 func SpawnBoat() -> void:
 	var boatType = weighted_probabilty(boatSpawnRates)
@@ -83,6 +127,10 @@ func SpawnBoat() -> void:
 	var boat := scene.instantiate()
 	boat.global_position.x = SPAWN_POSITION
 	get_parent().add_child.call_deferred(boat)
+	var item: InvItem = load(getItemPath(boatType))
+	boat.inventory.insert(item)
+	
+	
 
 func _on_spawnTimer_timeout():
 	SpawnBoat()

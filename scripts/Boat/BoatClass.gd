@@ -2,28 +2,19 @@ extends CharacterBody2D
 class_name Boat 
 
 @export var sprite: Sprite2D
+@export var inventory: Node
 
-@export var boatType: String = "0"
-@export var boatTier: String = "0"
+@export var boatType: int
+@export var boatTier: int 
 var allMastsAreDown: bool
-
 
 var BOAT_PLACEHOLDER = sprite
 
 func SpawnLoot():
 	pass
 
-func GenerateBoatVisual():
-	match boatType:
-		"null":
-			pass
-
-func OnSpawn(type: String, tier: String) -> void:
-	boatType = type
-	boatTier = tier
-	position.y = 100
+func OnSpawn() -> void:
 	SpawnLoot()
-	GenerateBoatVisual()
 
 func _process(delta: float):
 	if allMastsAreDown:
