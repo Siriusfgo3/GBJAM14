@@ -1,3 +1,4 @@
+class_name Cannon
 extends Node2D
 
 @export var muzzle: Marker2D

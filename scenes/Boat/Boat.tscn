@@ -5,9 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://wq5qvo1eldbt" path="res://sprites/Ships/Small_ship.png" id="2_xpea6"]
 [ext_resource type="PackedScene" uid="uid://nl65xc2nyr1r" path="res://scenes/Boat/mast_container.tscn" id="4_th6ns"]
 [ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="5_kohsx"]
+[ext_resource type="Script" uid="uid://52660td5pm5w" path="res://scripts/Boat/PlayerAttacker.gd" id="6_kohsx"]
+[ext_resource type="PackedScene" uid="uid://db88xwrylkurq" path="res://scenes/Boat/Cannon.tscn" id="6_th6ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
-size = Vector2(36, 36)
+size = Vector2(13, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuby"]
+size = Vector2(74, 48)
 
 [node name="Boat" type="CharacterBody2D" unique_id=1998020412 node_paths=PackedStringArray("sprite")]
 collision_layer = 2
@@ -16,6 +21,7 @@ script = ExtResource("1_g4cen")
 sprite = NodePath("BoatVisual")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_e77pp")
 
 [node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
@@ -32,3 +38,18 @@ sailDirectionTimer = NodePath("RandomSailDirectionTimer")
 
 [node name="Small_Boat_Mast" parent="Mast_container" unique_id=478684962 instance=ExtResource("5_kohsx")]
 position = Vector2(0, 4)
+
+[node name="AggroRangeArea" type="Area2D" parent="." unique_id=957004913]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRangeArea" unique_id=1247442954]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_kbuby")
+
+[node name="PlayerAttacker" type="Node" parent="." unique_id=225975813 node_paths=PackedStringArray("aggroArea", "cannonContainer")]
+script = ExtResource("6_kohsx")
+aggroArea = NodePath("../AggroRangeArea")
+cannonContainer = NodePath("../CannonContainer")
+
+[node name="CannonContainer" type="Node2D" parent="." unique_id=939044637]
+
+[node name="Cannon" parent="CannonContainer" unique_id=545218438 instance=ExtResource("6_th6ns")]

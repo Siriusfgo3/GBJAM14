@@ -1,9 +1,11 @@
 extends CharacterBody2D
+class_name Boat 
 
 @export var sprite: Sprite2D
 
 var boatType: String = "null"
 var boatTier: String = "null"
+var allMastsAreDown: bool
 
 
 var BOAT_PLACEHOLDER = sprite
@@ -22,3 +24,8 @@ func OnSpawn(type: String, tier: String) -> void:
 	position.y = 100
 	SpawnLoot()
 	GenerateBoatVisual()
+
+func _process(delta: float):
+	if allMastsAreDown:
+		if Input.is_action_just_pressed("button_a"):
+			queue_free()
