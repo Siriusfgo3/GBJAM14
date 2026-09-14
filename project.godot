@@ -25,6 +25,7 @@ boot_splash/minimum_display_time=1000
 [autoload]
 
 GlobalVariables="*uid://bymcb6qjduhxb"
+SoundManager="*uid://dej2e5d2wmw67"
 
 [display]
 
