@@ -58,7 +58,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_khinc"]
 resource_name = "player_brems"
-length = 0.9
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +66,7 @@ tracks/0/path = NodePath("PlayerVisual:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
@@ -122,6 +122,23 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_d3wef"]
+resource_name = "player_snaking"
+length = 0.9
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerVisual:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70d11"]
 _data = {
 &"RESET": SubResource("Animation_mdl7e"),
@@ -130,7 +147,8 @@ _data = {
 &"player_brems": SubResource("Animation_khinc"),
 &"player_idle": SubResource("Animation_qu4a1"),
 &"player_move": SubResource("Animation_cw2d6"),
-&"player_move_start": SubResource("Animation_bruh7")
+&"player_move_start": SubResource("Animation_bruh7"),
+&"player_snaking": SubResource("Animation_d3wef")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_70d11"]
@@ -151,6 +169,9 @@ animation = &"player_move"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qu4a1"]
 animation = &"player_move_start"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o4126"]
+animation = &"player_snaking"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qu4a1"]
 advance_mode = 2
 
@@ -164,7 +185,8 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_70d11"]
-priority = 0
+advance_mode = 2
+advance_expression = "direction.x"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cw2d6"]
 switch_mode = 2
@@ -187,6 +209,27 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lkdrv"]
+advance_mode = 2
+advance_expression = "direction.y"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_srp4u"]
+advance_mode = 2
+advance_expression = "direction.y == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4126"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jfpux"]
+advance_mode = 2
+advance_expression = "abs(_body.velocity.y) < abs(_body.velocity.x)
+&& direction.x"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_61ith"]
+advance_mode = 2
+advance_expression = "abs(_body.velocity.y) > abs(_body.velocity.x)
+&& direction.y"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hhkc5"]
 states/player_attack_big/node = SubResource("AnimationNodeAnimation_70d11")
 states/player_attack_big/position = Vector2(389.8, -41.8)
@@ -197,11 +240,13 @@ states/player_brems/position = Vector2(215.20001, 216.51071)
 states/player_idle/node = SubResource("AnimationNodeAnimation_mdl7e")
 states/player_idle/position = Vector2(408.8, 83.2)
 states/player_move/node = SubResource("AnimationNodeAnimation_bruh7")
-states/player_move/position = Vector2(400.99197, 236.79997)
+states/player_move/position = Vector2(403.15518, 232.74796)
 states/player_move_start/node = SubResource("AnimationNodeAnimation_qu4a1")
-states/player_move_start/position = Vector2(625.2, 216.86987)
-transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "player_idle", "player_attack_big", SubResource("AnimationNodeStateMachineTransition_khinc"), "player_idle", "player_attack_small", SubResource("AnimationNodeStateMachineTransition_bruh7"), "player_attack_big", "player_idle", SubResource("AnimationNodeStateMachineTransition_6eyey"), "player_attack_small", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef")]
-graph_offset = Vector2(15, 36)
+states/player_move_start/position = Vector2(694.25604, 232.34111)
+states/player_snaking/node = SubResource("AnimationNodeAnimation_o4126")
+states/player_snaking/position = Vector2(692.7825, 84.904)
+transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "player_idle", "player_attack_big", SubResource("AnimationNodeStateMachineTransition_khinc"), "player_idle", "player_attack_small", SubResource("AnimationNodeStateMachineTransition_bruh7"), "player_attack_big", "player_idle", SubResource("AnimationNodeStateMachineTransition_6eyey"), "player_attack_small", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_idle", "player_snaking", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "player_snaking", "player_idle", SubResource("AnimationNodeStateMachineTransition_srp4u"), "player_brems", "player_move", SubResource("AnimationNodeStateMachineTransition_o4126"), "player_snaking", "player_move_start", SubResource("AnimationNodeStateMachineTransition_jfpux"), "player_move", "player_snaking", SubResource("AnimationNodeStateMachineTransition_61ith")]
+graph_offset = Vector2(41, 42)
 
 [node name="Player" type="CharacterBody2D" unique_id=2007000961 groups=["Player"]]
 collision_mask = 5
@@ -218,9 +263,10 @@ _sprite = NodePath("../PlayerVisual")
 
 [node name="PlayerVisual" type="Sprite2D" parent="." unique_id=1338018884]
 texture = ExtResource("3_mdl7e")
-offset = Vector2(32, 40)
+centered = false
+offset = Vector2(-32, -24)
 hframes = 6
-vframes = 4
+vframes = 5
 frame = 6
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=462509770]

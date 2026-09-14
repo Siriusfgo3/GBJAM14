@@ -14,6 +14,7 @@ var MAX_X: int = GlobalVariables.OCEAN_WIDTH - GlobalVariables.PLAYER_WIDTH / 2
 var MIN_Y: int = 32 #For at teste animationen, husk at sætte tilbage på 100
 var MAX_Y: int = 144 * 5
 
+var direction: Vector2 = Vector2.ZERO
 
 var can_move = true
 @onready var state_machine = _animation_tree["parameters/playback"]
@@ -23,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	if !can_move:
 		return
 
-	var direction = Vector2(Input.get_axis("move_left", "move_right"), 
+	direction = Vector2(Input.get_axis("move_left", "move_right"), 
 							Input.get_axis("move_up", "move_down")).normalized()
 	var _velocity = lerp(_body.velocity, 
 						direction*SPEED,
@@ -33,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 	_body.move_and_slide()
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
 	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
+	print(_body.velocity)
 	update_animations(direction)
 	
 func ToggleMovement(_can_move: bool):
@@ -48,9 +50,7 @@ func update_animations(direction: Vector2) -> void:
 	#Når angreb bliver lavet tilføj øverst attack animationen her med return
 	
 	if direction.x:
-		_sprite.flip_h = direction.x < 0
-		_sprite.offset.x = abs(_sprite.offset.x) * direction.x
-		state_machine.travel("player_move")
-	else:
-		state_machine.travel("player_idle")
+		_sprite.scale.x = direction.x
+		#_sprite.offset.x = abs(_sprite.offset.x) * direction.x
+		#state_machine.travel("player_move")
 		
