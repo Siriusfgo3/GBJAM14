@@ -28,6 +28,7 @@ func _shoot_cannon():
 	var ball := cannonball_scene.instantiate() as EnemyProjectile
 	_world().add_child(ball)
 	ball.initiate_path(start, target)
+	SoundManager.play_sound("CannonShot")
 	
 	cannonTimer.start(GetSecondsUntilNextShot())
 	
