@@ -11,7 +11,7 @@ extends Node
 
 var MIN_X: int = GlobalVariables.PLAYER_WIDTH / 2
 var MAX_X: int = GlobalVariables.OCEAN_WIDTH - GlobalVariables.PLAYER_WIDTH / 2
-var MIN_Y: int = 10 #For at teste animationen, husk at sætte tilbage på 100
+var MIN_Y: int = 32 #For at teste animationen, husk at sætte tilbage på 100
 var MAX_Y: int = 144 * 5
 
 
@@ -29,23 +29,27 @@ func _physics_process(_delta: float) -> void:
 						direction*SPEED,
 						(ACCELERATION if direction else FRICTION)*_delta)
 	_body.velocity = _velocity
-
+	
 	_body.move_and_slide()
-	print(_body.velocity)
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
 	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
-	
 	update_animations(direction)
 	
 func ToggleMovement(_can_move: bool):
 	can_move = _can_move
 
+#til test af animationer
+func _input(event):
+	if event.is_action_pressed("button_a"):
+		print("KABOW")
+		state_machine.travel("player_attack_small")
+
 func update_animations(direction: Vector2) -> void:
 	#Når angreb bliver lavet tilføj øverst attack animationen her med return
 	
-	if direction.x != 0:
+	if direction.x:
 		_sprite.flip_h = direction.x < 0
-		_sprite.offset.x = abs(_sprite.offset.x) *direction.x
+		_sprite.offset.x = abs(_sprite.offset.x) * direction.x
 		state_machine.travel("player_move")
 	else:
 		state_machine.travel("player_idle")
