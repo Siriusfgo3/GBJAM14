@@ -31,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 	_body.velocity = _velocity
 
 	_body.move_and_slide()
+	print(_body.velocity)
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
 	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
 	
@@ -44,6 +45,7 @@ func update_animations(direction: Vector2) -> void:
 	
 	if direction.x != 0:
 		_sprite.flip_h = direction.x < 0
+		_sprite.offset.x = abs(_sprite.offset.x) *direction.x
 		state_machine.travel("player_move")
 	else:
 		state_machine.travel("player_idle")

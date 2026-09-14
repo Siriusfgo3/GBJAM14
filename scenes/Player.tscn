@@ -23,8 +23,9 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_70d11"]
-resource_name = "player_attack"
+[sub_resource type="Animation" id="Animation_6eyey"]
+resource_name = "player_attack_big"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,10 +33,26 @@ tracks/0/path = NodePath("PlayerVisual:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(1, 1)]
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_70d11"]
+resource_name = "player_attack_small"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerVisual:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_khinc"]
@@ -51,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(3, 1), Vector2i(0, 1)]
+"values": [Vector2i(3, 1), Vector2i(4, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_qu4a1"]
@@ -101,21 +118,36 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(3, 1)]
+"values": [Vector2i(0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70d11"]
 _data = {
 &"RESET": SubResource("Animation_mdl7e"),
-&"player_attack": SubResource("Animation_70d11"),
+&"player_attack_big": SubResource("Animation_6eyey"),
+&"player_attack_small": SubResource("Animation_70d11"),
 &"player_brems": SubResource("Animation_khinc"),
 &"player_idle": SubResource("Animation_qu4a1"),
 &"player_move": SubResource("Animation_cw2d6"),
 &"player_move_start": SubResource("Animation_bruh7")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_khinc"]
-animation = &"player_attack"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_70d11"]
+animation = &"player_attack_big"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cw2d6"]
+animation = &"player_attack_small"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_khinc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bruh7"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6eyey"]
+states/player_attack_big/node = SubResource("AnimationNodeAnimation_70d11")
+states/player_attack_big/position = Vector2(375.19998, 177.59999)
+states/player_attack_small/node = SubResource("AnimationNodeAnimation_cw2d6")
+states/player_attack_small/position = Vector2(397.904, 43.199997)
+transitions = ["Start", "player_attack_small", SubResource("AnimationNodeStateMachineTransition_khinc"), "Start", "player_attack_big", SubResource("AnimationNodeStateMachineTransition_bruh7")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6eyey"]
 animation = &"player_brems"
@@ -132,13 +164,9 @@ animation = &"player_move_start"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qu4a1"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3wef"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lkdrv"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p7iby"]
+advance_mode = 2
+advance_expression = "direction.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0rnld"]
 switch_mode = 2
@@ -150,18 +178,29 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3wef"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4126"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdl7e"]
+advance_mode = 2
+advance_expression = "velocity.x ==0"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hhkc5"]
-states/player_attack/node = SubResource("AnimationNodeAnimation_khinc")
-states/player_attack/position = Vector2(647.2, 82.96)
+states/player_attack/node = SubResource("AnimationNodeStateMachine_6eyey")
+states/player_attack/position = Vector2(638, 81.28)
 states/player_brems/node = SubResource("AnimationNodeAnimation_6eyey")
-states/player_brems/position = Vector2(326, 207.20001)
+states/player_brems/position = Vector2(258, 207.65121)
 states/player_idle/node = SubResource("AnimationNodeAnimation_mdl7e")
 states/player_idle/position = Vector2(408.8, 83.2)
 states/player_move/node = SubResource("AnimationNodeAnimation_bruh7")
-states/player_move/position = Vector2(434.4, 311.59998)
+states/player_move/position = Vector2(408.31998, 322.39996)
 states/player_move_start/node = SubResource("AnimationNodeAnimation_qu4a1")
-states/player_move_start/position = Vector2(509.2, 208.88)
-transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_attack", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_idle", "player_attack", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6")]
+states/player_move_start/position = Vector2(597.2, 207.72801)
+transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_idle", "player_attack", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_attack", "player_idle", SubResource("AnimationNodeStateMachineTransition_o4126"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e")]
+graph_offset = Vector2(89, 58)
 
 [node name="Player" type="CharacterBody2D" unique_id=2007000961 groups=["Player"]]
 collision_mask = 5
@@ -177,18 +216,21 @@ _animation_tree = NodePath("../PlayerAnimationTree")
 _sprite = NodePath("../PlayerVisual")
 
 [node name="PlayerVisual" type="Sprite2D" parent="." unique_id=1338018884]
-position = Vector2(0, 50)
+position = Vector2(5, 47)
 texture = ExtResource("3_mdl7e")
-hframes = 4
-vframes = 2
-frame = 4
+offset = Vector2(32, 0)
+hframes = 5
+vframes = 4
+frame = 5
 
 [node name="PlayerStateMachine" type="Node" parent="." unique_id=462509770]
 script = ExtResource("1_v6fml")
 
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="." unique_id=160259437]
 libraries/ = SubResource("AnimationLibrary_70d11")
+autoplay = &"player_idle"
 
 [node name="PlayerAnimationTree" type="AnimationTree" parent="." unique_id=596919079]
 tree_root = SubResource("AnimationNodeStateMachine_hhkc5")
+advance_expression_base_node = NodePath("../PlayerMovement")
 anim_player = NodePath("../PlayerAnimationPlayer")
