@@ -37,4 +37,4 @@ func _on_seaport_exited() -> void:
 	seaport_ui.DisableTransition()
 	
 func _on_timeout() -> void:
-	boatSpawner.SpawnBoat("null", "null")
+	boatSpawner.SpawnBoat()

@@ -4,9 +4,9 @@ class_name BoatSpawner
 @export var boat_scene: PackedScene
 var SPAWN_POSITION: int = -50
 
-func SpawnBoat(boatType: String, boatTier: String) -> void:
+func SpawnBoat() -> void:
 	#print("Called spawn boat")
 	var boat = boat_scene.instantiate()
-	boat.OnSpawn(boatType, boatTier)
+	boat.OnSpawn()
 	boat.global_position.x = SPAWN_POSITION
 	get_parent().add_child.call_deferred(boat)

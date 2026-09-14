@@ -89,12 +89,12 @@ func weighted_probabilty(container:Array):
 	var roll: float = randf() * container_total
 	
 	var container_iter = 0.0
-	for i in container:
+	for i in range(container.size()):
 		container_iter += container[i]
 		if roll <= container_iter:
 			return i
 		else:
-			return container.size()
+			return container.size() -1
 
 func generateLootTable(lootTables:Array) -> Array:
 	
@@ -133,8 +133,9 @@ func SpawnBoat() -> void:
 	
 
 func _on_spawnTimer_timeout():
-	SpawnBoat()
-
+	#SpawnBoat()
+	pass
+	
 func _ready():
 	spawnTimer.timeout.connect(_on_spawnTimer_timeout)
 	generateLootTable(lootTables)

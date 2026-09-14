@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="5_kohsx"]
 [ext_resource type="Script" uid="uid://52660td5pm5w" path="res://scripts/Boat/PlayerAttacker.gd" id="6_kohsx"]
 [ext_resource type="PackedScene" uid="uid://db88xwrylkurq" path="res://scenes/Boat/Cannon.tscn" id="6_th6ns"]
-[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="8_4yyfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(13, 10)
@@ -20,7 +19,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_g4cen")
 sprite = NodePath("BoatVisual")
-inventory = NodePath("Inventory")
+inventory = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
 position = Vector2(-0.5, 5)
@@ -55,6 +54,3 @@ cannonContainer = NodePath("../CannonContainer")
 [node name="CannonContainer" type="Node2D" parent="." unique_id=939044637]
 
 [node name="Cannon" parent="CannonContainer" unique_id=545218438 instance=ExtResource("6_th6ns")]
-
-[node name="Inventory" type="Node" parent="." unique_id=2122530141]
-script = ExtResource("8_4yyfu")
