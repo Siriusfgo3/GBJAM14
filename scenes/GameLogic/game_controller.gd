@@ -127,7 +127,7 @@ func SpawnBoat() -> void:
 	var boat := scene.instantiate()
 	boat.global_position.x = SPAWN_POSITION
 	get_parent().add_child.call_deferred(boat)
-	var item: InvItem = load(getItemPath(boatType))
+	var item: Item = load(getItemPath(boatType))
 	boat.inventory.insert(item)
 	
 	

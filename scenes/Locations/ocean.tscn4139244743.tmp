@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
+[ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="10_46w5d"]
+[ext_resource type="PackedScene" uid="uid://cpwgsdwqo2nch" path="res://scenes/GameLogic/Spawners/seaweed_spawner.tscn" id="11_og8du"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
@@ -180,9 +182,15 @@ port = NodePath("../../Port")
 player = NodePath("../../Player")
 seaport = NodePath("../../Seaport")
 
+[node name="Inventory_UI" parent="UI" unique_id=1313293279 instance=ExtResource("10_46w5d")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(35, 34)
+
 [node name="Logic" type="Node" parent="." unique_id=657420771]
 
 [node name="BoatSpawner" parent="Logic" unique_id=2108683805 instance=ExtResource("5_vjho5")]
+
+[node name="SeaweedSpawner" parent="Logic" unique_id=290260619 instance=ExtResource("11_og8du")]
 
 [node name="OceanTimer" type="Timer" parent="Logic" unique_id=470704904]
 

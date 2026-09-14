@@ -1,15 +1,26 @@
-extends Panel
+extends Control
+class_name InventoryUISlot
 
-@onready var item_visual: Sprite2D =$CenterContainer/Panel/item_sprite
-@onready var amount_label: Label = $CenterContainer/Panel/Label
+@export var texture_rect: TextureRect
+@export var amount_label: Label
 
+var inventory_slot: InventorySlot = null
 
-func update(slot: InvSlot):
-	if !slot.item:
-		item_visual.visible = false
-		amount_label.visible = false
-	else:
-		item_visual.visible = true
-		item_visual.texture = slot.item.texture
-		amount_label.visible = true
-		amount_label.text = str(slot.amount)
+func bind_slot(new_slot: InventorySlot) -> void:
+	if inventory_slot and inventory_slot.slot_changed.is_connected(_on_slot_changed):
+		inventory_slot.slot_changed.disconnect(_on_slot_changed)
+	inventory_slot = new_slot
+	if inventory_slot:
+		inventory_slot.slot_changed.connect(_on_slot_changed)
+	_on_slot_changed()
+	
+func _on_slot_changed():
+	if inventory_slot.stack == null:
+		clear()
+		return
+	texture_rect.texture = inventory_slot.stack.item.texture
+	amount_label.text = str(inventory_slot.stack.amount)
+
+func clear():
+	amount_label.text = ""
+	texture_rect.texture = null

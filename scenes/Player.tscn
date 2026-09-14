@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ciq0ph487ae8t" path="res://scripts/Player/PlayerStateMachine.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://b8wtbmw0b2ssj" path="res://scripts/Player/PlayerMovement.gd" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://y7pua15ufhgd" path="res://sprites/Player/player_spritesheet.png" id="3_mdl7e"]
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="5_qu4a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(20, 40)
@@ -90,7 +91,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_bruh7"]
 resource_name = "player_move_start"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -192,3 +193,6 @@ libraries/ = SubResource("AnimationLibrary_70d11")
 [node name="PlayerAnimationTree" type="AnimationTree" parent="." unique_id=596919079]
 tree_root = SubResource("AnimationNodeStateMachine_hhkc5")
 anim_player = NodePath("../PlayerAnimationPlayer")
+
+[node name="PlayerInventory" type="Node" parent="." unique_id=593904677]
+script = ExtResource("5_qu4a1")

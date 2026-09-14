@@ -1,22 +1,30 @@
-extends Resource
+extends Node
+class_name Inventory
 
-class_name Inv
+var slots: Array[InventorySlot]
+@export var num_slots: int = 12
 
-signal update
+func _ready():
+	InitializeSlots()
 
-@export var slots: Array[InvSlot]
+func add_item(new_item: Item, _amount: int) -> bool:
+	for slot in slots:
+		if slot.is_empty(): continue
+		var _stack = slot.stack
+		if _stack.item == new_item:
+			_stack.amount += _amount
+			slot.slot_changed.emit()
+			
+	for slot in slots:
+		if slot.is_empty():
+			slot.stack = ItemStack.new(new_item, _amount)
+			print("Added" + str(_amount) + str(new_item.name))
+			slot.slot_changed.emit()
+			return true
+	return false
 
-func insert(item: InvItem):
-	var itemslots = slots.filter(func(slot): return slot.item == item)
-	if !itemslots.is_empty():
-		itemslots[0].amount += 1
-	else:
-		var emptyslots = slots.filter(func(slot): return slot.item == null)
-		if !emptyslots.is_empty():
-			emptyslots[0].item = item
-			emptyslots[0].amount = 1
-	update.emit()
-
-func update_inventory():
-	pass
-	
+func InitializeSlots():
+	#Create num_slots InventorySlot and put them in slots. On each call slot.inventory = this
+	slots.clear()
+	for i in num_slots:
+		slots.append(InventorySlot.new())

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dwx8k48mpmnhy"]
+
+[ext_resource type="Script" uid="uid://dou8mkxpk86c" path="res://scenes/TestEnvironments/PlayerInventoryExample.gd" id="1_a0wq1"]
+[ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="1_rilwq"]
+[ext_resource type="PackedScene" uid="uid://dpk36vl1fpiug" path="res://scenes/UI/inventory_ui.tscn" id="2_ohs66"]
+[ext_resource type="Resource" uid="uid://ctwcq73r3hhy7" path="res://resources/inventory/Items/diamond.tres" id="2_x160y"]
+[ext_resource type="Resource" uid="uid://dt17kwn81ifim" path="res://resources/inventory/Items/log.tres" id="3_i846m"]
+
+[node name="PlayerInventoryExample" type="Node2D" unique_id=1259512751 node_paths=PackedStringArray("player_inventory", "inventory_ui")]
+script = ExtResource("1_a0wq1")
+player_inventory = NodePath("Player/PlayerInventory")
+item = ExtResource("2_x160y")
+item2 = ExtResource("3_i846m")
+inventory_ui = NodePath("CanvasLayer/Inventory_UI")
+
+[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("1_rilwq")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2077746738]
+
+[node name="Inventory_UI" parent="CanvasLayer" unique_id=1313293279 instance=ExtResource("2_ohs66")]
+
+[editable path="Player"]
