@@ -21,6 +21,7 @@ shape = SubResource("RectangleShape2D_e77pp")
 [node name="PlayerVisual" type="Sprite2D" parent="CharacterBody2D" unique_id=1338018884]
 texture = ExtResource("3_q46ij")
 offset = Vector2(0, 40)
+hframes = 4
 
 [node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body")]
 script = ExtResource("2_6tnq5")
