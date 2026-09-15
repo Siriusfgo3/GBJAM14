@@ -3,8 +3,14 @@ class_name InventoryUISlot
 
 @export var texture_rect: TextureRect
 @export var amount_label: Label
+@export var button: Button
 
 var inventory_slot: InventorySlot = null
+
+signal was_pressed(ui_slot: InventoryUISlot)
+
+func _on_button_pressed() -> void:
+	was_pressed.emit(self)
 
 func bind_slot(new_slot: InventorySlot) -> void:
 	if inventory_slot and inventory_slot.slot_changed.is_connected(_on_slot_changed):

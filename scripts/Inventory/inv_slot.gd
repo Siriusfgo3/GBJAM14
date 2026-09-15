@@ -29,6 +29,10 @@ func take_all() -> ItemStack:
 	var given_stack = stack
 	clear()
 	return given_stack
+	
+func put(new_stack: ItemStack) -> void:
+	stack = new_stack
+	slot_changed.emit()
 
 func clear() -> void:
 	stack = null
