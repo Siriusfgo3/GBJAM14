@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbkb0lp8wiyac"
+path="res://.godot/imported/Shop UW render.mp3-81e5cd5dadd8604ea517ce2399fa0f50.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Shop UW render.mp3"
+dest_files=["res://.godot/imported/Shop UW render.mp3-81e5cd5dadd8604ea517ce2399fa0f50.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
