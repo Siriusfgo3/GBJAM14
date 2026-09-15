@@ -1,7 +1,7 @@
 extends Node
 
 
-var favor: Array[float] = [0.1, 1.5, 1.5, 1.5]
+var favor: Array[float] = [1.5, 1.5, 1.5, 1.5]
 
 var progression: float = 0
 

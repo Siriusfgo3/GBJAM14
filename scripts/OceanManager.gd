@@ -7,7 +7,6 @@ extends Node
 @export var sea_trade_ui: Control
 @export var player_state: Node
 
-#@export var boatSpawner: BoatSpawner
 @export var oceanTimer: Timer
 
 # Called when the node enters the scene tree for the first time.

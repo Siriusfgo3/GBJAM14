@@ -5,119 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
-[ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/Spawners/BoatSpawner.tscn" id="5_vjho5"]
 [ext_resource type="PackedScene" uid="uid://dhjw5ysu788jn" path="res://scenes/WorldDecorativeElements/ocean_waves.tscn" id="6_iqfgw"]
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
-[ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
-[ext_resource type="PackedScene" uid="uid://nkfa0imu5l5a" path="res://scenes/boatTypes/0/0/type_0_tier_0_boat.tscn" id="12_iqfgw"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(160, 1000)
 
-[sub_resource type="Animation" id="Animation_vkfeh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset_transform_enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-147, 112)]
-}
-
-[sub_resource type="Animation" id="Animation_6ti71"]
-resource_name = "Wave_animation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:offset_transform_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath(".:offset_transform_enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.001, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-179, 112), Vector2(-147, 112)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_isiwr"]
-_data = {
-&"RESET": SubResource("Animation_vkfeh"),
-&"Wave_animation": SubResource("Animation_6ti71")
-}
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27b0x"]
-texture = ExtResource("6_27b0x")
-texture_region_size = Vector2i(32, 32)
-0:0/animation_columns = 8
-0:0/animation_speed = 3.0
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/animation_frame_2/duration = 1.0
-0:0/animation_frame_3/duration = 1.0
-0:0/animation_frame_4/duration = 1.0
-0:0/animation_frame_5/duration = 1.0
-0:0/animation_frame_6/duration = 1.0
-0:0/animation_frame_7/duration = 1.0
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_hhkc5"]
-tile_size = Vector2i(32, 32)
-sources/2 = SubResource("TileSetAtlasSource_27b0x")
-
 [node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "oceanTimer")]
-[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
 port = NodePath("Port")
 port_ui = NodePath("UI/PortUi")
 seaport = NodePath("Seaport")
 seaport_ui = NodePath("UI/SeaportUi")
-oceanTimer = NodePath("Logic/OceanTimer")
+oceanTimer = NodePath("")
 
 [node name="ParallaxSky" parent="." unique_id=1499371455 instance=ExtResource("2_27b0x")]
 z_index = -5
@@ -158,10 +62,6 @@ player = NodePath("../../Player")
 seaport = NodePath("../../Seaport")
 
 [node name="Logic" type="Node" parent="." unique_id=657420771]
-
-[node name="BoatSpawner" parent="Logic" unique_id=2108683805 instance=ExtResource("5_vjho5")]
-
-[node name="OceanTimer" type="Timer" parent="Logic" unique_id=470704904]
 
 [node name="PlayerFollowCamera" parent="Logic" unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
 position = Vector2(100, 72)
