@@ -392,12 +392,14 @@ visible = false
 position = Vector2(-65, -52)
 
 [node name="Arm1" type="Sprite2D" parent="AttackVisual" unique_id=1467889697]
+z_index = -1
 texture = ExtResource("6_70d11")
 centered = false
 hframes = 2
 vframes = 3
 
 [node name="Arm2" type="Sprite2D" parent="AttackVisual" unique_id=1043359749]
+z_index = -1
 texture = ExtResource("6_70d11")
 centered = false
 hframes = 2
@@ -405,6 +407,7 @@ vframes = 3
 frame = 2
 
 [node name="Arm3" type="Sprite2D" parent="AttackVisual" unique_id=1098887623]
+z_index = 1
 texture = ExtResource("6_70d11")
 centered = false
 hframes = 2

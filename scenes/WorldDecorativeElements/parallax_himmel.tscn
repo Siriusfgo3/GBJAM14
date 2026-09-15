@@ -14,7 +14,7 @@ hframes = 7
 frame = 6
 
 [node name="Sky2" type="Parallax2D" parent="." unique_id=2056276877]
-scroll_scale = Vector2(0.7, 0.7)
+scroll_scale = Vector2(0.75, 0.75)
 repeat_size = Vector2(254, 0)
 
 [node name="mediumclouddark" type="Sprite2D" parent="Sky2" unique_id=608799214]
@@ -34,7 +34,7 @@ hframes = 7
 frame = 4
 
 [node name="Sky6" type="Parallax2D" parent="." unique_id=624758103]
-scroll_scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.95, 0.95)
 repeat_size = Vector2(254, 0)
 
 [node name="highestclouddark" type="Sprite2D" parent="Sky6" unique_id=2051020551]
