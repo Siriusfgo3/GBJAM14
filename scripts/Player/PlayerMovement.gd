@@ -43,6 +43,8 @@ func ToggleMovement(_can_move: bool):
 func _input(event):
 	if event.is_action_pressed("button_a"):
 		state_machine.travel("player_attack_small")
+	if event.is_action_pressed("button_b"):
+		state_machine.travel("player_attack_big")
 
 func update_animations(direction: Vector2) -> void:
 	

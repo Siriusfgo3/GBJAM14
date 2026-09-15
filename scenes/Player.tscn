@@ -218,8 +218,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_d3wef"]
 resource_name = "player_snaking"
-length = 0.9
-loop_mode = 2
+length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -227,7 +227,7 @@ tracks/0/path = NodePath("PlayerVisual:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
@@ -378,6 +378,7 @@ script = ExtResource("1_v6fml")
 [node name="PlayerAnimationPlayer" type="AnimationPlayer" parent="." unique_id=160259437]
 libraries/ = SubResource("AnimationLibrary_70d11")
 autoplay = &"player_idle"
+speed_scale = 2.0
 
 [node name="PlayerAnimationTree" type="AnimationTree" parent="." unique_id=596919079]
 tree_root = SubResource("AnimationNodeStateMachine_hhkc5")
