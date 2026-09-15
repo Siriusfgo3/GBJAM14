@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bbulqmmxm7b5v"]
 
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
+[ext_resource type="PackedScene" uid="uid://bcpvugokdxo2y" path="res://scenes/parallax_himmel.tscn" id="2_27b0x"]
 [ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
@@ -118,7 +119,10 @@ seaport_ui = NodePath("UI/SeaportUi")
 boatSpawner = NodePath("Logic/BoatSpawner")
 oceanTimer = NodePath("Logic/OceanTimer")
 
+[node name="ParallaxSky" parent="." unique_id=1499371455 instance=ExtResource("2_27b0x")]
+
 [node name="BackGround" type="Sprite2D" parent="." unique_id=686120703]
+visible = false
 modulate = Color(0.7096313, 0.70963097, 0.7096311, 1)
 scale = Vector2(1.321, 2.1625)
 texture = ExtResource("2_og8du")
