@@ -42,13 +42,11 @@ func ToggleMovement(_can_move: bool):
 #til test af animationer
 func _input(event):
 	if event.is_action_pressed("button_a"):
-		state_machine.travel("player_attack_big")
+		state_machine.travel("player_attack_small")
 
 func update_animations(direction: Vector2) -> void:
-	#Når angreb bliver lavet tilføj øverst attack animationen her med return
 	
 	if direction.x:
 		_sprite.scale.x = direction.x
-		#_sprite.offset.x = abs(_sprite.offset.x) * direction.x
 		#state_machine.travel("player_move")
 		
