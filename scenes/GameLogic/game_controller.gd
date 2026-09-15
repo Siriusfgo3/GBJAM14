@@ -1,6 +1,5 @@
 extends Node
 
-
 var favor: Array[float] = [1.5, 1.5, 1.5, 1.5]
 
 var progression: float = 0

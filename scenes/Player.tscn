@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cn6hr64ahtpoh"]
 
-[ext_resource type="Script" uid="uid://m605ls26k74g" path="res://scripts/Player/player_body.gd" id="1_3li8b"]
+[ext_resource type="Script" uid="uid://c2pyou7618d65" path="res://scripts/Player/Player.gd" id="1_70d11"]
 [ext_resource type="Script" uid="uid://ciq0ph487ae8t" path="res://scripts/Player/PlayerStateMachine.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://b8wtbmw0b2ssj" path="res://scripts/Player/PlayerMovement.gd" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://y7pua15ufhgd" path="res://sprites/Player/player_spritesheet.png" id="3_mdl7e"]
@@ -351,9 +351,10 @@ states/player_snaking/position = Vector2(692.7825, 84.904)
 transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "player_idle", "player_attack_big", SubResource("AnimationNodeStateMachineTransition_khinc"), "player_idle", "player_attack_small", SubResource("AnimationNodeStateMachineTransition_bruh7"), "player_attack_big", "player_idle", SubResource("AnimationNodeStateMachineTransition_6eyey"), "player_attack_small", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_idle", "player_snaking", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "player_snaking", "player_idle", SubResource("AnimationNodeStateMachineTransition_srp4u"), "player_brems", "player_move", SubResource("AnimationNodeStateMachineTransition_o4126"), "player_snaking", "player_move_start", SubResource("AnimationNodeStateMachineTransition_jfpux"), "player_hurt", "player_idle", SubResource("AnimationNodeStateMachineTransition_61ith"), "player_move", "player_attack_big", SubResource("AnimationNodeStateMachineTransition_ebwui"), "player_move", "player_attack_small", SubResource("AnimationNodeStateMachineTransition_sfy4j")]
 graph_offset = Vector2(28, -76)
 
-[node name="Player" type="CharacterBody2D" unique_id=2007000961 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory") groups=["Player"]]
 collision_mask = 5
-script = ExtResource("1_3li8b")
+script = ExtResource("1_70d11")
+player_inventory = NodePath("PlayerInventory")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
 shape = SubResource("RectangleShape2D_e77pp")

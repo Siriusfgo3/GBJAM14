@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dcn20lc3q3ksv"]
+
+[ext_resource type="PackedScene" uid="uid://cwwwxohy8u06q" path="res://scenes/Shop/shop_ui.tscn" id="1_e64l5"]
+[ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="2_2yfo6"]
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="3_b2415"]
+
+[node name="ShopTestScene" type="Node2D" unique_id=703784797]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1281272657]
+
+[node name="ShopUI" parent="CanvasLayer" unique_id=672772593 node_paths=PackedStringArray("player", "boat") instance=ExtResource("1_e64l5")]
+player = NodePath("../../Player")
+boat = NodePath("../../Boat")
+
+[node name="Player" parent="." unique_id=2007000961 instance=ExtResource("2_2yfo6")]
+
+[node name="Boat" parent="." unique_id=1998020412 instance=ExtResource("3_b2415")]

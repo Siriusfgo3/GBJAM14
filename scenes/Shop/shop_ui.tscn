@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://cwwwxohy8u06q"]
+
+[ext_resource type="Texture2D" uid="uid://dumprhaqbskue" path="res://sprites/Shop/Shop background.png" id="1_kaf8x"]
+[ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="1_smnh3"]
+[ext_resource type="Resource" uid="uid://ctwcq73r3hhy7" path="res://resources/inventory/Items/diamond.tres" id="2_80n6l"]
+[ext_resource type="Texture2D" uid="uid://c26g0plfavw6t" path="res://sprites/UI/Speech Bubble.png" id="2_qgjuh"]
+[ext_resource type="Resource" uid="uid://dt17kwn81ifim" path="res://resources/inventory/Items/log.tres" id="3_5baii"]
+[ext_resource type="Texture2D" uid="uid://cf4kv4mjhd3g5" path="res://sprites/UI/Left Arrow.png" id="4_ajg7w"]
+[ext_resource type="Resource" uid="uid://67gjmhyciwa3" path="res://resources/inventory/Items/seaweed.tres" id="4_jdbww"]
+[ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="5_ajg7w"]
+[ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="5_uusd8"]
+[ext_resource type="Texture2D" uid="uid://crhvx1mb8c8qo" path="res://sprites/UI/Right Arrow.png" id="5_yxlag"]
+[ext_resource type="Script" uid="uid://b2qdwvyrareu1" path="res://scripts/Shops/ShopManager.gd" id="8_kbjk1"]
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="9_rsim4"]
+
+[node name="ShopUI" type="Control" unique_id=672772593 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_kbjk1")
+item1 = ExtResource("2_80n6l")
+item2 = ExtResource("3_5baii")
+item3 = ExtResource("4_jdbww")
+player_inventory_ui = NodePath("VBoxContainer/my_items/ScrollContainer/PLAYER_INV_UI")
+their_inventory_ui = NodePath("VBoxContainer/their_items/THEIR_INVENTORY_UI")
+player_scale_inventory = NodePath("PlayerScaleInventory")
+player_scale_inventory_ui = NodePath("VBoxContainer/scale_row/PLAYER_SCALE_INV_UI")
+their_scale_inventory = NodePath("TheirScaleInventory")
+their_scale_inventory_ui = NodePath("VBoxContainer/scale_row/THEIR_SCALE_INV_UI")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=681989331]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 144.0
+texture = ExtResource("1_kaf8x")
+stretch_mode = 2
+
+[node name="NPC_row" type="HBoxContainer" parent="." unique_id=497587438]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.445
+anchor_bottom = 0.445
+offset_top = -57.0
+offset_right = 144.0
+grow_vertical = 0
+offset_transform_position = Vector2(0, -80)
+
+[node name="Npc" type="TextureRect" parent="NPC_row" unique_id=500054302]
+layout_mode = 2
+texture = ExtResource("1_smnh3")
+stretch_mode = 2
+
+[node name="Speech_bubble" type="TextureRect" parent="NPC_row" unique_id=1873551309]
+layout_mode = 2
+texture = ExtResource("2_qgjuh")
+stretch_mode = 2
+flip_h = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NPC_row/Speech_bubble" unique_id=1361171618]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = -29
+theme_override_constants/margin_right = 5
+
+[node name="Labeloffer" type="Label" parent="NPC_row/Speech_bubble/MarginContainer" unique_id=877658815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "hi traveller"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1735954370]
+custom_maximum_size = Vector2(160, -1)
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.66
+anchor_right = 0.602
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_right = 64.0
+grow_vertical = 0
+offset_transform_enabled = true
+
+[node name="their_items" type="HBoxContainer" parent="VBoxContainer" unique_id=1806152053]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/their_items" unique_id=391559981]
+layout_mode = 2
+texture_normal = ExtResource("4_ajg7w")
+
+[node name="THEIR_INVENTORY_UI" type="HBoxContainer" parent="VBoxContainer/their_items" unique_id=660961172 node_paths=PackedStringArray("ui_slots")]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("5_uusd8")
+ui_slots = [NodePath("inv_ui_slot"), NodePath("inv_ui_slot2"), NodePath("inv_ui_slot3"), NodePath("inv_ui_slot4")]
+
+[node name="inv_ui_slot" parent="VBoxContainer/their_items/THEIR_INVENTORY_UI" unique_id=914110943 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="VBoxContainer/their_items/THEIR_INVENTORY_UI" unique_id=1481930527 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="VBoxContainer/their_items/THEIR_INVENTORY_UI" unique_id=1609017490 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="VBoxContainer/their_items/THEIR_INVENTORY_UI" unique_id=88914566 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/their_items" unique_id=949437586]
+layout_mode = 2
+texture_normal = ExtResource("5_yxlag")
+
+[node name="scale_row" type="Control" parent="VBoxContainer" unique_id=1252823711]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scale" type="TextureRect" parent="VBoxContainer/scale_row" unique_id=362837553]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="THEIR_SCALE_INV_UI" type="HBoxContainer" parent="VBoxContainer/scale_row" unique_id=902512627 node_paths=PackedStringArray("ui_slots")]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 40.0
+script = ExtResource("5_uusd8")
+ui_slots = [NodePath("inv_ui_slot"), NodePath("inv_ui_slot2")]
+
+[node name="inv_ui_slot" parent="VBoxContainer/scale_row/THEIR_SCALE_INV_UI" unique_id=836233189 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="VBoxContainer/scale_row/THEIR_SCALE_INV_UI" unique_id=1025876305 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="PLAYER_SCALE_INV_UI" type="HBoxContainer" parent="VBoxContainer/scale_row" unique_id=529861136 node_paths=PackedStringArray("ui_slots")]
+layout_mode = 0
+offset_left = 87.0
+offset_right = 159.0
+offset_bottom = 40.0
+script = ExtResource("5_uusd8")
+ui_slots = [NodePath("inv_ui_slot"), NodePath("inv_ui_slot2")]
+
+[node name="inv_ui_slot" parent="VBoxContainer/scale_row/PLAYER_SCALE_INV_UI" unique_id=1873540723 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="VBoxContainer/scale_row/PLAYER_SCALE_INV_UI" unique_id=1833022055 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="my_items" type="HBoxContainer" parent="VBoxContainer" unique_id=589134085]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/my_items" unique_id=1597702012]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PLAYER_INV_UI" type="HBoxContainer" parent="VBoxContainer/my_items/ScrollContainer" unique_id=1159040986 node_paths=PackedStringArray("ui_slots")]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("5_uusd8")
+ui_slots = [NodePath("inv_ui_slot"), NodePath("inv_ui_slot2"), NodePath("inv_ui_slot3"), NodePath("inv_ui_slot4")]
+
+[node name="inv_ui_slot" parent="VBoxContainer/my_items/ScrollContainer/PLAYER_INV_UI" unique_id=1136527644 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="VBoxContainer/my_items/ScrollContainer/PLAYER_INV_UI" unique_id=2110286820 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="VBoxContainer/my_items/ScrollContainer/PLAYER_INV_UI" unique_id=151905844 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="VBoxContainer/my_items/ScrollContainer/PLAYER_INV_UI" unique_id=1454343583 instance=ExtResource("5_ajg7w")]
+layout_mode = 2
+
+[node name="goldLabel" type="Label" parent="." unique_id=42776117]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "40g"
+
+[node name="PlayerScaleInventory" type="Node" parent="." unique_id=886223724]
+script = ExtResource("9_rsim4")
+num_slots = 2
+
+[node name="TheirScaleInventory" type="Node" parent="." unique_id=1130842156]
+script = ExtResource("9_rsim4")
+num_slots = 2

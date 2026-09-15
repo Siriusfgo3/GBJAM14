@@ -14,13 +14,32 @@ func add_item(new_item: Item, _amount: int) -> bool:
 		if _stack.item == new_item:
 			_stack.amount += _amount
 			slot.slot_changed.emit()
-			
+			return true
 	for slot in slots:
 		if slot.is_empty():
 			slot.stack = ItemStack.new(new_item, _amount)
 			print("Added" + str(_amount) + str(new_item.name))
 			slot.slot_changed.emit()
 			return true
+	return false
+	
+func can_accept(item: Item, amount: int) -> bool:
+	for slot in slots:
+		if not slot.is_empty() and slot.stack.item == item:
+			return true
+		if slot.is_empty():
+			return true
+	return false
+	
+func receive_from(source: InventorySlot) -> bool:
+	if source == null or source.is_empty():
+		return false
+	if not can_accept(source.stack.item, source.stack.amount):
+		return false
+	var stack := source.take_all()
+	if add_item(stack.item, stack.amount):
+		return true
+	source.put(stack)  # should never run if can_accept matches add_item
 	return false
 
 func InitializeSlots():
