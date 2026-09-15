@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://3gydpiqldodb" path="res://scripts/Boat/BoatClass.gd" id="1_g4cen"]
 [ext_resource type="Script" uid="uid://4dnd16ceuim3" path="res://scripts/Boat/BoatMovement.gd" id="2_1gyrj"]
 [ext_resource type="PackedScene" uid="uid://nl65xc2nyr1r" path="res://scenes/Boat/mast_container.tscn" id="4_th6ns"]
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="5_xpea6"]
 [ext_resource type="Script" uid="uid://52660td5pm5w" path="res://scripts/Boat/PlayerAttacker.gd" id="6_kohsx"]
 
-[node name="Boat" type="CharacterBody2D" unique_id=1998020412 node_paths=PackedStringArray("sprite")]
+[node name="Boat" type="CharacterBody2D" unique_id=1998020412 node_paths=PackedStringArray("sprite", "inventory")]
+z_index = 2
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 script = ExtResource("1_g4cen")
 sprite = NodePath("BoatVisual")
+inventory = NodePath("BoatInventory")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
 
@@ -34,3 +37,7 @@ aggroArea = NodePath("../AggroRangeArea")
 cannonContainer = NodePath("../CannonContainer")
 
 [node name="CannonContainer" type="Node2D" parent="." unique_id=939044637]
+
+[node name="BoatInventory" type="Node" parent="." unique_id=1660069784]
+script = ExtResource("5_xpea6")
+num_slots = 10

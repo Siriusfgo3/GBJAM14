@@ -14,7 +14,7 @@ var MAX_Y: int = GlobalVariables.OCEAN_HEIGHT - GlobalVariables.CAMERA_HEIGHT / 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	global_position = exp_decay(global_position, follow_target.global_position, cameraLag, delta)
-	#global_position.y -= GlobalVariables.CAMERA_HEIGHT / 2
+	global_position.y -= GlobalVariables.CAMERA_HEIGHT / 2
 	global_position.x = clamp(global_position.x, MIN_X, MAX_X)
-	#global_position.y = clamp(global_position.y, MIN_Y, MAX_Y)
+	global_position.y = clamp(global_position.y, MIN_Y, MAX_Y)
 	

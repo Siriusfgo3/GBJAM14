@@ -1,0 +1,203 @@
+[gd_scene format=4 uid="uid://c0e510hdaavje"]
+
+[ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="1_rdiqq"]
+[ext_resource type="Texture2D" uid="uid://dfejmhipfvx3i" path="res://sprites/Foreground/Wave_spritesheet.png" id="2_dnbt2"]
+[ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="2_ndpt4"]
+[ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="3_ndpt4"]
+[ext_resource type="PackedScene" uid="uid://nkfa0imu5l5a" path="res://scenes/boatTypes/0/type_0_tier_0_boat.tscn" id="5_t17fk"]
+[ext_resource type="Texture2D" uid="uid://bm3onpcfrxkqe" path="res://sprites/Random_placeholders/BoatPlaceholder.png" id="6_0uriv"]
+[ext_resource type="Texture2D" uid="uid://wq5qvo1eldbt" path="res://sprites/Ships/Small_ship.png" id="6_q6jep"]
+[ext_resource type="Texture2D" uid="uid://c3uw6bcqdf1fs" path="res://sprites/Ships/Med_Ship.png" id="7_d2ahi"]
+[ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="9_d2ahi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xx73"]
+texture = ExtResource("2_dnbt2")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 8
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t17fk"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_7xx73")
+
+[sub_resource type="Animation" id="Animation_vkfeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-147, 112)]
+}
+
+[sub_resource type="Animation" id="Animation_6ti71"]
+resource_name = "Wave_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:offset_transform_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-179, 112), Vector2(-147, 112)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uriv"]
+_data = {
+&"RESET": SubResource("Animation_vkfeh"),
+&"Wave_animation": SubResource("Animation_6ti71")
+}
+
+[node name="BoatSizeTest" type="Node2D" unique_id=1931186474]
+
+[node name="PlayerFollowCamera" parent="." unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("2_ndpt4")]
+follow_target = NodePath("../Player2")
+
+[node name="Waves" type="Node2D" parent="." unique_id=623098098]
+position = Vector2(-2, 5)
+
+[node name="WaveLayer3" type="TileMapLayer" parent="Waves" unique_id=1744157593]
+position = Vector2(16, 8)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAD+/wMAAgAAAAAAAAD9/wMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_t17fk")
+
+[node name="TextureRect" type="TextureRect" parent="Waves" unique_id=825158597]
+visible = false
+texture_repeat = 2
+offset_left = -147.0
+offset_top = 112.0
+offset_right = 1465.0
+offset_bottom = 144.0
+texture = ExtResource("3_ndpt4")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Waves" unique_id=1559843735]
+root_node = NodePath("../TextureRect")
+libraries/ = SubResource("AnimationLibrary_0uriv")
+autoplay = &"Wave_animation"
+
+[node name="WaveLayer2" type="TileMapLayer" parent="Waves" unique_id=1460448884]
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAApAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_t17fk")
+
+[node name="WaveLayer1" type="TileMapLayer" parent="Waves" unique_id=815591376]
+z_index = 2
+position = Vector2(24, 32)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_t17fk")
+
+[node name="Type0Tier0Boat" parent="Waves" unique_id=1998020412 instance=ExtResource("5_t17fk")]
+visible = false
+z_index = 0
+position = Vector2(118, 106)
+collision_mask = 2
+
+[node name="Tier0Boat" type="TextureRect" parent="." unique_id=235658826]
+offset_left = -24.953175
+offset_top = -14.21711
+offset_right = 134.04683
+offset_bottom = 150.7829
+texture = ExtResource("6_q6jep")
+
+[node name="Tier1Boat" type="TextureRect" parent="." unique_id=1635221692]
+offset_left = 191.0
+offset_top = 25.0
+offset_right = 308.0
+offset_bottom = 146.0
+texture = ExtResource("7_d2ahi")
+
+[node name="Tier2Boat" type="TextureRect" parent="." unique_id=2054265906]
+offset_left = 455.0
+offset_top = -60.0
+offset_right = 678.0
+offset_bottom = 132.0
+texture = ExtResource("6_0uriv")
+
+[node name="Tier1Boat2" type="TextureRect" parent="Tier2Boat" unique_id=1455255455]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -25.0
+offset_right = 236.0
+offset_bottom = 241.0
+texture = ExtResource("7_d2ahi")
+
+[node name="Tier3Boat" type="TextureRect" parent="." unique_id=899170583]
+offset_left = 934.0
+offset_top = -416.0
+offset_right = 1556.0
+offset_bottom = 152.0
+texture = ExtResource("6_0uriv")
+
+[node name="Tier1Boat2" type="TextureRect" parent="Tier3Boat" unique_id=1897182752]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 51.0
+offset_right = 547.0
+offset_bottom = 666.0
+texture = ExtResource("7_d2ahi")
+
+[node name="Small_Boat_Mast2" parent="." unique_id=478684962 instance=ExtResource("9_d2ahi")]
+position = Vector2(581.95, 497.2)
+scale = Vector2(21.622501, 21.622501)
+
+[node name="Small_Boat_Mast" parent="." unique_id=1595195534 instance=ExtResource("9_d2ahi")]
+position = Vector2(54.065197, 85.302666)
+scale = Vector2(4.65, 4.65)
+
+[node name="Player2" parent="." unique_id=2007000961 instance=ExtResource("1_rdiqq")]
+position = Vector2(718, 75)
