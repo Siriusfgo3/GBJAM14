@@ -1,0 +1,89 @@
+[gd_scene format=4 uid="uid://dhjw5ysu788jn"]
+
+[ext_resource type="Texture2D" uid="uid://dfejmhipfvx3i" path="res://sprites/Foreground/Wave_spritesheet.png" id="1_qribs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfi6l"]
+texture = ExtResource("1_qribs")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 8
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qmnp4"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_qfi6l")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yvqdr"]
+texture = ExtResource("1_qribs")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 8
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hhkc5"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_yvqdr")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4w5jt"]
+texture = ExtResource("1_qribs")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 8
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yruf1"]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_4w5jt")
+
+[node name="OceanWaves" type="Node2D" unique_id=750200247]
+
+[node name="wave_bagerst" type="Parallax2D" parent="." unique_id=951867908]
+z_index = -2
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="WaveLayer3" type="TileMapLayer" parent="wave_bagerst" unique_id=986558128]
+z_index = -1
+position = Vector2(16, 8)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAD+/wMAAgAAAAAAAAD9/wMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_qmnp4")
+
+[node name="wave_midterst" type="Parallax2D" parent="." unique_id=1724554130]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="WaveLayer2" type="TileMapLayer" parent="wave_midterst" unique_id=1573399594]
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAApAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_hhkc5")
+
+[node name="wave_forrest" type="Parallax2D" parent="." unique_id=1134194716]
+z_index = 2
+
+[node name="WaveLayer1" type="TileMapLayer" parent="wave_forrest" unique_id=1761223249]
+z_index = 2
+position = Vector2(24, 32)
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_yruf1")
