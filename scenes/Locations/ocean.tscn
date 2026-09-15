@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
+[ext_resource type="PackedScene" uid="uid://nkfa0imu5l5a" path="res://scenes/boatTypes/0/0/type_0_tier_0_boat.tscn" id="12_iqfgw"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
@@ -195,6 +196,9 @@ cameraLag = 12.0
 MAX_X = 10000
 
 [node name="GameController" parent="Logic" unique_id=1195633560 instance=ExtResource("15_opvkg")]
+
+[node name="Type0Tier0Boat" parent="Logic" unique_id=1998020412 instance=ExtResource("12_iqfgw")]
+position = Vector2(16, 106)
 
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
 position = Vector2(69, 111)
