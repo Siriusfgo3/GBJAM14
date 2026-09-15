@@ -1,15 +1,17 @@
-[gd_scene format=4 uid="uid://bbulqmmxm7b5v"]
+[gd_scene format=3 uid="uid://bbulqmmxm7b5v"]
 
 [ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
+[ext_resource type="PackedScene" uid="uid://bcpvugokdxo2y" path="res://scenes/WorldDecorativeElements/parallax_himmel.tscn" id="2_27b0x"]
 [ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_5neuy"]
 [ext_resource type="PackedScene" uid="uid://56c4rd53st28" path="res://scenes/GameLogic/Spawners/BoatSpawner.tscn" id="5_vjho5"]
-[ext_resource type="Texture2D" uid="uid://dfejmhipfvx3i" path="res://sprites/Foreground/Wave_spritesheet.png" id="6_27b0x"]
+[ext_resource type="PackedScene" uid="uid://dhjw5ysu788jn" path="res://scenes/WorldDecorativeElements/ocean_waves.tscn" id="6_iqfgw"]
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
 [ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="11_tv676"]
+[ext_resource type="PackedScene" uid="uid://nkfa0imu5l5a" path="res://scenes/boatTypes/0/0/type_0_tier_0_boat.tscn" id="12_iqfgw"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
@@ -109,6 +111,7 @@ tile_size = Vector2i(32, 32)
 sources/2 = SubResource("TileSetAtlasSource_27b0x")
 
 [node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "oceanTimer")]
+[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui", "boatSpawner", "oceanTimer")]
 script = ExtResource("1_ogne1")
 port = NodePath("Port")
 port_ui = NodePath("UI/PortUi")
@@ -116,7 +119,11 @@ seaport = NodePath("Seaport")
 seaport_ui = NodePath("UI/SeaportUi")
 oceanTimer = NodePath("Logic/OceanTimer")
 
+[node name="ParallaxSky" parent="." unique_id=1499371455 instance=ExtResource("2_27b0x")]
+z_index = -5
+
 [node name="BackGround" type="Sprite2D" parent="." unique_id=686120703]
+visible = false
 modulate = Color(0.7096313, 0.70963097, 0.7096311, 1)
 scale = Vector2(1.321, 2.1625)
 texture = ExtResource("2_og8du")
@@ -138,38 +145,7 @@ shape = SubResource("RectangleShape2D_e77pp")
 [node name="Port" parent="." unique_id=373208614 instance=ExtResource("3_4imn2")]
 position = Vector2(1121, 1)
 
-[node name="Waves" type="Node2D" parent="." unique_id=280272154]
-
-[node name="TextureRect" type="TextureRect" parent="Waves" unique_id=492113491]
-visible = false
-texture_repeat = 2
-offset_left = -147.0
-offset_top = 112.0
-offset_right = 1465.0
-offset_bottom = 144.0
-texture = ExtResource("11_tv676")
-stretch_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Waves" unique_id=1742741730]
-root_node = NodePath("../TextureRect")
-libraries/ = SubResource("AnimationLibrary_isiwr")
-autoplay = &"Wave_animation"
-
-[node name="WaveLayer3" type="TileMapLayer" parent="Waves" unique_id=534332332]
-position = Vector2(16, 8)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAD+/wMAAgAAAAAAAAD9/wMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_hhkc5")
-
-[node name="WaveLayer2" type="TileMapLayer" parent="Waves" unique_id=394483856]
-position = Vector2(0, 16)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAApAAMAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_hhkc5")
-
-[node name="WaveLayer1" type="TileMapLayer" parent="Waves" unique_id=1627557539]
-z_index = 2
-position = Vector2(24, 32)
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAD//wMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAASAAMAAgAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgAAAAAAAAAVAAMAAgAAAAAAAAAWAAMAAgAAAAAAAAAXAAMAAgAAAAAAAAAYAAMAAgAAAAAAAAAZAAMAAgAAAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgAAAAAAAAAcAAMAAgAAAAAAAAAdAAMAAgAAAAAAAAAeAAMAAgAAAAAAAAAfAAMAAgAAAAAAAAAgAAMAAgAAAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgAAAAAAAAAjAAMAAgAAAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgAAAAAAAAAmAAMAAgAAAAAAAAAnAAMAAgAAAAAAAAAoAAMAAgAAAAAAAAA=")
-tile_set = SubResource("TileSet_hhkc5")
+[node name="OceanWaves" parent="." unique_id=750200247 instance=ExtResource("6_iqfgw")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
@@ -196,4 +172,5 @@ MAX_X = 10000
 [node name="GameController" parent="Logic" unique_id=1195633560 instance=ExtResource("15_opvkg")]
 
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
+z_index = 1
 position = Vector2(69, 111)

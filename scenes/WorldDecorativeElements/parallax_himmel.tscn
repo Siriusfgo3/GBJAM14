@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bcpvugokdxo2y"]
+
+[ext_resource type="Texture2D" uid="uid://cagep4chhakq" path="res://sprites/Background/sky_cloudy.png" id="1_26ns3"]
+
+[node name="ParallaxSky" type="Node2D" unique_id=1499371455]
+
+[node name="Sky1" type="Parallax2D" parent="." unique_id=1651528128]
+repeat_size = Vector2(254, 0)
+
+[node name="Baggrund" type="Sprite2D" parent="Sky1" unique_id=350131839]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 6
+
+[node name="Sky2" type="Parallax2D" parent="." unique_id=2056276877]
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(254, 0)
+
+[node name="mediumclouddark" type="Sprite2D" parent="Sky2" unique_id=608799214]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 5
+
+[node name="Sky3" type="Parallax2D" parent="." unique_id=1195214700]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(254, 0)
+
+[node name="mediumcloud" type="Sprite2D" parent="Sky3" unique_id=1537754118]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 4
+
+[node name="Sky6" type="Parallax2D" parent="." unique_id=624758103]
+scroll_scale = Vector2(0.9, 0.9)
+repeat_size = Vector2(254, 0)
+
+[node name="highestclouddark" type="Sprite2D" parent="Sky6" unique_id=2051020551]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 1
+
+[node name="Sky7" type="Parallax2D" parent="." unique_id=1989535409]
+repeat_size = Vector2(254, 0)
+
+[node name="highestcloud" type="Sprite2D" parent="Sky7" unique_id=963747029]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+
+[node name="Sky5" type="Parallax2D" parent="." unique_id=1414603969]
+scroll_scale = Vector2(0.05, 0.05)
+
+[node name="sollinjer" type="Sprite2D" parent="Sky5" unique_id=1384970702]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 3
+
+[node name="sol" type="Sprite2D" parent="Sky5" unique_id=224263131]
+texture = ExtResource("1_26ns3")
+centered = false
+hframes = 7
+frame = 2
