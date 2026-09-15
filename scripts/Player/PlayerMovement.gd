@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 	_body.move_and_slide()
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
 	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
-	print(_body.velocity)
+	print(_body.velocity.y)
 	update_animations(direction)
 	
 func ToggleMovement(_can_move: bool):
@@ -43,8 +43,7 @@ func ToggleMovement(_can_move: bool):
 #til test af animationer
 func _input(event):
 	if event.is_action_pressed("button_a"):
-		print("KABOW")
-		state_machine.travel("player_attack_small")
+		state_machine.travel("player_attack_big")
 
 func update_animations(direction: Vector2) -> void:
 	#Når angreb bliver lavet tilføj øverst attack animationen her med return

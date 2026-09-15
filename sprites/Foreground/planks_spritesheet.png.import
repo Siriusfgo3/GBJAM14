@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lhfujytbxqpv"
-path="res://.godot/imported/player_attack_big.png-c672ed6e34c07187ccb19d943e3b9a3a.ctex"
+uid="uid://ftiamuwlyy5"
+path="res://.godot/imported/planks_spritesheet.png-fae328fa6c456d65994d59328d3bf724.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player/player_attack_big.png"
-dest_files=["res://.godot/imported/player_attack_big.png-c672ed6e34c07187ccb19d943e3b9a3a.ctex"]
+source_file="res://sprites/Foreground/planks_spritesheet.png"
+dest_files=["res://.godot/imported/planks_spritesheet.png-fae328fa6c456d65994d59328d3bf724.ctex"]
 
 [params]
 

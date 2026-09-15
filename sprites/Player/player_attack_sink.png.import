@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfkjue67cte6i"
-path="res://.godot/imported/player_idle.png-6d179ca84869e3a558f7778ae6b7d011.ctex"
+uid="uid://dw8ktd0p2d6rl"
+path="res://.godot/imported/player_attack_sink.png-39a3ab823f9896d84054928102408e4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player/player_idle.png"
-dest_files=["res://.godot/imported/player_idle.png-6d179ca84869e3a558f7778ae6b7d011.ctex"]
+source_file="res://sprites/Player/player_attack_sink.png"
+dest_files=["res://.godot/imported/player_attack_sink.png-39a3ab823f9896d84054928102408e4c.ctex"]
 
 [params]
 
