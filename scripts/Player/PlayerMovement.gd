@@ -4,7 +4,7 @@ extends Node
 @export var _animation_tree: AnimationTree
 @export var _sprite: Sprite2D
 
-@export var SPEED: float = 200
+@export var SPEED: float = 100
 @export var ACCELERATION: int = 2
 @export var FRICTION: int = 8
 

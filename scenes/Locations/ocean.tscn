@@ -191,6 +191,7 @@ seaport = NodePath("../../Seaport")
 [node name="PlayerFollowCamera" parent="Logic" unique_id=583471518 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_5neuy")]
 position = Vector2(100, 72)
 follow_target = NodePath("../../Player")
+cameraLag = 12.0
 MAX_X = 10000
 
 [node name="GameController" parent="Logic" unique_id=1195633560 instance=ExtResource("15_opvkg")]
