@@ -30,7 +30,6 @@ func take_all() -> ItemStack:
 	clear()
 	return given_stack
 
-	
 func clear() -> void:
 	stack = null
 	slot_changed.emit()

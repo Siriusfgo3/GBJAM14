@@ -24,5 +24,6 @@ texture = ExtResource("3_jhclv")
 [node name="Area_2D" type="Area2D" parent="." unique_id=1870828231]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_2D" unique_id=2075585826]
+visible = false
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_md3u7")

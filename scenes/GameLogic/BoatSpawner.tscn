@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cs0rlwfpaatmt"]
+
+[ext_resource type="Script" uid="uid://dpj60k0codh87" path="res://scenes/GameLogic/boat_spawner.gd" id="1_nsnhi"]
+
+[node name="BoatSpawner" type="Node" unique_id=2127383270]
+script = ExtResource("1_nsnhi")

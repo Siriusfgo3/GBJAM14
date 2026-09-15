@@ -2,19 +2,14 @@ extends CharacterBody2D
 class_name Boat 
 
 @export var sprite: Sprite2D
-@export var inventory: Node
+@export var inventory: Inventory
 
 @export var boatType: int
 @export var boatTier: int 
 var allMastsAreDown: bool
 
-var BOAT_PLACEHOLDER = sprite
-
-func SpawnLoot():
-	pass
-
-func OnSpawn() -> void:
-	SpawnLoot()
+func loadItem (item:Item, amount:int):
+	inventory.add_item(item, amount)
 
 func _process(delta: float):
 	if allMastsAreDown:
