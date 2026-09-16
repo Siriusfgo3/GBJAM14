@@ -15,6 +15,7 @@ frame = 6
 
 [node name="Sky2" type="Parallax2D" parent="." unique_id=2056276877]
 scroll_scale = Vector2(0.75, 0.75)
+scroll_offset = Vector2(0, -26)
 repeat_size = Vector2(254, 0)
 
 [node name="mediumclouddark" type="Sprite2D" parent="Sky2" unique_id=608799214]
@@ -25,6 +26,7 @@ frame = 5
 
 [node name="Sky3" type="Parallax2D" parent="." unique_id=1195214700]
 scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(0, -26)
 repeat_size = Vector2(254, 0)
 
 [node name="mediumcloud" type="Sprite2D" parent="Sky3" unique_id=1537754118]
@@ -34,7 +36,9 @@ hframes = 7
 frame = 4
 
 [node name="Sky6" type="Parallax2D" parent="." unique_id=624758103]
+z_as_relative = false
 scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(0, -19)
 repeat_size = Vector2(254, 0)
 
 [node name="highestclouddark" type="Sprite2D" parent="Sky6" unique_id=2051020551]
@@ -44,6 +48,8 @@ hframes = 7
 frame = 1
 
 [node name="Sky7" type="Parallax2D" parent="." unique_id=1989535409]
+z_as_relative = false
+scroll_offset = Vector2(0, -19)
 repeat_size = Vector2(254, 0)
 
 [node name="highestcloud" type="Sprite2D" parent="Sky7" unique_id=963747029]

@@ -46,7 +46,7 @@ func _input(event):
 	if event.is_action_pressed("button_a"):
 		state_machine.travel("player_hurt")
 	if event.is_action_pressed("button_b"):
-		state_machine.travel("player_attack_big")
+		state_machine.travel("player_attack_small")
 
 func update_animations(direction: Vector2) -> void:
 	
