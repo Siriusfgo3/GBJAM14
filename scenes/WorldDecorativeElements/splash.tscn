@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bv0xqud6m1itu"]
+
+[ext_resource type="Script" uid="uid://e4q7rv3c3nlk" path="res://scripts/splash.gd" id="1_pvek0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_khinc"]
+lifetime_randomness = 0.22
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(32, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 12, 0)
+scale_max = 2.0
+
+[node name="Splash" type="GPUParticles2D" unique_id=1766130193]
+emitting = false
+amount = 24
+lifetime = 0.54
+randomness = 0.31
+process_material = SubResource("ParticleProcessMaterial_khinc")
+script = ExtResource("1_pvek0")
+HEIGHT = 0
