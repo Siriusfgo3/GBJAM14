@@ -298,9 +298,9 @@ layout_mode = 2
 [node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 129.0
+offset_top = 128.0
 offset_right = 18.0
-offset_bottom = 141.0
+offset_bottom = 140.0
 texture_normal = SubResource("AtlasTexture_dmkqm")
 texture_pressed = SubResource("AtlasTexture_kpss3")
 texture_hover = SubResource("AtlasTexture_mdaio")
