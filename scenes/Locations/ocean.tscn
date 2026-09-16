@@ -8,8 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://krqwc16q8b0o" path="res://sprites/Foreground/wood_pier_spritesheet.png" id="6_s170r"]
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
-[ext_resource type="PackedScene" uid="uid://cwwwxohy8u06q" path="res://scenes/Shop/shop_ui.tscn" id="9_s170r"]
-[ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
+[ext_resource type="PackedScene" uid="uid://be2nn7x6aejjw" path="res://scenes/Shop/LAND_SHOP_UI.tscn" id="8_bdu4t"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
@@ -59,10 +58,11 @@ collision_layer = 4
 position = Vector2(-50, 644)
 shape = SubResource("RectangleShape2D_e77pp")
 
-[node name="Port" parent="." unique_id=373208614 node_paths=PackedStringArray("_player", "shop") instance=ExtResource("3_4imn2")]
+[node name="Port" parent="." unique_id=373208614 node_paths=PackedStringArray("_player", "shop", "port_ui") instance=ExtResource("3_4imn2")]
 position = Vector2(1121, 1)
 _player = NodePath("../Player")
-shop = NodePath("../UI/ShopUI")
+shop = NodePath("../UI/PortUi/Land_shop")
+port_ui = NodePath("../UI/PortUi")
 
 [node name="Pier" type="Node2D" parent="Port" unique_id=589687631]
 z_index = 1
@@ -82,18 +82,12 @@ tile_set = SubResource("TileSet_v07a6")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
-[node name="PortUi" parent="UI" unique_id=919939360 node_paths=PackedStringArray("player", "port") instance=ExtResource("6_vjho5")]
-visible = false
-player = NodePath("../../Player")
-port = NodePath("../../Port")
+[node name="PortUi" parent="UI" unique_id=919939360 instance=ExtResource("6_vjho5")]
+offset_left = 160.0
+offset_right = 160.0
 
-[node name="SeaportUi" parent="UI" unique_id=1597455931 node_paths=PackedStringArray("player", "seaport") instance=ExtResource("9_sup3w")]
-visible = false
-player = NodePath("../../Player")
-seaport = NodePath("../../Seaport")
-
-[node name="ShopUI" parent="UI" unique_id=672772593 instance=ExtResource("9_s170r")]
-visible = false
+[node name="Land_shop" parent="UI/PortUi" unique_id=163730554 instance=ExtResource("8_bdu4t")]
+layout_mode = 1
 
 [node name="Logic" type="Node" parent="." unique_id=657420771]
 

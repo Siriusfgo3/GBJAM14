@@ -33,7 +33,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_klo21")
 
-[node name="PortUi" type="Control" unique_id=919939360 node_paths=PackedStringArray("transition_overlay")]
+[node name="PortUi" type="Control" unique_id=919939360]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,9 +41,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nbqdi")
-transition_overlay = NodePath("TransitionOverlay")
 
 [node name="TransitionOverlay" type="ColorRect" parent="." unique_id=1398752933]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

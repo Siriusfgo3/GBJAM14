@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://boaadcrgpmxr6" path="res://scenes/GameLogic/Camera/PlayerFollowCamera.tscn" id="3_dk8j0"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="4_b3c4h"]
 [ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="5_65xg1"]
-[ext_resource type="PackedScene" uid="uid://cwwwxohy8u06q" path="res://scenes/Shop/shop_ui.tscn" id="5_rvwdn"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_ha2be"]
+[ext_resource type="PackedScene" uid="uid://be2nn7x6aejjw" path="res://scenes/Shop/LAND_SHOP_UI.tscn" id="7_ha2be"]
 
 [node name="PortTestScene" type="Node2D" unique_id=674698919]
 
@@ -15,7 +15,7 @@
 [node name="Port" parent="." unique_id=791655370 node_paths=PackedStringArray("_player", "shop", "port_ui") instance=ExtResource("4_b3c4h")]
 position = Vector2(700, 0)
 _player = NodePath("../Player")
-shop = NodePath("../CanvasLayer/PortUi/ShopUI")
+shop = NodePath("../CanvasLayer/PortUi/Land_shop")
 port_ui = NodePath("../CanvasLayer/PortUi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Port" unique_id=1884369107]
@@ -41,5 +41,5 @@ follow_target = NodePath("../Player")
 offset_left = 160.0
 offset_right = 160.0
 
-[node name="ShopUI" parent="CanvasLayer/PortUi" unique_id=672772593 instance=ExtResource("5_rvwdn")]
+[node name="Land_shop" parent="CanvasLayer/PortUi" unique_id=163730554 instance=ExtResource("7_ha2be")]
 layout_mode = 1

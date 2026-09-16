@@ -1,9 +1,14 @@
 extends Control
 class_name InventoryUI
 
-@export var ui_slots: Array[InventoryUISlot]
+var ui_slots: Array[InventoryUISlot]
 
 signal slot_pressed(ui_slot: InventoryUISlot)
+
+func _ready() -> void:
+	ui_slots.clear()
+	for node in find_children("*", "InventoryUISlot", true, false):
+		ui_slots.append(node)
 
 func bind_inventory(inventory: Inventory) -> void:
 	for i in mini(inventory.slots.size(), ui_slots.size()):
