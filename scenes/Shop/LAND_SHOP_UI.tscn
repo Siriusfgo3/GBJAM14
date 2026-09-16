@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/LandShop/shop.png" id="1_sjex0"]
 [ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/LandShop/shop_spritesheet.png" id="2_12qih"]
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
+[ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="4_f5hn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_885ui"]
 atlas = ExtResource("2_12qih")
@@ -60,6 +61,38 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmkqm"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(0, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpss3"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(16, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdaio"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(32, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanpg"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(32, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrh54"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(8, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkamp"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(24, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv37t"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(40, 0, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4uv7"]
+atlas = ExtResource("4_f5hn5")
+region = Rect2(40, 0, 8, 12)
 
 [node name="Land_shop" type="Control" unique_id=163730554]
 layout_mode = 3
@@ -261,3 +294,25 @@ layout_mode = 2
 
 [node name="inventory_ui_slot6" parent="ScrollContainer/PLAYER_INV" unique_id=1756839856 instance=ExtResource("3_885ui")]
 layout_mode = 2
+
+[node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 129.0
+offset_right = 18.0
+offset_bottom = 141.0
+texture_normal = SubResource("AtlasTexture_dmkqm")
+texture_pressed = SubResource("AtlasTexture_kpss3")
+texture_hover = SubResource("AtlasTexture_mdaio")
+texture_focused = SubResource("AtlasTexture_tanpg")
+
+[node name="PLAYER_INV_BUTTON_RIGHT" type="TextureButton" parent="." unique_id=652593027]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 130.0
+offset_right = 136.0
+offset_bottom = 142.0
+texture_normal = SubResource("AtlasTexture_vrh54")
+texture_pressed = SubResource("AtlasTexture_lkamp")
+texture_hover = SubResource("AtlasTexture_nv37t")
+texture_focused = SubResource("AtlasTexture_r4uv7")
