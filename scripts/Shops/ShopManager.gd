@@ -1,10 +1,6 @@
 extends Control
 class_name ShopManager
 
-@export var item1: Item
-@export var item2: Item
-@export var item3: Item
-
 var player_inventory: Inventory
 @export var player_inventory_ui: InventoryUI
 
@@ -33,10 +29,7 @@ func _ready() -> void:
 
 func LoadShop(player: Player, boat: Boat) -> void:
 	player_inventory = player.get_inventory()
-	player_inventory.add_item(item1, 5)
 	player_inventory_ui.bind_inventory(player_inventory)
-	
-	visible = true
 	
 	if boat == null:
 		return
@@ -44,10 +37,6 @@ func LoadShop(player: Player, boat: Boat) -> void:
 	print("Filling boat inventory")
 	their_inventory = boat.GetInventory()
 	their_inventory_ui.bind_inventory(their_inventory)
-
-func OnShopExited():
-	visible = false
-	their_inventory = null
 
 func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_scale_inventory)

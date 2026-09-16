@@ -33,7 +33,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_klo21")
 
-[node name="PortUi" type="Control" unique_id=919939360 node_paths=PackedStringArray("transition_overlay", "port_background")]
+[node name="PortUi" type="Control" unique_id=919939360 node_paths=PackedStringArray("transition_overlay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,35 +42,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nbqdi")
 transition_overlay = NodePath("TransitionOverlay")
-port_background = NodePath("Control")
-
-[node name="Control" type="Control" parent="." unique_id=318640024]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 160.0
-offset_right = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Background" type="ColorRect" parent="Control" unique_id=751252624]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.56775707, 0.35658175, 0.20459488, 1)
-
-[node name="TestLabel" type="Label" parent="Control" unique_id=1227693154]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 52.0
-offset_right = 150.0
-offset_bottom = 75.0
-theme_override_font_sizes/font_size = 12
-text = "WELCOME TO THE PORT"
 
 [node name="TransitionOverlay" type="ColorRect" parent="." unique_id=1398752933]
 layout_mode = 1

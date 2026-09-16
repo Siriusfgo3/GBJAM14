@@ -6,15 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="4_b3c4h"]
 [ext_resource type="Texture2D" uid="uid://cpkmroar3tpx6" path="res://sprites/icon.svg" id="5_65xg1"]
 [ext_resource type="PackedScene" uid="uid://cwwwxohy8u06q" path="res://scenes/Shop/shop_ui.tscn" id="5_rvwdn"]
+[ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_ha2be"]
 
 [node name="PortTestScene" type="Node2D" unique_id=674698919]
 
 [node name="GameController" parent="." unique_id=1195633560 instance=ExtResource("1_yjfk6")]
 
-[node name="Port" parent="." unique_id=791655370 node_paths=PackedStringArray("_player", "shop") instance=ExtResource("4_b3c4h")]
+[node name="Port" parent="." unique_id=791655370 node_paths=PackedStringArray("_player", "shop", "port_ui") instance=ExtResource("4_b3c4h")]
 position = Vector2(700, 0)
 _player = NodePath("../Player")
-shop = NodePath("../CanvasLayer/ShopUI")
+shop = NodePath("../CanvasLayer/PortUi/ShopUI")
+port_ui = NodePath("../CanvasLayer/PortUi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Port" unique_id=1884369107]
 position = Vector2(43, 84)
@@ -35,5 +37,9 @@ follow_target = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=253804616]
 
-[node name="ShopUI" parent="CanvasLayer" unique_id=672772593 instance=ExtResource("5_rvwdn")]
-visible = false
+[node name="PortUi" parent="CanvasLayer" unique_id=919939360 instance=ExtResource("6_ha2be")]
+offset_left = 160.0
+offset_right = 160.0
+
+[node name="ShopUI" parent="CanvasLayer/PortUi" unique_id=672772593 instance=ExtResource("5_rvwdn")]
+layout_mode = 1

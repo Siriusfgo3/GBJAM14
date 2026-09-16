@@ -70,7 +70,7 @@ centered = false
 offset = Vector2(-32, 3)
 
 [node name="PlayerExitLocation" type="Marker2D" parent="." unique_id=1015232807]
-position = Vector2(-547, 65)
+position = Vector2(-184, 39)
 
 [node name="QueueStartLocation" type="Marker2D" parent="." unique_id=32589532]
 position = Vector2(-217, 71)

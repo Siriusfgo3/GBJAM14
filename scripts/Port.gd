@@ -8,6 +8,8 @@ signal player_entered_shop
 
 @export var shop: ShopManager
 
+@export var port_ui: PortUI
+
 @export var exit_location: Marker2D
 
 @export var PierZone: Area2D
@@ -31,6 +33,7 @@ func _ready() -> void:
 func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player.OnShopEntered()
+		port_ui.MoveShopIntoView()
 		player_entered_shop.emit()
 		if active_boat == null:
 			active_boat = next_boat_from_queue()
@@ -52,7 +55,7 @@ func OnPierZoneEntered(body: Node2D) -> void:
 		boat_queue.push_back(body)
 
 func _on_player_exit()-> void:
-	shop.OnShopExited()
+	port_ui.MoveShopOutOfView()
 	_player.OnShopExit(exit_location.global_position)
 	_dismiss_active_boat()
 	
