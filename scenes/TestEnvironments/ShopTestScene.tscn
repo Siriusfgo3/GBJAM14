@@ -8,9 +8,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1281272657]
 
-[node name="ShopUI" parent="CanvasLayer" unique_id=672772593 node_paths=PackedStringArray("player", "boat") instance=ExtResource("1_e64l5")]
-player = NodePath("../../Player")
-boat = NodePath("../../Boat")
+[node name="ShopUI" parent="CanvasLayer" unique_id=672772593 instance=ExtResource("1_e64l5")]
 
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("2_2yfo6")]
 

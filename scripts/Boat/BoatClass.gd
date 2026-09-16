@@ -8,6 +8,10 @@ class_name Boat
 @export var boatTier: int 
 var allMastsAreDown: bool
 
+@export var boat_length: int = 16
+
+@export var boat_movement: BoatMovement
+
 func loadItem(item:Item, amount:int):
 	inventory.add_item(item, amount)
 
@@ -18,3 +22,12 @@ func _process(delta: float):
 
 func GetInventory() -> Inventory:
 	return inventory
+
+func EnterQueue():
+	print("Boat entered queueu")
+	boat_movement.speed = 10
+	collision_mask |= 1 << 2
+	
+func SailToX(target: int) -> void:
+	print("[Boat]: Setting target x")
+	boat_movement.set_target(target)

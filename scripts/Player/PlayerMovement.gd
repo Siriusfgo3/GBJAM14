@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerMovement
 
 @export var _body: CharacterBody2D
 @export var _animation_tree: AnimationTree
@@ -35,12 +36,13 @@ func _physics_process(_delta: float) -> void:
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
 	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
 	update_animations(direction)
-	
+
 func ToggleMovement(_can_move: bool):
 	can_move = _can_move
 
 #til test af animationer
 func _input(event):
+	if !can_move: return
 	if event.is_action_pressed("button_a"):
 		state_machine.travel("player_hurt")
 	if event.is_action_pressed("button_b"):

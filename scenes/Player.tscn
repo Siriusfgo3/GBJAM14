@@ -165,7 +165,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_o4126"]
 resource_name = "player_hurt"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -380,10 +380,10 @@ states/player_snaking/position = Vector2(692.7825, 84.904)
 transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "player_attack_big", "player_idle", SubResource("AnimationNodeStateMachineTransition_6eyey"), "player_attack_small", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_idle", "player_snaking", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "player_snaking", "player_idle", SubResource("AnimationNodeStateMachineTransition_srp4u"), "player_brems", "player_move", SubResource("AnimationNodeStateMachineTransition_o4126"), "player_snaking", "player_move_start", SubResource("AnimationNodeStateMachineTransition_jfpux"), "player_hurt", "player_idle", SubResource("AnimationNodeStateMachineTransition_61ith")]
 graph_offset = Vector2(14, -124)
 
-[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory") groups=["Player"]]
-collision_mask = 5
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement") groups=["Player"]]
 script = ExtResource("1_70d11")
 player_inventory = NodePath("PlayerInventory")
+player_movement = NodePath("PlayerMovement")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
 shape = SubResource("RectangleShape2D_e77pp")

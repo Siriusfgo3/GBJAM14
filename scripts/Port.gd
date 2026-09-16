@@ -1,25 +1,77 @@
 extends Node2D
 class_name Port
 
-signal port_entered
-signal port_exited
+signal player_entered_pier_zone
+signal player_entered_shop
 
-@export var collider: CollisionShape2D
+@export var _player: Player
+
+@export var shop: ShopManager
+
+@export var exit_location: Marker2D
+
+@export var PierZone: Area2D
+@export var EnterShopZone: Area2D
+
+@export var max_queue_length: int = 400
+@export var queue_start_marker: Marker2D
+@export var queue_spacing: int = 6
+var current_queue_spot: int = 0
+
+@export var max_queue_spots: int = 5
+var boat_queue: Array[Boat] = []
+var active_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Area2D.body_entered.connect(_on_body_entered)
-	$Area2D.body_exited.connect(_on_body_exit)
+	_player.shop_exit.connect(_on_player_exit)
+	PierZone.body_entered.connect(OnPierZoneEntered)
+	EnterShopZone.body_entered.connect(OnShopEntered)
 
-func _on_body_exit(body: Node2D) -> void:
+func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		port_exited.emit()
+		_player.OnShopEntered()
+		player_entered_shop.emit()
+		if active_boat == null:
+			active_boat = next_boat_from_queue()
+		shop.LoadShop(_player, active_boat)
 
-func _on_body_entered(body: Node2D) -> void:
+func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		port_entered.emit()
-	pass
+		player_entered_pier_zone.emit()
+	if body.is_in_group("Boat"):
+		var _boat = body as Boat
+		var _boatLen = _boat.boat_length
+		current_queue_spot += _boatLen + queue_spacing
+		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
+		if PortFull():
+			print("Boat rejected: port full")
+			return #Port is FULL
 		
-		
-func get_collision_shape() -> CollisionShape2D:
-	return collider
+		_boat.SailToX(boat_queue_pos)
+		boat_queue.push_back(body)
+
+func _on_player_exit()-> void:
+	shop.OnShopExited()
+	_player.OnShopExit(exit_location.global_position)
+	_dismiss_active_boat()
+	
+func _dismiss_active_boat() -> void:
+	if active_boat != null:
+		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
+		active_boat = null
+	_advance_queue()
+	
+func _advance_queue() -> void:
+	current_queue_spot = 0
+	for boat in boat_queue:
+		current_queue_spot += boat.boat_length + queue_spacing
+		boat.SailToX(queue_start_marker.global_position.x - current_queue_spot)
+
+func next_boat_from_queue() -> Boat:
+	if boat_queue.is_empty():
+		return null
+	return boat_queue.pop_front()
+
+func PortFull() -> bool:
+	return boat_queue.size() >= max_queue_spots
