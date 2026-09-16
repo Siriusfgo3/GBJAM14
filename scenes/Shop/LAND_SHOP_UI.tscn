@@ -1,6 +1,64 @@
 [gd_scene format=3 uid="uid://be2nn7x6aejjw"]
 
 [ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/LandShop/shop.png" id="1_sjex0"]
+[ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/LandShop/shop_spritesheet.png" id="2_12qih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_885ui"]
+atlas = ExtResource("2_12qih")
+region = Rect2(160, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nkuq"]
+atlas = ExtResource("2_12qih")
+region = Rect2(480, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5hn5"]
+atlas = ExtResource("2_12qih")
+region = Rect2(160, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg6ny"]
+atlas = ExtResource("2_12qih")
+region = Rect2(320, 144, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhkc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_885ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nkuq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_f5hn5")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_xg6ny")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_885ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nkuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_885ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nkuq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_885ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nkuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_885ui")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Land_shop" type="Control" unique_id=163730554]
 layout_mode = 3
@@ -11,7 +69,59 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Layout_explanation" type="TextureRect" parent="." unique_id=1060570252]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_sjex0")
+
+[node name="Hylder" type="Sprite2D" parent="." unique_id=1815151162]
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521060213]
+sprite_frames = SubResource("SpriteFrames_hhkc5")
+autoplay = "default"
+frame = 2
+frame_progress = 0.34361246
+speed_scale = 0.5
+centered = false
+
+[node name="Bord" type="Sprite2D" parent="." unique_id=2057829249]
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="PLAYER_inv" type="Sprite2D" parent="." unique_id=1001627881]
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="PLAYER_money_bag" type="Sprite2D" parent="." unique_id=678151683]
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="NPC_money_glass" type="Sprite2D" parent="." unique_id=947056939]
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=443733355]
+custom_minimum_size = Vector2(106, 58)
+custom_maximum_size = Vector2(106, 58)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 63.0
