@@ -67,35 +67,35 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmkqm"]
 atlas = ExtResource("7_invbt")
-region = Rect2(0, 0, 8, 12)
+region = Rect2(0, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpss3"]
 atlas = ExtResource("7_invbt")
-region = Rect2(16, 0, 8, 12)
+region = Rect2(16, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdaio"]
 atlas = ExtResource("7_invbt")
-region = Rect2(32, 0, 8, 12)
+region = Rect2(32, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tanpg"]
 atlas = ExtResource("7_invbt")
-region = Rect2(32, 0, 8, 12)
+region = Rect2(32, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrh54"]
 atlas = ExtResource("7_invbt")
-region = Rect2(8, 0, 8, 12)
+region = Rect2(8, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkamp"]
 atlas = ExtResource("7_invbt")
-region = Rect2(24, 0, 8, 12)
+region = Rect2(24, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nv37t"]
 atlas = ExtResource("7_invbt")
-region = Rect2(40, 0, 8, 12)
+region = Rect2(40, 0, 8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4uv7"]
 atlas = ExtResource("7_invbt")
-region = Rect2(40, 0, 8, 12)
+region = Rect2(40, 0, 8, 14)
 
 [node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 layout_mode = 3
@@ -358,7 +358,7 @@ offset_bottom = 108.0
 [node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 128.0
+offset_top = 126.0
 offset_right = 18.0
 offset_bottom = 140.0
 texture_normal = SubResource("AtlasTexture_dmkqm")
@@ -369,9 +369,9 @@ texture_focused = SubResource("AtlasTexture_tanpg")
 [node name="PLAYER_INV_BUTTON_RIGHT" type="TextureButton" parent="." unique_id=652593027]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 130.0
+offset_top = 128.0
 offset_right = 136.0
-offset_bottom = 142.0
+offset_bottom = 144.0
 texture_normal = SubResource("AtlasTexture_vrh54")
 texture_pressed = SubResource("AtlasTexture_lkamp")
 texture_hover = SubResource("AtlasTexture_nv37t")
