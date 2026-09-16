@@ -10,5 +10,5 @@ func MoveShopIntoView():
 
 func MoveShopOutOfView():
 	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "position:x", GlobalVariables.CAMERA_WIDTH, 0.4)

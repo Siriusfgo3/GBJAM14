@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://be2nn7x6aejjw"]
 
+[ext_resource type="Script" uid="uid://b2qdwvyrareu1" path="res://scripts/Shops/ShopManager.gd" id="1_8nkuq"]
 [ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/LandShop/shop.png" id="1_sjex0"]
 [ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/LandShop/shop_spritesheet.png" id="2_12qih"]
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
+[ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="6_xg6ny"]
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="4_f5hn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_885ui"]
@@ -62,6 +65,7 @@ animations = [{
 "speed": 5.0
 }]
 
+[node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmkqm"]
 atlas = ExtResource("4_f5hn5")
 region = Rect2(0, 0, 8, 12)
@@ -101,6 +105,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8nkuq")
+player_inventory_ui = NodePath("ScrollContainer/PLAYER_INV")
+their_inventory_ui = NodePath("NPC_INV")
+player_scale_inventory = NodePath("PlayerScaleInventory")
+player_scale_inventory_ui = NodePath("PLAYER_TRADE_INV")
+their_scale_inventory = NodePath("TheirScaleInventory")
+their_scale_inventory_ui = NodePath("NPC_TRADE_INV")
 
 [node name="Layout_explanation" type="TextureRect" parent="." unique_id=1060570252]
 visible = false
@@ -165,59 +176,77 @@ offset_transform_visual_only = false
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 5
 columns = 6
+script = ExtResource("4_f5hn5")
 
 [node name="inventory_ui_slot" parent="NPC_INV" unique_id=836233189 instance=ExtResource("3_885ui")]
 layout_mode = 2
 
 [node name="inventory_ui_slot2" parent="NPC_INV" unique_id=1323670345 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot3" parent="NPC_INV" unique_id=1796118020 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot4" parent="NPC_INV" unique_id=1773619136 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot5" parent="NPC_INV" unique_id=2012993490 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot6" parent="NPC_INV" unique_id=1292620946 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot7" parent="NPC_INV" unique_id=1684850898 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot8" parent="NPC_INV" unique_id=460055192 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot9" parent="NPC_INV" unique_id=1373082145 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot10" parent="NPC_INV" unique_id=2054459284 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot11" parent="NPC_INV" unique_id=839252097 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot12" parent="NPC_INV" unique_id=523709479 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot13" parent="NPC_INV" unique_id=1633494499 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot14" parent="NPC_INV" unique_id=1105108311 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot15" parent="NPC_INV" unique_id=1757685729 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot16" parent="NPC_INV" unique_id=1572917248 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot17" parent="NPC_INV" unique_id=1081306523 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot18" parent="NPC_INV" unique_id=285367352 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="NPC_TRADE_INV" type="GridContainer" parent="." unique_id=169670058]
@@ -229,17 +258,22 @@ offset_bottom = 112.0
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
+script = ExtResource("4_f5hn5")
 
 [node name="inventory_ui_slot" parent="NPC_TRADE_INV" unique_id=930936324 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot2" parent="NPC_TRADE_INV" unique_id=134005416 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot3" parent="NPC_TRADE_INV" unique_id=192125732 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot4" parent="NPC_TRADE_INV" unique_id=820222364 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="PLAYER_TRADE_INV" type="GridContainer" parent="." unique_id=695477252]
@@ -251,17 +285,22 @@ offset_bottom = 114.0
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
+script = ExtResource("4_f5hn5")
 
 [node name="inventory_ui_slot" parent="PLAYER_TRADE_INV" unique_id=929357135 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot2" parent="PLAYER_TRADE_INV" unique_id=1494184549 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot3" parent="PLAYER_TRADE_INV" unique_id=234683983 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot4" parent="PLAYER_TRADE_INV" unique_id=1403951024 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1645204936]
@@ -276,25 +315,50 @@ offset_bottom = 142.0
 [node name="PLAYER_INV" type="HBoxContainer" parent="ScrollContainer" unique_id=769971154]
 layout_mode = 2
 theme_override_constants/separation = 2
+script = ExtResource("4_f5hn5")
 
 [node name="inventory_ui_slot" parent="ScrollContainer/PLAYER_INV" unique_id=1906895035 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot2" parent="ScrollContainer/PLAYER_INV" unique_id=1025962411 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot3" parent="ScrollContainer/PLAYER_INV" unique_id=2056384607 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot4" parent="ScrollContainer/PLAYER_INV" unique_id=1478729541 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot5" parent="ScrollContainer/PLAYER_INV" unique_id=1540040763 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
 [node name="inventory_ui_slot6" parent="ScrollContainer/PLAYER_INV" unique_id=1756839856 instance=ExtResource("3_885ui")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
+[node name="PlayerScaleInventory" type="Node" parent="." unique_id=1561530078]
+script = ExtResource("6_xg6ny")
+num_slots = 2
+
+[node name="TheirScaleInventory" type="Node" parent="." unique_id=2082624409]
+script = ExtResource("6_xg6ny")
+num_slots = 2
+
+[node name="Button" type="Button" parent="." unique_id=1977169254]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 89.0
+offset_right = 91.0
+offset_bottom = 108.0
+
+[connection signal="pressed" from="Button" to="." method="trade_button_pressed"]
+
+[editable path="NPC_INV/inventory_ui_slot"]
 [node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
 layout_mode = 0
 offset_left = 10.0
