@@ -42,7 +42,7 @@ func generateBoatTable(boatTables: Array) -> Array:
 
 
 func _on_spawnTimer_timeout():
-	#boatSpawner.spawn_boat()
+	boatSpawner.spawn_boat()
 	pass
 	
 func _ready():

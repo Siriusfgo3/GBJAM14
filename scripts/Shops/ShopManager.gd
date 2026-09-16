@@ -1,14 +1,14 @@
-extends Node
+extends Control
+class_name ShopManager
 
-#FOR _TESTING:
-@export var player: Player
-@export var boat: Boat
 @export var item1: Item
 @export var item2: Item
 @export var item3: Item
 
 var player_inventory: Inventory
 @export var player_inventory_ui: InventoryUI
+
+signal trade_completed(boatType: int)
 
 var their_inventory: Inventory
 @export var their_inventory_ui: InventoryUI
@@ -30,25 +30,24 @@ func _ready() -> void:
 	player_scale_inventory_ui.slot_pressed.connect(_on_player_scale_item_pressed)
 	their_scale_inventory_ui.slot_pressed.connect(_on_their_scale_item_pressed)
 	
-	call_deferred("_TESTING")
-	
-func _TESTING():
-	var playe_inv = player.get_inventory()
-	playe_inv.add_item(item1, 4)
-	playe_inv.add_item(item2, 7)
-	playe_inv.add_item(item3, 21)
-	var boat_inv = boat.GetInventory()
-	boat_inv.add_item(item1, 23)
-	boat_inv.add_item(item2, 74)
-	boat_inv.add_item(item3, 46)
-	OpenShop(player, boat)
 
-func OpenShop(player: Player, boat: Boat) -> void:
+func LoadShop(player: Player, boat: Boat) -> void:
 	player_inventory = player.get_inventory()
+	player_inventory.add_item(item1, 5)
 	player_inventory_ui.bind_inventory(player_inventory)
 	
+	visible = true
+	
+	if boat == null:
+		return
+	
+	print("Filling boat inventory")
 	their_inventory = boat.GetInventory()
-	their_inventory_ui.bind_inventory(their_inventory)	
+	their_inventory_ui.bind_inventory(their_inventory)
+
+func OnShopExited():
+	visible = false
+	their_inventory = null
 
 func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_scale_inventory)
@@ -66,6 +65,13 @@ func _move_from_ui_to_inventory(ui_slot: InventoryUISlot, dest: Inventory) -> vo
 	if dest == null:
 		return
 	dest.receive_from(ui_slot.inventory_slot)
+	
+func trade_button_pressed() -> void:
+	#TO-DO MOVE MONEY AS WELL + CHECK TRADE VALIDITY
+	for their_scale_slot in their_scale_inventory_ui.ui_slots:
+		_move_from_ui_to_inventory(their_scale_slot, player_inventory)
+	for player_scale_slot in player_scale_inventory_ui.ui_slots:
+		_move_from_ui_to_inventory(player_scale_slot, their_inventory)
 	
 func take_stack_from_ui_slot(ui_slot: InventoryUISlot) -> ItemStack:
 	var source_slot := ui_slot.inventory_slot

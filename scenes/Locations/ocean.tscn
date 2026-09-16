@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://bbulqmmxm7b5v"]
 
-[ext_resource type="Script" uid="uid://ca0a0d5upihmi" path="res://scripts/OceanManager.gd" id="1_ogne1"]
 [ext_resource type="PackedScene" uid="uid://bcpvugokdxo2y" path="res://scenes/WorldDecorativeElements/parallax_himmel.tscn" id="2_27b0x"]
 [ext_resource type="Texture2D" uid="uid://c1pijnw7hnrfw" path="res://sprites/Background/Map.png" id="2_og8du"]
 [ext_resource type="PackedScene" uid="uid://cthf46o5s23yy" path="res://scenes/Locations/Port.tscn" id="3_4imn2"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://krqwc16q8b0o" path="res://sprites/Foreground/wood_pier_spritesheet.png" id="6_s170r"]
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
+[ext_resource type="PackedScene" uid="uid://cwwwxohy8u06q" path="res://scenes/Shop/shop_ui.tscn" id="9_s170r"]
 [ext_resource type="PackedScene" uid="uid://dl6oqljw1fqk8" path="res://scenes/UI/SeaportUI.tscn" id="9_sup3w"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
@@ -34,12 +34,7 @@ texture_region_size = Vector2i(8, 48)
 tile_size = Vector2i(8, 48)
 sources/0 = SubResource("TileSetAtlasSource_og8du")
 
-[node name="Ocean" type="Node2D" unique_id=129563336 node_paths=PackedStringArray("port", "port_ui", "seaport", "seaport_ui")]
-script = ExtResource("1_ogne1")
-port = NodePath("Port")
-port_ui = NodePath("UI/PortUi")
-seaport = NodePath("Seaport")
-seaport_ui = NodePath("UI/SeaportUi")
+[node name="Ocean" type="Node2D" unique_id=129563336]
 
 [node name="ParallaxSky" parent="." unique_id=1499371455 instance=ExtResource("2_27b0x")]
 z_index = -5
@@ -64,8 +59,10 @@ collision_layer = 4
 position = Vector2(-50, 644)
 shape = SubResource("RectangleShape2D_e77pp")
 
-[node name="Port" parent="." unique_id=373208614 instance=ExtResource("3_4imn2")]
+[node name="Port" parent="." unique_id=373208614 node_paths=PackedStringArray("_player", "shop") instance=ExtResource("3_4imn2")]
 position = Vector2(1121, 1)
+_player = NodePath("../Player")
+shop = NodePath("../UI/ShopUI")
 
 [node name="Pier" type="Node2D" parent="Port" unique_id=589687631]
 z_index = 1
@@ -86,12 +83,17 @@ tile_set = SubResource("TileSet_v07a6")
 [node name="UI" type="CanvasLayer" parent="." unique_id=426498679]
 
 [node name="PortUi" parent="UI" unique_id=919939360 node_paths=PackedStringArray("player", "port") instance=ExtResource("6_vjho5")]
+visible = false
 player = NodePath("../../Player")
 port = NodePath("../../Port")
 
 [node name="SeaportUi" parent="UI" unique_id=1597455931 node_paths=PackedStringArray("player", "seaport") instance=ExtResource("9_sup3w")]
+visible = false
 player = NodePath("../../Player")
 seaport = NodePath("../../Seaport")
+
+[node name="ShopUI" parent="UI" unique_id=672772593 instance=ExtResource("9_s170r")]
+visible = false
 
 [node name="Logic" type="Node" parent="." unique_id=657420771]
 

@@ -27,10 +27,10 @@ var lootLookup = [
 		"Amulet",
 		"Indigo Powder",
 		"Imperial Shields",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock"
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres"
 	],
 
 	# Oriental
@@ -41,10 +41,10 @@ var lootLookup = [
 		"Winged Armor",
 		"Fancy Lantern",
 		"Silk",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock"
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres"
 	],
 
 	# Seafolk
@@ -55,10 +55,10 @@ var lootLookup = [
 		"Seapig Armor",
 		"Seapearl",
 		"Clam Necklace",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock"
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres"
 	],
 
 	# Pirate
@@ -93,11 +93,9 @@ func weighted_probabilty(probabilty_container:Array):
 			return probabilty_container.size() -1
 
 func spawn_boat() -> void:
-	print("spawning boat")
+	
 	var boatType = weighted_probabilty(boatSpawnRates)
-	print(boatType)
 	var boatTier = weighted_probabilty(boatTables[boatType])
-	print(boatTier)
 	var path = "res://scenes/boatTypes/%d/type_%d_tier_%d_boat.tscn" % [
 	boatType,
 	boatType,
@@ -109,22 +107,22 @@ func spawn_boat() -> void:
 		
 	var scene := load(path) as PackedScene
 	var boat := scene.instantiate()
-	
-	load_boat(boatType, boatTier, boat)
+
 	
 	get_parent().add_child(boat)
 	boat.global_position = spawnLocation
-
+	load_boat(boatType, boatTier, boat)
 
 
 func load_boat(boatType:int, boatTier:int, boat:Boat):
 	var loot:Array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	var number_of_items = ((boatTier +1 ) * (boatTier +1)) * ceil(gameControler.favor[boatType])
 	for i in range(number_of_items):
-		loot[weighted_probabilty(lootTables[boatType])] += 1
+		var _item = weighted_probabilty(lootTables[boatType])
+		loot[_item] += 1
 	
 	for i in range(loot.size()):
 		if loot[i] <= 0: continue
-		var _item = load(lootLookup[boatType][i])
+		var _item = load(lootLookup[boatType][i]) 
 		boat.loadItem(_item, loot[i])
 	

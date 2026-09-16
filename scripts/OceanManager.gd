@@ -15,9 +15,7 @@ func _ready() -> void:
 	port.port_exited.connect(_on_port_exited)
 	
 	seaport.seaport_entered.connect(_on_seaport_entered)
-	seaport.seaport_exited.connect(_on_seaport_exited)
-	
-	
+	seaport.seaport_exited.connect(_on_seaport_exited)	
 
 func _on_port_entered() -> void:
 	#player_state.change_state(player_state.PlayerState.TRADING)

@@ -200,3 +200,12 @@ num_slots = 2
 [node name="TheirScaleInventory" type="Node" parent="." unique_id=1130842156]
 script = ExtResource("9_rsim4")
 num_slots = 2
+
+[node name="Button" type="Button" parent="." unique_id=939360044]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 93.0
+offset_right = 93.0
+offset_bottom = 115.0
+
+[connection signal="pressed" from="Button" to="." method="trade_button_pressed"]
