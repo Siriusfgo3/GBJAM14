@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwwwxohy8u06q"]
 
-[ext_resource type="Texture2D" uid="uid://dumprhaqbskue" path="res://sprites/Shop/Shop background.png" id="1_kaf8x"]
+[ext_resource type="Texture2D" uid="uid://dumprhaqbskue" path="res://sprites/SeaShop/Shop background.png" id="1_kaf8x"]
 [ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="1_smnh3"]
 [ext_resource type="Resource" uid="uid://ctwcq73r3hhy7" path="res://resources/inventory/Items/diamond.tres" id="2_80n6l"]
 [ext_resource type="Texture2D" uid="uid://c26g0plfavw6t" path="res://sprites/UI/Speech Bubble.png" id="2_qgjuh"]

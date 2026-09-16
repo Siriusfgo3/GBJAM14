@@ -56,4 +56,4 @@ sprite_frames = SubResource("SpriteFrames_hhkc5")
 autoplay = "default"
 frame_progress = 0.7092993
 centered = false
-offset = Vector2(-32, 3)
+offset = Vector2(-48, 3)

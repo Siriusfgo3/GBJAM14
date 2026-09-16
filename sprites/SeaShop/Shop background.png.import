@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cevmke815sxxe"
-path="res://.godot/imported/Scale-Sheet.png-d61086c4a13485b00408aa70bb019407.ctex"
+uid="uid://dumprhaqbskue"
+path="res://.godot/imported/Shop background.png-d32acb287c2dcd5129a5af8e2fdc2f4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Shop/Scale-Sheet.png"
-dest_files=["res://.godot/imported/Scale-Sheet.png-d61086c4a13485b00408aa70bb019407.ctex"]
+source_file="res://sprites/SeaShop/Shop background.png"
+dest_files=["res://.godot/imported/Shop background.png-d32acb287c2dcd5129a5af8e2fdc2f4c.ctex"]
 
 [params]
 
