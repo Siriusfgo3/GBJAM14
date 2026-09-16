@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
 [ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
 [ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="6_xg6ny"]
-[ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="4_f5hn5"]
+[ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="7_invbt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_885ui"]
 atlas = ExtResource("2_12qih")
@@ -65,40 +65,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmkqm"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(0, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpss3"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(16, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdaio"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(32, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tanpg"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(32, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrh54"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(8, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkamp"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(24, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nv37t"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(40, 0, 8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4uv7"]
-atlas = ExtResource("4_f5hn5")
+atlas = ExtResource("7_invbt")
 region = Rect2(40, 0, 8, 12)
 
-[node name="Land_shop" type="Control" unique_id=163730554]
+[node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -356,9 +355,6 @@ offset_top = 89.0
 offset_right = 91.0
 offset_bottom = 108.0
 
-[connection signal="pressed" from="Button" to="." method="trade_button_pressed"]
-
-[editable path="NPC_INV/inventory_ui_slot"]
 [node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
 layout_mode = 0
 offset_left = 10.0
@@ -380,3 +376,7 @@ texture_normal = SubResource("AtlasTexture_vrh54")
 texture_pressed = SubResource("AtlasTexture_lkamp")
 texture_hover = SubResource("AtlasTexture_nv37t")
 texture_focused = SubResource("AtlasTexture_r4uv7")
+
+[connection signal="pressed" from="Button" to="." method="trade_button_pressed"]
+
+[editable path="NPC_INV/inventory_ui_slot"]

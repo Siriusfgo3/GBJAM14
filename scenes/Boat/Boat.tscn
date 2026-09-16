@@ -21,6 +21,7 @@ boat_movement = NodePath("BoatMovement")
 
 [node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
 script = ExtResource("2_1gyrj")
+speed = 150.0
 _body = NodePath("..")
 sailDirectionTimer = NodePath("RandomSailDirectionTimer")
 
