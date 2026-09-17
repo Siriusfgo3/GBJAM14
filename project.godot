@@ -43,6 +43,11 @@ project/assembly_name="GBJAM14"
 Player="The group that the PlayerCamera lives in"
 Boat="Boats"
 
+[gui]
+
+theme/custom="uid://vwqrrk0vixli"
+theme/custom_font="uid://x07lyithj0dl"
+
 [input]
 
 move_up={
