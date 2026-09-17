@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="8_512rd"]
 [ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="9_5xuyj"]
 [ext_resource type="BitMap" uid="uid://c6wvfj0x4jxpu" path="res://sprites/UI/bell_bitmap.png" id="10_u0ywr"]
+[ext_resource type="AudioStream" uid="uid://dbkb0lp8wiyac" path="res://audio/Music/Shop UW render.mp3" id="12_kh1ob"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpc6q"]
 atlas = ExtResource("2_og8nb")
@@ -584,5 +585,10 @@ texture_hover = SubResource("AtlasTexture_mkhcy")
 texture_disabled = SubResource("AtlasTexture_4o4c5")
 texture_focused = SubResource("AtlasTexture_nj1xg")
 texture_click_mask = ExtResource("10_u0ywr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1781901594]
+stream = ExtResource("12_kh1ob")
+autoplay = true
+parameters/looping = true
 
 [editable path="NPC_INV/inventory_ui_slot"]

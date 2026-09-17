@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b6dvkphne0ylx" path="res://scenes/Locations/Seaport.tscn" id="6_sup3w"]
 [ext_resource type="PackedScene" uid="uid://b4khuiwq5pgyy" path="res://scenes/UI/PortUI.tscn" id="6_vjho5"]
 [ext_resource type="PackedScene" uid="uid://be2nn7x6aejjw" path="res://scenes/Shop/LAND_SHOP_UI.tscn" id="8_bdu4t"]
+[ext_resource type="AudioStream" uid="uid://cn107xw12mwml" path="res://audio/Music/Battle_render.mp3" id="12_s170r"]
 [ext_resource type="PackedScene" uid="uid://cn6hr64ahtpoh" path="res://scenes/Player.tscn" id="15_27b0x"]
 [ext_resource type="PackedScene" uid="uid://cuqngnc8quwvf" path="res://scenes/GameLogic/game_controller.tscn" id="15_opvkg"]
 
@@ -101,3 +102,8 @@ MAX_X = 10000
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
 z_index = 1
 position = Vector2(69, 111)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=835726917]
+stream = ExtResource("12_s170r")
+autoplay = true
+parameters/looping = true

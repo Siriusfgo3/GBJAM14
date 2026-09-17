@@ -1,24 +1,25 @@
-[gd_scene format=3 uid="uid://d0u1y3vvl1div"]
+[gd_scene format=3 uid="uid://dgklu7ckcfk8u"]
 
-[ext_resource type="Theme" uid="uid://vwqrrk0vixli" path="res://resources/MAIN_THEME.tres" id="1_8rod6"]
-[ext_resource type="Texture2D" uid="uid://cpd8d5hpgeiwh" path="res://sprites/Background/octopus.png" id="1_g7th7"]
-[ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="3_yyd4s"]
-[ext_resource type="Texture2D" uid="uid://cplc3arpu3408" path="res://sprites/UI/JK_buttons.png" id="4_6iekd"]
+[ext_resource type="Texture2D" uid="uid://cpd8d5hpgeiwh" path="res://sprites/Background/octopus.png" id="1_k70qg"]
+[ext_resource type="Theme" uid="uid://vwqrrk0vixli" path="res://resources/MAIN_THEME.tres" id="2_3kv44"]
+[ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="3_2ecl1"]
+[ext_resource type="Texture2D" uid="uid://bjk6junixvvry" path="res://sprites/UI/button_border.png" id="4_3kv44"]
+[ext_resource type="Texture2D" uid="uid://cplc3arpu3408" path="res://sprites/UI/JK_buttons.png" id="4_no0fs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yyd4s"]
-atlas = ExtResource("1_g7th7")
+atlas = ExtResource("1_k70qg")
 region = Rect2(0, 0, 160, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6iekd"]
-atlas = ExtResource("1_g7th7")
+atlas = ExtResource("1_k70qg")
 region = Rect2(160, 0, 160, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6bny"]
-atlas = ExtResource("1_g7th7")
+atlas = ExtResource("1_k70qg")
 region = Rect2(0, 144, 160, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23srh"]
-atlas = ExtResource("1_g7th7")
+atlas = ExtResource("1_k70qg")
 region = Rect2(160, 144, 160, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hhkc5"]
@@ -42,27 +43,27 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnd7s"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(0, 12, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uinfn"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(12, 12, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orffq"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(24, 12, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpoh2"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(0, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu0fw"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(12, 0, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3dgy"]
-atlas = ExtResource("4_6iekd")
+atlas = ExtResource("4_no0fs")
 region = Rect2(24, 0, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyxmp"]
@@ -107,7 +108,7 @@ grow_vertical = 2
 [node name="background" type="AnimatedSprite2D" parent="." unique_id=843884905]
 sprite_frames = SubResource("SpriteFrames_hhkc5")
 autoplay = "default"
-frame_progress = 0.09427233
+frame_progress = 0.3432649
 speed_scale = 0.5
 centered = false
 
@@ -121,39 +122,64 @@ offset_top = 14.0
 offset_right = 56.0
 offset_bottom = 34.0
 grow_horizontal = 2
-theme = ExtResource("1_8rod6")
+theme = ExtResource("2_3kv44")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_yyd4s")
-text = "KRAK'EM"
+theme_override_fonts/font = ExtResource("3_2ecl1")
+text = "STORY"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1719266957]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -47.0
-grow_horizontal = 0
+offset_left = -78.0
+offset_top = -106.0
+offset_right = 78.0
+grow_horizontal = 2
 grow_vertical = 0
 offset_transform_enabled = true
-offset_transform_position = Vector2(-2, -2)
-theme_override_constants/separation = 4
-alignment = 1
+offset_transform_position = Vector2(0, -2)
+theme_override_constants/separation = 2
+alignment = 2
 
-[node name="ButtonSTART" type="Button" parent="VBoxContainer" unique_id=911155915]
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer" unique_id=175772510]
+custom_minimum_size = Vector2(0, 24)
+propagate_maximum_size = true
 layout_mode = 2
-theme = ExtResource("1_8rod6")
-text = "Start Game"
+size_flags_vertical = 3
+texture = ExtResource("4_3kv44")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[node name="ButtonHELP" type="Button" parent="VBoxContainer" unique_id=50066831]
+[node name="Label" type="Label" parent="VBoxContainer/NinePatchRect" unique_id=424293307]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -2
+text = "Her kommer en rigtig lang forklaring på hvordan spillet foregår og hvordan man spiller spillet."
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="ButtonBACK" type="Button" parent="VBoxContainer" unique_id=50066831]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme = ExtResource("1_8rod6")
-text = "Explanation"
+size_flags_horizontal = 4
+theme = ExtResource("2_3kv44")
+text = "Back"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2101626036]
 layout_mode = 1
