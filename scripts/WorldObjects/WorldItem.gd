@@ -8,6 +8,8 @@ enum LocomotionState {
 
 var current_state: LocomotionState = LocomotionState.FALLING
 
+@export var despawn_timer: Timer
+
 @export var sprite: Sprite2D
 var item_resource: Item
 var amount: int = 1
@@ -26,6 +28,8 @@ func setup(_item: Item, _amount: int) -> void:
 	item_resource = _item
 	amount = _amount
 	sprite.texture = item_resource.texture
+	
+	despawn_timer.timeout.connect(DespawnItem)
 
 func _physics_process(delta: float) -> void:
 	match current_state:
@@ -38,5 +42,7 @@ func _physics_process(delta: float) -> void:
 				current_state = LocomotionState.FLOATING
 		LocomotionState.FLOATING:
 			float_time += delta
-			global_position.y = settle_y + sin(float_time * float_freq + float_phase)
-		
+			global_position.y = settle_y + float_amplitude * sin(float_time * float_freq + float_phase)
+
+func DespawnItem() -> void:
+	queue_free()
