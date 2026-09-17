@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d0u1y3vvl1div"]
+
+[ext_resource type="Theme" uid="uid://vwqrrk0vixli" path="res://resources/MAIN_THEME.tres" id="1_8rod6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gyxmp"]
+
+[node name="Control" type="Control" unique_id=282691185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1889025928]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 144.0
+texture = SubResource("CanvasTexture_gyxmp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1719266957]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 110.0
+offset_bottom = 120.0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=911155915]
+layout_mode = 2
+theme = ExtResource("1_8rod6")
+text = "Start Game"

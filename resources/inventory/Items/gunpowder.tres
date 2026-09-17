@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cm1xqigvi3sja"]
+
+[ext_resource type="Script" uid="uid://fpa6cpityo5p" path="res://scripts/Inventory/inventory_item.gd" id="1_4ymns"]
+[ext_resource type="Texture2D" uid="uid://ccw6ph72okpfe" path="res://sprites/Items/Spr_bpearl.png" id="2_cwa3w"]
+
+[resource]
+script = ExtResource("1_4ymns")
+name = "gunpowder"
+texture = ExtResource("2_cwa3w")
+basevalue = 2
