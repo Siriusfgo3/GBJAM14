@@ -12,8 +12,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not can_attack:
 		return
 	if event.is_action_pressed("button_b"):
-		attack()
-		#play animation
+		#attack()
+		get_parent().attack_animation()
 		get_viewport().set_input_as_handled()
 
 func attack() -> void:

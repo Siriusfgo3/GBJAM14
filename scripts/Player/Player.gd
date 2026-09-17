@@ -3,6 +3,9 @@ class_name Player
 
 @export var player_inventory: Inventory
 @export var player_movement: PlayerMovement
+@export var animation_tree: AnimationTree
+
+@onready var state_machine = animation_tree["parameters/playback"]
 
 signal shop_exit
 
@@ -43,3 +46,13 @@ func change_state(new_state: PlayerState):
 	if current_state == new_state:
 		return
 	current_state = new_state
+
+func move_animation(direction: Vector2) -> void:
+	
+	if direction.x:
+		$PlayerVisual.scale.x = direction.x
+		$attack_hitbox.scale.x = direction.x
+		
+func attack_animation() -> void:
+	state_machine.travel("player_attack_small")
+	

@@ -74,6 +74,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("attack_hitbox:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_lkdrv"]
 resource_name = "is_wrapped_around_ship"
@@ -146,6 +158,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attack_hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_khinc"]
@@ -382,22 +406,21 @@ transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTra
 graph_offset = Vector2(14, -124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuby"]
-size = Vector2(72, 116)
+size = Vector2(34.5, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement", "animation_tree") groups=["Player"]]
 script = ExtResource("1_70d11")
 player_inventory = NodePath("PlayerInventory")
 player_movement = NodePath("PlayerMovement")
+animation_tree = NodePath("PlayerAnimationTree")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
 visible = false
 shape = SubResource("RectangleShape2D_e77pp")
 
-[node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body", "_animation_tree", "_sprite")]
+[node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body")]
 script = ExtResource("2_3li8b")
 _body = NodePath("..")
-_animation_tree = NodePath("../PlayerAnimationTree")
-_sprite = NodePath("../PlayerVisual")
 
 [node name="PlayerVisual" type="Sprite2D" parent="." unique_id=1338018884]
 texture = ExtResource("3_mdl7e")
@@ -459,7 +482,8 @@ attack_hit_box = NodePath("../attack_hitbox")
 
 [node name="attack_hitbox" type="Area2D" parent="." unique_id=1616334624]
 collision_mask = 5
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hitbox" unique_id=233664278]
-position = Vector2(1, 25)
+position = Vector2(13.25, -6)
 shape = SubResource("RectangleShape2D_kbuby")
