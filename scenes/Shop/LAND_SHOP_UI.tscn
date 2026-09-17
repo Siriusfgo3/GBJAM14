@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/LandShop/shop_spritesheet.png" id="2_12qih"]
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
 [ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
+[ext_resource type="PackedScene" uid="uid://da05l4li2bd5d" path="res://scenes/Shop/COIN.tscn" id="4_ih2ff"]
 [ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="6_xg6ny"]
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="7_invbt"]
 [ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="8_5h3eb"]
@@ -164,6 +165,20 @@ hframes = 4
 vframes = 2
 frame = 3
 
+[node name="PLAYER_money_bag" type="Sprite2D" parent="." unique_id=678151683]
+visible = false
+texture = ExtResource("2_12qih")
+centered = false
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="PLAYER_trade_coins" parent="." unique_id=83250526 instance=ExtResource("4_ih2ff")]
+position = Vector2(139, 96)
+
+[node name="NPC_coins" parent="." unique_id=1274860081 instance=ExtResource("4_ih2ff")]
+position = Vector2(6, 110)
+
 [node name="PLAYER_inv" type="Sprite2D" parent="." unique_id=1001627881]
 texture = ExtResource("2_12qih")
 centered = false
@@ -171,18 +186,16 @@ hframes = 4
 vframes = 2
 frame = 1
 
-[node name="PLAYER_money_bag" type="Sprite2D" parent="." unique_id=678151683]
-texture = ExtResource("2_12qih")
-centered = false
-hframes = 4
-vframes = 2
-frame = 2
+[node name="PLAYER_inv_coins" parent="." unique_id=1891143620 instance=ExtResource("4_ih2ff")]
+position = Vector2(147, 128)
 
 [node name="NPC_money_glass" type="Sprite2D" parent="." unique_id=947056939]
+visible = false
+position = Vector2(3, 12)
 texture = ExtResource("2_12qih")
 centered = false
-hframes = 4
-vframes = 2
+region_enabled = true
+region_rect = Rect2(1, 71, 18, 30)
 
 [node name="NPC_INV" type="GridContainer" parent="." unique_id=443733355]
 custom_minimum_size = Vector2(106, 58)
@@ -309,19 +322,19 @@ columns = 2
 script = ExtResource("4_f5hn5")
 
 [node name="inventory_ui_slot" parent="PLAYER_TRADE_INV" unique_id=929357135 instance=ExtResource("3_885ui")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="inventory_ui_slot2" parent="PLAYER_TRADE_INV" unique_id=1494184549 instance=ExtResource("3_885ui")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="inventory_ui_slot3" parent="PLAYER_TRADE_INV" unique_id=234683983 instance=ExtResource("3_885ui")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="inventory_ui_slot4" parent="PLAYER_TRADE_INV" unique_id=1403951024 instance=ExtResource("3_885ui")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1645204936]

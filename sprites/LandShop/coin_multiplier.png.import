@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6wftjqyk5pn1"
-path="res://.godot/imported/coin.png-6029db8a1918b4048f54e01a80c9d273.ctex"
+uid="uid://cewbsc0t1c0fl"
+path="res://.godot/imported/coin_multiplier.png-358ae3ac07f3316b8da1686125b5b055.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/LandShop/coin.png"
-dest_files=["res://.godot/imported/coin.png-6029db8a1918b4048f54e01a80c9d273.ctex"]
+source_file="res://sprites/LandShop/coin_multiplier.png"
+dest_files=["res://.godot/imported/coin_multiplier.png-358ae3ac07f3316b8da1686125b5b055.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
