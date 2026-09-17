@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
 [ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="6_xg6ny"]
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="7_invbt"]
+[ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="8_5h3eb"]
+[ext_resource type="BitMap" uid="uid://c6wvfj0x4jxpu" path="res://sprites/UI/bell_bitmap.png" id="9_iei2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_885ui"]
 atlas = ExtResource("2_12qih")
@@ -96,6 +98,26 @@ region = Rect2(40, 0, 8, 14)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4uv7"]
 atlas = ExtResource("7_invbt")
 region = Rect2(40, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhkc5"]
+atlas = ExtResource("8_5h3eb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyxmp"]
+atlas = ExtResource("8_5h3eb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd8w5"]
+atlas = ExtResource("8_5h3eb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v07a6"]
+atlas = ExtResource("8_5h3eb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o2sn"]
+atlas = ExtResource("8_5h3eb")
+region = Rect2(128, 0, 32, 32)
 
 [node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 layout_mode = 3
@@ -348,13 +370,6 @@ num_slots = 2
 script = ExtResource("6_xg6ny")
 num_slots = 2
 
-[node name="Button" type="Button" parent="." unique_id=1977169254]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 89.0
-offset_right = 91.0
-offset_bottom = 108.0
-
 [node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=298558156]
 layout_mode = 0
 offset_left = 10.0
@@ -377,6 +392,21 @@ texture_pressed = SubResource("AtlasTexture_lkamp")
 texture_hover = SubResource("AtlasTexture_nv37t")
 texture_focused = SubResource("AtlasTexture_r4uv7")
 
-[connection signal="pressed" from="Button" to="." method="trade_button_pressed"]
+[node name="TRADE_BUTTON" type="TextureButton" parent="." unique_id=1816792692]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 81.0
+offset_right = 96.0
+offset_bottom = 113.0
+texture_normal = SubResource("AtlasTexture_hhkc5")
+texture_pressed = SubResource("AtlasTexture_gyxmp")
+texture_hover = SubResource("AtlasTexture_gd8w5")
+texture_disabled = SubResource("AtlasTexture_v07a6")
+texture_focused = SubResource("AtlasTexture_5o2sn")
+texture_click_mask = ExtResource("9_iei2f")
+
+[connection signal="pressed" from="TRADE_BUTTON" to="." method="_on_trade_button_pressed"]
 
 [editable path="NPC_INV/inventory_ui_slot"]

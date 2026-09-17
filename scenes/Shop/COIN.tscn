@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://da05l4li2bd5d"]
+
+[ext_resource type="Texture2D" uid="uid://b6wftjqyk5pn1" path="res://sprites/LandShop/coin.png" id="1_as142"]
+
+[node name="Node2D" type="Node2D" unique_id=83250526]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=286608521]
+texture = ExtResource("1_as142")
+offset = Vector2(0, -3)

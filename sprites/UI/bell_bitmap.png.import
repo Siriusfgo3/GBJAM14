@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c6wvfj0x4jxpu"
+path="res://.godot/imported/bell_bitmap.png-fe3aaf906af444ac2ecf594abbfa56eb.res"
+
+[deps]
+
+source_file="res://sprites/UI/bell_bitmap.png"
+dest_files=["res://.godot/imported/bell_bitmap.png-fe3aaf906af444ac2ecf594abbfa56eb.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
