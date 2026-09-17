@@ -22,8 +22,8 @@ var lootLookup = [
 	# Imperial
 	[
 		"res://resources/inventory/Items/log.tres",
-		"Gunpowder",
-		"Ivory",
+		"res://resources/inventory/Items/gunpowder.tres",
+		"res://resources/inventory/Items/Ivory.tres",
 		"Amulet",
 		"Indigo Powder",
 		"Imperial Shields",
