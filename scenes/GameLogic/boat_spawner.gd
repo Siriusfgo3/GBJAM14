@@ -89,8 +89,8 @@ func weighted_probabilty(probabilty_container:Array):
 		container_iter += probabilty_container[i]
 		if roll <= container_iter:
 			return i
-		else:
-			return probabilty_container.size() -1
+		
+	return probabilty_container.size() - 1
 
 func spawn_boat() -> void:
 	
