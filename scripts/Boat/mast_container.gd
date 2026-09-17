@@ -1,12 +1,12 @@
 extends Node2D
 
-var masts: Array[boatMast] = []
+var masts: Array[BoatMast] = []
 var mastsLeft: int
 @onready var boat = get_parent() as Boat
 
 func _ready() -> void:
 	for mast in get_children():
-		if mast is boatMast:
+		if mast is BoatMast:
 			masts.append(mast)
 	checkMasts()
 

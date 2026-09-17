@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="5_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://dw8ktd0p2d6rl" path="res://sprites/Player/player_attack_sink.png" id="6_70d11"]
 [ext_resource type="PackedScene" uid="uid://bv0xqud6m1itu" path="res://scenes/WorldDecorativeElements/splash.tscn" id="7_cw2d6"]
+[ext_resource type="Script" uid="uid://cbigb8dcxe072" path="res://scripts/Player/PlayerAttack.gd" id="8_khinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(20, 40)
@@ -380,12 +381,16 @@ states/player_snaking/position = Vector2(692.7825, 84.904)
 transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_qu4a1"), "player_move", "player_brems", SubResource("AnimationNodeStateMachineTransition_p7iby"), "player_brems", "player_idle", SubResource("AnimationNodeStateMachineTransition_0rnld"), "player_idle", "player_move_start", SubResource("AnimationNodeStateMachineTransition_70d11"), "player_move_start", "player_move", SubResource("AnimationNodeStateMachineTransition_cw2d6"), "player_move_start", "player_idle", SubResource("AnimationNodeStateMachineTransition_mdl7e"), "player_attack_big", "player_idle", SubResource("AnimationNodeStateMachineTransition_6eyey"), "player_attack_small", "player_idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "player_idle", "player_snaking", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "player_snaking", "player_idle", SubResource("AnimationNodeStateMachineTransition_srp4u"), "player_brems", "player_move", SubResource("AnimationNodeStateMachineTransition_o4126"), "player_snaking", "player_move_start", SubResource("AnimationNodeStateMachineTransition_jfpux"), "player_hurt", "player_idle", SubResource("AnimationNodeStateMachineTransition_61ith")]
 graph_offset = Vector2(14, -124)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuby"]
+size = Vector2(72, 116)
+
 [node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement") groups=["Player"]]
 script = ExtResource("1_70d11")
 player_inventory = NodePath("PlayerInventory")
 player_movement = NodePath("PlayerMovement")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
+visible = false
 shape = SubResource("RectangleShape2D_e77pp")
 
 [node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body", "_animation_tree", "_sprite")]
@@ -447,3 +452,14 @@ frame = 4
 
 [node name="Splash" parent="." unique_id=1766130193 instance=ExtResource("7_cw2d6")]
 HEIGHT = 8
+
+[node name="PlayerAttack" type="Node" parent="." unique_id=807577180 node_paths=PackedStringArray("attack_hit_box")]
+script = ExtResource("8_khinc")
+attack_hit_box = NodePath("../attack_hitbox")
+
+[node name="attack_hitbox" type="Area2D" parent="." unique_id=1616334624]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hitbox" unique_id=233664278]
+position = Vector2(1, 25)
+shape = SubResource("RectangleShape2D_kbuby")

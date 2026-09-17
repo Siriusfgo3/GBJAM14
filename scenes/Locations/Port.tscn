@@ -7,7 +7,7 @@
 size = Vector2(1040, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
-size = Vector2(40, 144)
+size = Vector2(40, 687)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwlge"]
 atlas = ExtResource("3_psmix")
@@ -57,7 +57,7 @@ shape = SubResource("RectangleShape2D_s170r")
 [node name="EnterShopZone" type="Area2D" parent="." unique_id=1401704807]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterShopZone" unique_id=1234301897]
-position = Vector2(0, 72)
+position = Vector2(0, 343.5)
 shape = SubResource("RectangleShape2D_e77pp")
 debug_color = Color(0.89708453, 0.30333963, 0.24480939, 0.41960785)
 

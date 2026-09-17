@@ -50,11 +50,10 @@ position = Vector2(1, 249)
 
 [node name="WorldBorder" type="Node2D" parent="." unique_id=654299881]
 
-[node name="Area2D" type="StaticBody2D" parent="WorldBorder" unique_id=1587334156]
+[node name="Border" type="StaticBody2D" parent="WorldBorder" unique_id=1587334156]
 position = Vector2(1280, 0)
-collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Area2D" unique_id=1553305408]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/Border" unique_id=1553305408]
 position = Vector2(-50, 644)
 shape = SubResource("RectangleShape2D_e77pp")
 

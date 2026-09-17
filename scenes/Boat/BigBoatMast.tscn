@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cpt7wfv3v3vdd"]
 
-[ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/boat_mast.gd" id="1_odxcn"]
+[ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/Boat/boat_mast.gd" id="1_odxcn"]
 [ext_resource type="Texture2D" uid="uid://cj4rmeohart25" path="res://sprites/Ships/Fisherman.png" id="3_cwybh"]
 [ext_resource type="Texture2D" uid="uid://caml3ici37q8o" path="res://sprites/Ships/Pirate_mast.png" id="4_f56eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgu4t"]
-size = Vector2(3, 9)
+size = Vector2(10, 12)
 
-[node name="BigBoatMast" type="Node2D" unique_id=1430793648 node_paths=PackedStringArray("flag_sprite", "damaged_sprite", "area")]
+[node name="BigBoatMast" type="Node2D" unique_id=480987827 node_paths=PackedStringArray("flag_sprite", "damaged_sprite", "area")]
 script = ExtResource("1_odxcn")
 flag_sprite = NodePath("Mast_sprite")
 damaged_sprite = NodePath("Damaged_sprite")
-area = NodePath("Area_2D")
+area = NodePath("Area2D")
 
 [node name="Mast_sprite" type="Sprite2D" parent="." unique_id=1384639686]
 texture = ExtResource("4_f56eg")
@@ -21,9 +21,8 @@ visible = false
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 texture = ExtResource("3_cwybh")
 
-[node name="Area_2D" type="Area2D" parent="." unique_id=464996300]
+[node name="Area2D" type="Area2D" parent="." unique_id=198773209]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_2D" unique_id=1325044028]
-visible = false
-position = Vector2(-0.5, -4.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1325044028]
+position = Vector2(-1, -5)
 shape = SubResource("RectangleShape2D_qgu4t")

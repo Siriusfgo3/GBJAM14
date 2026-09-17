@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pi5t6qmyuc44"]
 
-[ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/boat_mast.gd" id="1_f3x8g"]
+[ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/Boat/boat_mast.gd" id="1_f3x8g"]
 [ext_resource type="Texture2D" uid="uid://bqxphp8y8ng55" path="res://sprites/Ships/Small_mast.png" id="2_30tc3"]
 [ext_resource type="Texture2D" uid="uid://cj4rmeohart25" path="res://sprites/Ships/Fisherman.png" id="3_jhclv"]
 
