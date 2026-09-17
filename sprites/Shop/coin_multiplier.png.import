@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e1qbkh57ktw"
-path="res://.godot/imported/shop_spritesheet.png-28f19ef99895dbc6330d36a0cc00c3be.ctex"
+uid="uid://cewbsc0t1c0fl"
+path="res://.godot/imported/coin_multiplier.png-db1fcea689b7b837764bf0321b24b942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/LandShop/shop_spritesheet.png"
-dest_files=["res://.godot/imported/shop_spritesheet.png-28f19ef99895dbc6330d36a0cc00c3be.ctex"]
+source_file="res://sprites/Shop/coin_multiplier.png"
+dest_files=["res://.godot/imported/coin_multiplier.png-db1fcea689b7b837764bf0321b24b942.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://da05l4li2bd5d"]
 
-[ext_resource type="Texture2D" uid="uid://b6wftjqyk5pn1" path="res://sprites/LandShop/coin.png" id="1_as142"]
+[ext_resource type="Texture2D" uid="uid://b6wftjqyk5pn1" path="res://sprites/Shop/coin.png" id="1_as142"]
 [ext_resource type="Script" uid="uid://b8hbmrisyvhvj" path="res://scripts/Shops/coin_multiplier.gd" id="2_ji70y"]
-[ext_resource type="Texture2D" uid="uid://cewbsc0t1c0fl" path="res://sprites/LandShop/coin_multiplier.png" id="3_ow7ab"]
+[ext_resource type="Texture2D" uid="uid://cewbsc0t1c0fl" path="res://sprites/Shop/coin_multiplier.png" id="3_ow7ab"]
 
 [node name="COIN_STACK" type="Node2D" unique_id=83250526]
 script = ExtResource("2_ji70y")

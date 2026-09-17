@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://be2nn7x6aejjw"]
 
 [ext_resource type="Script" uid="uid://b2qdwvyrareu1" path="res://scripts/Shops/ShopManager.gd" id="1_8nkuq"]
-[ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/LandShop/shop.png" id="1_sjex0"]
-[ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/LandShop/shop_spritesheet.png" id="2_12qih"]
+[ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/Shop/shop.png" id="1_sjex0"]
+[ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/Shop/shop_spritesheet.png" id="2_12qih"]
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
 [ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
 [ext_resource type="PackedScene" uid="uid://da05l4li2bd5d" path="res://scenes/Shop/COIN.tscn" id="4_ih2ff"]

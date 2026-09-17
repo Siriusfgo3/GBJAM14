@@ -1,0 +1,529 @@
+[gd_scene format=3 uid="uid://dcr6vvud1qmrr"]
+
+[ext_resource type="Texture2D" uid="uid://b4o3hwntkg4jd" path="res://sprites/Shop/shop.png" id="1_dg1ok"]
+[ext_resource type="Texture2D" uid="uid://beehdbb1gwlff" path="res://sprites/Shop/sea_shop_spritesheet.png" id="2_og8nb"]
+[ext_resource type="Texture2D" uid="uid://c0e1qbkh57ktw" path="res://sprites/Shop/shop_spritesheet.png" id="3_kh1ob"]
+[ext_resource type="PackedScene" uid="uid://da05l4li2bd5d" path="res://scenes/Shop/COIN.tscn" id="4_lo2jd"]
+[ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="5_4x7cc"]
+[ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="6_76vbi"]
+[ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="7_rt0aa"]
+[ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="8_512rd"]
+[ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="9_5xuyj"]
+[ext_resource type="BitMap" uid="uid://c6wvfj0x4jxpu" path="res://sprites/UI/bell_bitmap.png" id="10_u0ywr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpc6q"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(320, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir6yr"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(480, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6rxa"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(640, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reft1"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(0, 288, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51g8h"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(160, 288, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uvsp"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(320, 288, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5wyh"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(480, 288, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im1k7"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(640, 288, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecael"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lylt"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(0, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iomuq"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(160, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn33y"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(0, 432, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgxfe"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(320, 432, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjp75"]
+atlas = ExtResource("2_og8nb")
+region = Rect2(160, 432, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_luss7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpc6q")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ir6yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6rxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reft1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51g8h")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_3uvsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5wyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im1k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51g8h")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_3uvsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5wyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im1k7")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecael")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lylt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iomuq")
+}],
+"loop": 1,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn33y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgxfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn33y")
+}, {
+"duration": 2.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn33y")
+}, {
+"duration": 2.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"new_animation_2",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fwg0"]
+atlas = ExtResource("8_512rd")
+region = Rect2(0, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm2qi"]
+atlas = ExtResource("8_512rd")
+region = Rect2(16, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10vso"]
+atlas = ExtResource("8_512rd")
+region = Rect2(32, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y87mt"]
+atlas = ExtResource("8_512rd")
+region = Rect2(32, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb5w8"]
+atlas = ExtResource("8_512rd")
+region = Rect2(8, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2w1f"]
+atlas = ExtResource("8_512rd")
+region = Rect2(24, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuggy"]
+atlas = ExtResource("8_512rd")
+region = Rect2(40, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg2n8"]
+atlas = ExtResource("8_512rd")
+region = Rect2(40, 0, 8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34kf4"]
+atlas = ExtResource("9_5xuyj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3kwt"]
+atlas = ExtResource("9_5xuyj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkhcy"]
+atlas = ExtResource("9_5xuyj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o4c5"]
+atlas = ExtResource("9_5xuyj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj1xg"]
+atlas = ExtResource("9_5xuyj")
+region = Rect2(128, 0, 32, 32)
+
+[node name="Sea_shop" type="Control" unique_id=1203866140]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout_explanation" type="TextureRect" parent="." unique_id=666553601]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dg1ok")
+
+[node name="Hylder" type="Sprite2D" parent="." unique_id=893689989]
+texture = ExtResource("2_og8nb")
+centered = false
+hframes = 5
+vframes = 4
+
+[node name="NPC_hoved" type="AnimatedSprite2D" parent="." unique_id=1548897516]
+sprite_frames = SubResource("SpriteFrames_luss7")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.6640089
+speed_scale = 0.7
+centered = false
+
+[node name="NPC_body" type="AnimatedSprite2D" parent="." unique_id=1475865506]
+sprite_frames = SubResource("SpriteFrames_luss7")
+animation = &"new_animation_1"
+autoplay = "new_animation_1"
+frame_progress = 0.7252668
+speed_scale = 0.5
+centered = false
+
+[node name="NPC_body2" type="AnimatedSprite2D" parent="." unique_id=2063404924]
+position = Vector2(5, 9)
+sprite_frames = SubResource("SpriteFrames_luss7")
+animation = &"new_animation_2"
+autoplay = "new_animation_2"
+frame = 4
+frame_progress = 0.034946635
+speed_scale = 0.5
+centered = false
+
+[node name="Bord" type="Sprite2D" parent="." unique_id=1315995268]
+texture = ExtResource("2_og8nb")
+centered = false
+hframes = 5
+vframes = 4
+frame = 1
+
+[node name="Bord2" type="Sprite2D" parent="." unique_id=1660186961]
+texture = ExtResource("2_og8nb")
+centered = false
+hframes = 5
+vframes = 4
+frame = 2
+
+[node name="Bord3" type="Sprite2D" parent="." unique_id=1689255454]
+texture = ExtResource("2_og8nb")
+centered = false
+hframes = 5
+vframes = 4
+frame = 3
+
+[node name="PLAYER_money_bag" type="Sprite2D" parent="." unique_id=1051833730]
+visible = false
+texture = ExtResource("3_kh1ob")
+centered = false
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="PLAYER_trade_coins" parent="." unique_id=83250526 instance=ExtResource("4_lo2jd")]
+position = Vector2(147, 111)
+
+[node name="NPC_coins" parent="." unique_id=1631757609 instance=ExtResource("4_lo2jd")]
+position = Vector2(3, 112)
+
+[node name="PLAYER_inv" type="Sprite2D" parent="." unique_id=1853468000]
+texture = ExtResource("3_kh1ob")
+centered = false
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="PLAYER_inv_coins" parent="." unique_id=1501044624 instance=ExtResource("4_lo2jd")]
+position = Vector2(147, 128)
+
+[node name="NPC_money_glass" type="Sprite2D" parent="." unique_id=450077366]
+visible = false
+position = Vector2(3, 12)
+texture = ExtResource("3_kh1ob")
+centered = false
+region_enabled = true
+region_rect = Rect2(1, 71, 18, 30)
+
+[node name="NPC_INV" type="GridContainer" parent="." unique_id=576689849]
+custom_minimum_size = Vector2(106, 62)
+custom_maximum_size = Vector2(106, 62)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 5.0
+offset_right = 153.0
+offset_bottom = 67.0
+offset_transform_position = Vector2(49, 5)
+offset_transform_visual_only = false
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 7
+columns = 6
+script = ExtResource("5_4x7cc")
+
+[node name="inventory_ui_slot" parent="NPC_INV" unique_id=836233189 instance=ExtResource("6_76vbi")]
+layout_mode = 2
+
+[node name="inventory_ui_slot2" parent="NPC_INV" unique_id=424119752 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot3" parent="NPC_INV" unique_id=250952046 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot4" parent="NPC_INV" unique_id=1687928309 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot5" parent="NPC_INV" unique_id=290370409 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot6" parent="NPC_INV" unique_id=173833974 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot7" parent="NPC_INV" unique_id=810894532 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot8" parent="NPC_INV" unique_id=1492672158 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot9" parent="NPC_INV" unique_id=259481549 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot10" parent="NPC_INV" unique_id=427380566 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot11" parent="NPC_INV" unique_id=1483513897 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot12" parent="NPC_INV" unique_id=555011802 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot13" parent="NPC_INV" unique_id=929015620 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot14" parent="NPC_INV" unique_id=645008989 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot15" parent="NPC_INV" unique_id=1216451894 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot16" parent="NPC_INV" unique_id=908687994 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot17" parent="NPC_INV" unique_id=1068972532 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot18" parent="NPC_INV" unique_id=220478279 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="NPC_TRADE_INV" type="GridContainer" parent="." unique_id=1005681846]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 91.0
+offset_right = 58.0
+offset_bottom = 125.0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 5
+columns = 2
+script = ExtResource("5_4x7cc")
+
+[node name="inventory_ui_slot" parent="NPC_TRADE_INV" unique_id=1026254329 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot2" parent="NPC_TRADE_INV" unique_id=891113235 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot3" parent="NPC_TRADE_INV" unique_id=586908700 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot4" parent="NPC_TRADE_INV" unique_id=451617630 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="PLAYER_TRADE_INV" type="GridContainer" parent="." unique_id=478057746]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 80.0
+offset_right = 132.0
+offset_bottom = 114.0
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 2
+script = ExtResource("5_4x7cc")
+
+[node name="inventory_ui_slot" parent="PLAYER_TRADE_INV" unique_id=1205580318 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="inventory_ui_slot2" parent="PLAYER_TRADE_INV" unique_id=648864975 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="inventory_ui_slot3" parent="PLAYER_TRADE_INV" unique_id=465221721 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="inventory_ui_slot4" parent="PLAYER_TRADE_INV" unique_id=1501645605 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=705005676]
+custom_minimum_size = Vector2(106, 16)
+custom_maximum_size = Vector2(106, 16)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 126.0
+offset_right = 126.0
+offset_bottom = 142.0
+
+[node name="PLAYER_INV" type="HBoxContainer" parent="ScrollContainer" unique_id=2006986963]
+layout_mode = 2
+theme_override_constants/separation = 2
+script = ExtResource("5_4x7cc")
+
+[node name="inventory_ui_slot" parent="ScrollContainer/PLAYER_INV" unique_id=1204373315 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot2" parent="ScrollContainer/PLAYER_INV" unique_id=1027864216 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot3" parent="ScrollContainer/PLAYER_INV" unique_id=1170829349 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot4" parent="ScrollContainer/PLAYER_INV" unique_id=1297303579 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot5" parent="ScrollContainer/PLAYER_INV" unique_id=1270159306 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="inventory_ui_slot6" parent="ScrollContainer/PLAYER_INV" unique_id=493610584 instance=ExtResource("6_76vbi")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="PlayerScaleInventory" type="Node" parent="." unique_id=1506201001]
+script = ExtResource("7_rt0aa")
+num_slots = 2
+
+[node name="TheirScaleInventory" type="Node" parent="." unique_id=371344372]
+script = ExtResource("7_rt0aa")
+num_slots = 2
+
+[node name="PLAYER_INV_BUTTON_LEFT" type="TextureButton" parent="." unique_id=1499599139]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 126.0
+offset_right = 18.0
+offset_bottom = 140.0
+texture_normal = SubResource("AtlasTexture_0fwg0")
+texture_pressed = SubResource("AtlasTexture_bm2qi")
+texture_hover = SubResource("AtlasTexture_10vso")
+texture_focused = SubResource("AtlasTexture_y87mt")
+
+[node name="PLAYER_INV_BUTTON_RIGHT" type="TextureButton" parent="." unique_id=1283681138]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 136.0
+offset_bottom = 144.0
+texture_normal = SubResource("AtlasTexture_pb5w8")
+texture_pressed = SubResource("AtlasTexture_c2w1f")
+texture_hover = SubResource("AtlasTexture_yuggy")
+texture_focused = SubResource("AtlasTexture_fg2n8")
+
+[node name="TRADE_BUTTON" type="TextureButton" parent="." unique_id=2077770905]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 79.0
+offset_right = 96.0
+offset_bottom = 111.0
+texture_normal = SubResource("AtlasTexture_34kf4")
+texture_pressed = SubResource("AtlasTexture_m3kwt")
+texture_hover = SubResource("AtlasTexture_mkhcy")
+texture_disabled = SubResource("AtlasTexture_4o4c5")
+texture_focused = SubResource("AtlasTexture_nj1xg")
+texture_click_mask = ExtResource("10_u0ywr")
+
+[editable path="NPC_INV/inventory_ui_slot"]
