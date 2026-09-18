@@ -6,6 +6,8 @@ var slots: Array[InventorySlot]
 
 var coins: int = 0
 
+signal inventory_updated
+
 func _ready():
 	InitializeSlots()
 
@@ -23,6 +25,14 @@ func add_item(new_item: Item, _amount: int) -> bool:
 			slot.slot_changed.emit()
 			return true
 	return false
+	
+func add_money(money: int) -> void:
+	coins += money
+	inventory_updated.emit()
+	
+func take_money(money: int) -> void:
+	coins -= money
+	inventory_updated.emit()
 	
 func can_accept(item: Item, amount: int) -> bool:
 	for slot in slots:
