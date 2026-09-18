@@ -99,8 +99,9 @@ tile_set = SubResource("TileSet_v07a6")
 offset_left = 160.0
 offset_right = 160.0
 
-[node name="Land_shop" parent="UI/PortUi" unique_id=163730554 instance=ExtResource("8_bdu4t")]
+[node name="Land_shop" parent="UI/PortUi" unique_id=163730554 node_paths=PackedStringArray("port") instance=ExtResource("8_bdu4t")]
 layout_mode = 1
+port = NodePath("../../../Port")
 
 [node name="Logic" type="Node" parent="." unique_id=657420771]
 

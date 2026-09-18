@@ -4,7 +4,7 @@ class_name Inventory
 var slots: Array[InventorySlot]
 @export var num_slots: int = 12
 
-var coins: int = 0
+var coins: float = 0
 
 var item_weights: Array = [
 	[1.0, 1.0, 1.0],
@@ -25,19 +25,23 @@ func add_item(new_item: Item, _amount: int) -> bool:
 		if _stack.item == new_item:
 			_stack.amount += _amount
 			slot.slot_changed.emit()
+			inventory_updated.emit()
 			return true
 	for slot in slots:
 		if slot.is_empty():
 			slot.stack = ItemStack.new(new_item, _amount)
 			slot.slot_changed.emit()
+			inventory_updated.emit()
 			return true
 	return false
 	
-func add_money(money: int) -> void:
+func add_money(money: float) -> void:
+	if money == 0:
+		return
 	coins += money
 	inventory_updated.emit()
 	
-func take_money(money: int) -> void:
+func take_money(money: float) -> void:
 	coins -= money
 	inventory_updated.emit()
 	

@@ -19,6 +19,8 @@ var their_inventory: Inventory
 @export var their_scale_inventory: Inventory
 @export var their_scale_inventory_ui: InventoryUI
 
+var _balancing := false
+
 func _ready() -> void:
 	#Bind scale inventories (they live on ShopUI)
 	player_scale_inventory_ui.bind_inventory(player_scale_inventory)
@@ -29,6 +31,8 @@ func _ready() -> void:
 	their_inventory_ui.slot_pressed.connect(_on_their_item_pressed)
 	player_scale_inventory_ui.slot_pressed.connect(_on_player_scale_item_pressed)
 	their_scale_inventory_ui.slot_pressed.connect(_on_their_scale_item_pressed)
+	player_scale_inventory.inventory_updated.connect(balance_trade)
+	their_scale_inventory.inventory_updated.connect(balance_trade)
 	
 
 func LoadShop(player: Player, boat: Boat) -> void:
@@ -46,8 +50,11 @@ func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_scale_inventory)
 	
 func _on_their_item_pressed(ui_slot: InventoryUISlot) -> void:
-	if trade_possible(ui_slot.inventory_slot.stack):
+	var _stack_value = item_trade_value(ui_slot.inventory_slot.stack)
+	if their_scale_inventory.coins + _stack_value <= player_inventory.coins:
 		_move_from_ui_to_inventory(ui_slot, their_scale_inventory)
+		player_inventory.take_money(_stack_value)
+		player_scale_inventory.add_money(_stack_value)
 	else : print("Not enought money")
 func _on_player_scale_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_inventory)
@@ -60,20 +67,24 @@ func _move_from_ui_to_inventory(ui_slot: InventoryUISlot, dest: Inventory) -> vo
 		return
 	dest.receive_from(ui_slot.inventory_slot)
 
-func trade_possible(item_stack: ItemStack) -> bool:
+func item_trade_value(item_stack: ItemStack) -> int:
 	var _item_type = item_stack.item.item_type
 	var _item_amount = item_stack.amount
 	var _stack_value = (_item_amount * item_stack.item.basevalue)
-	return their_scale_inventory.coins + _stack_value <= player_inventory.coins
-	
+	return _stack_value
+
+
 func balance_trade() -> void:
-	var diff:int = their_scale_inventory.coins - port.active_boat.evaluate_inventory(player_scale_inventory)
-	if diff <= 0:
-		their_scale_inventory.add_money(diff)
-	elif player_inventory.coins >= diff:
-		player_inventory.take_money(diff)
-		player_scale_inventory.add_money(diff)
-	return
+	if _balancing:
+		return
+	_balancing = true
+
+	var target := port.active_boat.evaluate_inventory(player_scale_inventory)
+	var delta := target - their_scale_inventory.coins
+	if delta != 0:
+		their_scale_inventory.add_money(delta)
+
+	_balancing = false
 	
 func _on_trade_button_pressed() -> void:
 	#TO-DO MOVE MONEY AS WELL + CHECK TRADE VALIDITY

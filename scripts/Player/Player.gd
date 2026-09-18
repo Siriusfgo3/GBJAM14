@@ -58,6 +58,7 @@ func OnShopExit(target: Vector2) -> void:
 	await tween.finished
 	change_state(PlayerState.SWIMMING)
 	player_movement.ToggleMovement(true)
+	print(player_inventory.coins)
 
 func change_state(new_state: PlayerState):
 	if current_state == new_state:

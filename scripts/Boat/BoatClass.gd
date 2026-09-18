@@ -22,13 +22,13 @@ var item_type_weights:Array =[
 	[1.0, 1.0, 1.0]
 	]
 
-func evaluate_inventory(_inventory:Inventory) -> int:
-	var inventory_value:int = 0 
-	for slot in inventory.slots:
+func evaluate_inventory(_inventory:Inventory) -> float:
+	var inventory_value: float = 0 
+	for slot in _inventory.slots:
 		if slot.is_empty(): continue
 		var _stack = slot.stack
 		inventory_value += _stack.amount * _stack.item.basevalue * item_type_weights[boatType][_stack.item.item_type]
-	return floor(inventory_value)
+	return inventory_value
 	
 
 func loadItem(item:Item, amount:int):
