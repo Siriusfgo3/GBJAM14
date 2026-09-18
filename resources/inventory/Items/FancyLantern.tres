@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bbsnlcplv630"]
+
+[ext_resource type="Script" uid="uid://fpa6cpityo5p" path="res://scripts/Inventory/inventory_item.gd" id="1_kom7w"]
+[ext_resource type="Texture2D" uid="uid://c2a5k5v8ixvpn" path="res://sprites/Foreground/Wave.png" id="2_krdjb"]
+
+[resource]
+script = ExtResource("1_kom7w")
+name = "Fancy Lantern"
+texture = ExtResource("2_krdjb")
+basevalue = 90
+item_type = "Trinket"
+metadata/_custom_type_script = "uid://fpa6cpityo5p"
