@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cthf46o5s23yy"]
 
 [ext_resource type="Script" uid="uid://neekrpbvybwv" path="res://scripts/Port.gd" id="1_no654"]
+[ext_resource type="Texture2D" uid="uid://mhjp7nmrfiix" path="res://sprites/Background/landshop_front.png" id="3_lwlge"]
 [ext_resource type="Texture2D" uid="uid://c5kecv8crp7yg" path="res://sprites/Background/harbour.png" id="3_psmix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s170r"]
@@ -62,7 +63,8 @@ shape = SubResource("RectangleShape2D_e77pp")
 debug_color = Color(0.89708453, 0.30333963, 0.24480939, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=35594905]
-visible = false
+z_index = -1
+position = Vector2(-170, 8)
 sprite_frames = SubResource("SpriteFrames_hhkc5")
 autoplay = "default"
 frame_progress = 0.7092993
@@ -74,3 +76,8 @@ position = Vector2(-184, 39)
 
 [node name="QueueStartLocation" type="Marker2D" parent="." unique_id=32589532]
 position = Vector2(-217, 71)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861252553]
+z_index = 1
+position = Vector2(-4, 72)
+texture = ExtResource("3_lwlge")

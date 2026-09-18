@@ -12,6 +12,8 @@ size = Vector2(30, 8)
 size = Vector2(82, 37)
 
 [node name="Type0Tier0Boat" unique_id=1998020412 instance=ExtResource("1_lymcv")]
+z_index = -2
+z_as_relative = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=2003058016]
 visible = false

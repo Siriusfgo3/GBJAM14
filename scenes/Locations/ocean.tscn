@@ -65,17 +65,30 @@ shop = NodePath("../UI/PortUi/Land_shop")
 port_ui = NodePath("../UI/PortUi")
 
 [node name="Pier" type="Node2D" parent="Port" unique_id=589687631]
-z_index = 1
 z_as_relative = false
-position = Vector2(-1121, -7)
+position = Vector2(-1121, -1)
 
 [node name="bro" type="TileMapLayer" parent="Port/Pier" unique_id=794203817]
-tile_map_data = PackedByteArray("AAAgAAcAAAAAAAAAAAAhAAcAAAAAAAAAAAAiAAcAAAAAAAAAAAAjAAcAAAAAAAAAAAAkAAcAAAAAAAAAAAAlAAcAAAAAAAAAAAAmAAcAAAAAAAAAAAAfAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAgAAcAAAAAAAAAAAAhAAcAAAAAAAAAAAAiAAcAAAAAAAAAAAAjAAcAAAAAAAAAAAAkAAcAAAAAAAAAAAAlAAcAAAAAAAAAAAAmAAcAAAAAAAAAAAAfAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAAcAAcAAAAAAAAAAAAbAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_gd8w5")
 
 [node name="stolper" type="TileMapLayer" parent="Port/Pier" unique_id=515069805]
 position = Vector2(-4, 0)
-tile_map_data = PackedByteArray("AACNAAIAAAAEAAAAAACTAAIAAAAEAAAAAACZAAIAAAAEAAAAAACDAAIAAAAEAAAAAACPAAIAAAAEAAAAAAB7AAIAAAAEAAAAAAB3AAIAAAAEAAAAAACJAAIAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AACNAAIAAAAEAAAAAACTAAIAAAAEAAAAAACZAAIAAAAEAAAAAACDAAIAAAAEAAAAAACPAAIAAAAEAAAAAAB7AAIAAAAEAAAAAAB3AAIAAAAEAAAAAACJAAIAAAAEAAAAAABxAAIAAAAEAAAAAABrAAIAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_v07a6")
+
+[node name="Pier2" type="Node2D" parent="Port" unique_id=1144503664]
+z_index = 5
+z_as_relative = false
+position = Vector2(-1099, 28)
+
+[node name="bro" type="TileMapLayer" parent="Port/Pier2" unique_id=1325442938]
+tile_map_data = PackedByteArray("AAAgAAcAAAAAAAAAAAAhAAcAAAAAAAAAAAAiAAcAAAAAAAAAAAAjAAcAAAAAAAAAAAAkAAcAAAAAAAAAAAAlAAcAAAAAAAAAAAAmAAcAAAAAAAAAAAAfAAcAAAAAAAAAAAAeAAcAAAAAAAAAAAAdAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gd8w5")
+
+[node name="stolper" type="TileMapLayer" parent="Port/Pier2" unique_id=484196503]
+position = Vector2(-4, 0)
+tile_map_data = PackedByteArray("AACNAAIAAAAEAAAAAACTAAIAAAAEAAAAAACZAAIAAAAEAAAAAACDAAIAAAAEAAAAAACPAAIAAAAEAAAAAAB7AAIAAAAEAAAAAAB3AAIAAAAEAAAAAACJAAIAAAAEAAAAAACAAAIAAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_v07a6")
 
 [node name="OceanWaves" parent="." unique_id=750200247 instance=ExtResource("6_iqfgw")]
