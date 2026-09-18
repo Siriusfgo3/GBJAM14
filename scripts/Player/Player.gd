@@ -4,6 +4,7 @@ class_name Player
 @export var player_inventory: Inventory
 @export var player_movement: PlayerMovement
 @export var animation_tree: AnimationTree
+@export var loot_pickup: Area2D
 
 @onready var state_machine = animation_tree["parameters/playback"]
 
@@ -18,7 +19,23 @@ enum PlayerState {
 
 var current_state: PlayerState = PlayerState.SWIMMING
 
+func _ready() -> void:
+	loot_pickup.area_entered.connect(_handleLootPickUp)
 
+func _handleLootPickUp(area: Area2D) -> void:
+	var item := area as WorldItem
+	if item:
+		if item.current_state == item.LocomotionState.FLOATING:
+			player_inventory.add_item(item.item_resource, item.amount)
+			item.DespawnItem()
+		else:
+			print('timer bliver startet')
+			await get_tree().create_timer(0.62).timeout
+			print('timer bliver færdig')
+			if loot_pickup.overlaps_area(item):
+				print('oh no')
+				_handleLootPickUp(item)
+	return
 
 func _input(event) -> void:
 	match current_state:

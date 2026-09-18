@@ -408,11 +408,15 @@ graph_offset = Vector2(14, -124)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuby"]
 size = Vector2(34.5, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement", "animation_tree") groups=["Player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3avvq"]
+radius = 29.017237
+
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement", "animation_tree", "loot_pickup") groups=["Player"]]
 script = ExtResource("1_70d11")
 player_inventory = NodePath("PlayerInventory")
 player_movement = NodePath("PlayerMovement")
 animation_tree = NodePath("PlayerAnimationTree")
+loot_pickup = NodePath("loot_pickup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
 visible = false
@@ -487,3 +491,8 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hitbox" unique_id=233664278]
 position = Vector2(13.25, -6)
 shape = SubResource("RectangleShape2D_kbuby")
+
+[node name="loot_pickup" type="Area2D" parent="." unique_id=430288884]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loot_pickup" unique_id=1218054245]
+shape = SubResource("CircleShape2D_3avvq")

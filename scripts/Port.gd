@@ -52,7 +52,12 @@ func OnPierZoneEntered(body: Node2D) -> void:
 			return #Port is FULL
 		
 		_boat.SailToX(boat_queue_pos)
+		_boat.boat_dead.connect(_onBoatKill)
 		boat_queue.push_back(body)
+
+func _onBoatKill(boat: Boat)-> void:
+	boat_queue.erase(boat)
+		
 
 func _on_player_exit()-> void:
 	port_ui.MoveShopOutOfView()
