@@ -6,6 +6,13 @@ var slots: Array[InventorySlot]
 
 var coins: int = 0
 
+var item_weights: Array = [
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0]
+	]
+
 signal inventory_updated
 
 func _ready():
@@ -34,6 +41,10 @@ func take_money(money: int) -> void:
 	coins -= money
 	inventory_updated.emit()
 	
+func empty_coffers() -> void:
+	coins = 0
+	inventory_updated.emit()
+
 func can_accept(item: Item, amount: int) -> bool:
 	for slot in slots:
 		if not slot.is_empty() and slot.stack.item == item:

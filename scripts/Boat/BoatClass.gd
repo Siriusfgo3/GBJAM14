@@ -15,6 +15,22 @@ signal boat_dead(boat: Boat)
 @export var boat_movement: BoatMovement
 @export var world_item_scene: PackedScene
 
+var item_type_weights:Array =[
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0],
+	[1.0, 1.0, 1.0]
+	]
+
+func evaluate_inventory(_inventory:Inventory) -> int:
+	var inventory_value:int = 0 
+	for slot in inventory.slots:
+		if slot.is_empty(): continue
+		var _stack = slot.stack
+		inventory_value += _stack.amount * _stack.item.basevalue * item_type_weights[boatType][_stack.item.item_type]
+	return floor(inventory_value)
+	
+
 func loadItem(item:Item, amount:int):
 	inventory.add_item(item, amount)
 
