@@ -54,6 +54,15 @@ func _move_from_ui_to_inventory(ui_slot: InventoryUISlot, dest: Inventory) -> vo
 	if dest == null:
 		return
 	dest.receive_from(ui_slot.inventory_slot)
+
+func balance_trade() -> void:
+	var diff = their_scale_inventory.get_value("type")-player_scale_inventory.get_value("player")
+	if diff <= 0:
+		their_scale_inventory.add_money(diff)
+	elif player_inventory.coins >= diff:
+		player_inventory.take_money(diff)
+		player_scale_inventory.add_money(diff)
+	return
 	
 func _on_trade_button_pressed() -> void:
 	#TO-DO MOVE MONEY AS WELL + CHECK TRADE VALIDITY

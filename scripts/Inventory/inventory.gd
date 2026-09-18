@@ -4,6 +4,8 @@ class_name Inventory
 var slots: Array[InventorySlot]
 @export var num_slots: int = 12
 
+var coins: int = 0
+
 func _ready():
 	InitializeSlots()
 
