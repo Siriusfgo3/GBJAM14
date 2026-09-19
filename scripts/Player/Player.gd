@@ -9,7 +9,6 @@ class_name Player
 
 @onready var state_machine = animation_tree["parameters/playback"]
 
-
 signal shop_exit
 
 enum PlayerState {
@@ -51,7 +50,11 @@ func OnShopEntered() -> void:
 	change_state(PlayerState.TRADING)
 	player_movement.ToggleMovement(false)
 
-func OnShopExit(target: Vector2) -> void:
+func OnShopExit(target: Vector2, use_own_x: bool, use_own_y: bool) -> void:
+	if use_own_x:
+		target.x = global_position.x
+	if use_own_y:
+		target.y = global_position.y
 	velocity = Vector2.ZERO
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -67,17 +70,17 @@ func change_state(new_state: PlayerState):
 	current_state = new_state
 
 func move_animation(direction: Vector2) -> void:
-	
+
 	if direction.x:
 		$PlayerVisual.scale.x = direction.x
 		$attack_hitbox.scale.x = direction.x
-		
+
 func attack_animation() -> void:
 	state_machine.travel("player_attack_small")
-	
+
 func stun_animation() -> void:
 	state_machine.travel("player_hurt")
-	
+
 func GetHit():
 	player_movement.ToggleMovement(false)
 	stun_timer.start()
@@ -89,7 +92,7 @@ func GetHit():
 	tween.tween_property(self, "global_position", target, 1)
 	await tween.finished
 	#change_state(PlayerState.CC)
-	
+
 func _stun_ended() -> void:
 	#change_state(PlayerState.SWIMMING)
 	player_movement.ToggleMovement(true)
