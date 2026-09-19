@@ -2,7 +2,7 @@
 extends Node
 
 var sounds = {
-	"CannonShot": preload("res://sounds/CannonShot.mp3")
+	"CannonShot": preload("res://audio/SFX/sounds/CannonShot.mp3")
 }
 
 func play_sound(key: String) -> void:
