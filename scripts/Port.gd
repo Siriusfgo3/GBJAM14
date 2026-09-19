@@ -33,7 +33,8 @@ func _ready() -> void:
 func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		EnterShopZone.set_deferred("monitoring", false)
-		_player.shop_exit.connect(_on_player_exit)
+		if !_player.shop_exit.is_connected(_on_player_exit):
+			_player.shop_exit.connect(_on_player_exit)
 		_player.OnShopEntered()
 		port_ui.MoveShopIntoView()
 		#player_entered_shop.emit()
