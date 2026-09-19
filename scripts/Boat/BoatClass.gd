@@ -14,6 +14,12 @@ signal boat_dead(boat: Boat)
 
 @export var boat_movement: BoatMovement
 @export var world_item_scene: PackedScene
+@export var docked_z_index: int = -4
+var is_docked: bool = false
+var _sailing_z_index: int = -2
+var _sailing_z_as_relative: bool = true
+
+@onready var mast_container = get_node_or_null("Mast_container")
 @onready var BoatFront = $BoatFront
 @onready var BoatEnd = $BoatEnd
 @onready var boat_length = BoatFront.position.x - BoatEnd.position.x
@@ -45,13 +51,28 @@ func GetInventory() -> Inventory:
 	return inventory
 
 func EnterQueue():
-	print("Boat entered queueu")
 	boat_movement.speed = 10
 	collision_mask |= 1 << 2
 	
 func SailToX(target: int) -> void:
-	print("[Boat]: Setting target x")
 	boat_movement.set_target(target)
+	
+func SetDocked(docked: bool) -> void:
+	if is_docked == docked:
+		return
+	is_docked = docked
+	
+	if docked:
+		_sailing_z_index = z_index
+		_sailing_z_as_relative = z_as_relative
+		z_as_relative = false
+		z_index = docked_z_index
+	else:
+		z_index = _sailing_z_index
+		z_as_relative = _sailing_z_as_relative
+
+	if mast_container:
+		mast_container.SetMastsDamageable(not docked)
 
 func TakeHit() -> void:
 	if allMastsAreDown:

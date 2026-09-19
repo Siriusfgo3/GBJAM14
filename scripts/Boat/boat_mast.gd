@@ -13,6 +13,14 @@ func _ready() -> void:
 	isDestroyed = false
 	flag_sprite.visible = true
 	damaged_sprite.visible = false
+	
+	
+func SetDamageable(damageable: bool) -> void:
+	if isDestroyed:
+		return
+	area.set_deferred("monitorable", damageable)
+	area.set_deferred("monitoring", damageable)
+
 
 func DestroyMast() -> void:
 	if isDestroyed: return

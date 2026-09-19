@@ -26,6 +26,7 @@ var active_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_player.shop_exit.connect(_on_player_exit)
 	PierZone.body_entered.connect(OnPierZoneEntered)
 	EnterShopZone.body_entered.connect(OnShopEntered)
 
@@ -46,13 +47,14 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
-		print(_boatLen)
+		
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
 			print("Boat rejected: port full")
 			return #Port is FULL
 		
+		_boat.SetDocked(true)
 		_boat.SailToX(boat_queue_pos)
 		_boat.boat_dead.connect(_onBoatKill)
 		boat_queue.push_back(body)
