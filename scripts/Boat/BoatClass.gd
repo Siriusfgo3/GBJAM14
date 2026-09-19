@@ -36,11 +36,6 @@ func evaluate_inventory(_inventory:Inventory) -> float:
 func loadItem(item:Item, amount:int):
 	inventory.add_item(item, amount)
 
-func _process(delta: float):
-	if allMastsAreDown:
-		if Input.is_action_just_pressed("button_a"):
-			queue_free()
-
 func GetInventory() -> Inventory:
 	return inventory
 
