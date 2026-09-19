@@ -5,5 +5,4 @@
 
 [resource]
 script = ExtResource("1_ireba")
-name = "harpoon heads"
 texture = ExtResource("2_v6tkp")
