@@ -110,11 +110,11 @@ shape = SubResource("RectangleShape2D_khinc")
 
 [node name="Port" parent="." unique_id=373208614 node_paths=PackedStringArray("_player", "shop", "port_ui") instance=ExtResource("3_4imn2")]
 position = Vector2(1121, 1)
-queue_spacing = null
-max_queue_spots = null
 _player = NodePath("../Player")
 shop = NodePath("../UI/PortUi/Land_shop")
 port_ui = NodePath("../UI/PortUi")
+queue_spacing = null
+max_queue_spots = null
 
 [node name="Pier" type="Node2D" parent="Port" unique_id=589687631]
 z_as_relative = false

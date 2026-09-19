@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://8u84hlunxklh"]
+
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_q5kpd"]
+[ext_resource type="Texture2D" uid="uid://djswhutrb6tve" path="res://sprites/BoatTest/type11.png" id="2_f7p2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7p2n"]
+size = Vector2(120, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vcsy"]
+size = Vector2(138, 30)
+
+[node name="type_1_tier_1_boat" unique_id=1998020412 instance=ExtResource("1_q5kpd")]
+
+[node name="BoatVisual" parent="." index="0" unique_id=196437451]
+texture = ExtResource("2_f7p2n")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f7p2n")
+
+[node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
+shape = SubResource("RectangleShape2D_8vcsy")
+
+[node name="BoatFront" parent="." index="8" unique_id=1949357458]
+position = Vector2(60, -15)
+
+[node name="BoatEnd" parent="." index="9" unique_id=464663935]
+position = Vector2(-60, -15)

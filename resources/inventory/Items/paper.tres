@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("1_6iopq")
+name = "paper"
 texture = ExtResource("2_74m18")

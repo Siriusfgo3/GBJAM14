@@ -38,8 +38,7 @@ func OnShopEntered(body: Node2D) -> void:
 		#player_entered_shop.emit()
 		if active_boat == null:
 			active_boat = next_boat_from_queue()
-		if active_boat != null:
-			shop.LoadShop(_player, active_boat.GetInventory())
+		shop.LoadShop(_player, active_boat)
 
 func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -47,11 +46,10 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
-		print(_boatLen)
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
-			print("Boat rejected: port full")
+			#print("Boat rejected: port full")
 			return #Port is FULL
 		
 		_boat.SailToX(boat_queue_pos)
@@ -59,7 +57,9 @@ func OnPierZoneEntered(body: Node2D) -> void:
 		boat_queue.push_back(body)
 
 func _onBoatKill(boat: Boat)-> void:
+	boat.boat_dead.disconnect(_onBoatKill)
 	boat_queue.erase(boat)
+	print(boat_queue)
 	_advance_queue()
 		
 
@@ -73,6 +73,8 @@ func _on_player_exit()-> void:
 	
 func _dismiss_active_boat() -> void:
 	if active_boat != null:
+		if active_boat.boat_dead.is_connected(_onBoatKill):
+			active_boat.boat_dead.disconnect(_onBoatKill)
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()

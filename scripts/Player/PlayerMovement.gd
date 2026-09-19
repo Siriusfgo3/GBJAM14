@@ -3,7 +3,7 @@ class_name PlayerMovement
 
 @export var _body: CharacterBody2D
 
-@export var SPEED: float = 100
+@export var SPEED: float = 200
 @export var ACCELERATION: int = 2
 @export var FRICTION: int = 8
 

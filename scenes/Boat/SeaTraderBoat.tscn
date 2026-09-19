@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5ain13tnnbq7"]
+
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_8l8rh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8l8rh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c26f6"]
+
+[node name="SeatraderBoat" unique_id=1998020412 instance=ExtResource("1_8l8rh")]
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
+shape = SubResource("CircleShape2D_8l8rh")
+disabled = true
+
+[node name="BoatMovement" parent="." index="2" unique_id=512072170]
+disabled = true
+
+[node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
+shape = SubResource("CircleShape2D_c26f6")
+disabled = true

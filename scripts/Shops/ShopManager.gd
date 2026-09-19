@@ -3,7 +3,6 @@ class_name ShopManager
 
 var player_inventory: Inventory
 
-
 @export var port: Port
 
 @export var player_inventory_ui: InventoryUI
@@ -35,21 +34,27 @@ func _ready() -> void:
 	their_scale_inventory.inventory_updated.connect(balance_trade)
 	
 
-func LoadShop(player: Player, boat_inventory: Inventory) -> void:
+func LoadShop(player: Player, boat: Boat) -> void:
 	player_inventory = player.get_inventory()
 	player_inventory_ui.bind_inventory(player_inventory)
 	
-	if boat_inventory == null:
+	if boat == null:
 		return
 	
 	print("Filling boat inventory")
-	their_inventory = boat_inventory
+	their_inventory = boat.GetInventory()
 	their_inventory_ui.bind_inventory(their_inventory)
+	
+	#Set focus:
+	if their_inventory_ui.ui_slots.is_empty():
+		return
+	their_inventory_ui.ui_slots[0].button.call_deferred("grab_focus")
 
 func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_scale_inventory)
 	
 func _on_their_item_pressed(ui_slot: InventoryUISlot) -> void:
+	if ui_slot.inventory_slot.is_empty(): return
 	var _stack_value = item_trade_value(ui_slot.inventory_slot.stack)
 	if their_scale_inventory.coins + _stack_value <= player_inventory.coins:
 		_move_from_ui_to_inventory(ui_slot, their_scale_inventory)
@@ -79,7 +84,7 @@ func balance_trade() -> void:
 	_balancing = true
 
 	var target: float = 0.0
-	if port:
+	if port && port.active_boat != null:
 		target = port.active_boat.evaluate_inventory(player_scale_inventory)
 	else:
 		target = GetInventoryValue(player_scale_inventory)

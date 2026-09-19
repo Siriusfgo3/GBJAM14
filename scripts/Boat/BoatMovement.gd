@@ -9,6 +9,7 @@ var direction: int = 1
 
 @export var _body: CharacterBody2D
 
+@export var disabled: bool = false
 
 var target_x: int = GlobalVariables.OCEAN_WIDTH * 2
 
@@ -19,6 +20,8 @@ func _on_timeout() -> void:
 	_body.velocity.x = direction * speed
 	
 func _physics_process(_delta: float) -> void:
+	if disabled: return
+	
 	if _body.global_position.x > target_x:
 		_body.velocity.x = 0
 		return
