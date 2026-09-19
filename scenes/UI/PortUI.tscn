@@ -1,37 +1,6 @@
-[gd_scene format=4 uid="uid://b4khuiwq5pgyy"]
+[gd_scene format=3 uid="uid://b4khuiwq5pgyy"]
 
 [ext_resource type="Script" uid="uid://cqx1ag81ik4ej" path="res://scripts/UI/PortUI.gd" id="1_nbqdi"]
-[ext_resource type="Texture2D" uid="uid://ftiamuwlyy5" path="res://sprites/Foreground/planks_spritesheet.png" id="2_j0ums"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klo21"]
-texture = ExtResource("2_j0ums")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/animation_mode = 1
-1:0/animation_frame_0/duration = 1.0
-1:0/animation_frame_1/duration = 1.0
-1:0/0 = 0
-0:1/size_in_atlas = Vector2i(2, 1)
-0:1/animation_columns = 2
-0:1/animation_mode = 1
-0:1/animation_frame_0/duration = 1.0
-0:1/animation_frame_1/duration = 1.0
-0:1/animation_frame_2/duration = 1.0
-0:1/animation_frame_3/duration = 1.0
-0:1/animation_frame_4/duration = 1.0
-0:1/0 = 0
-4:0/size_in_atlas = Vector2i(1, 2)
-4:0/0 = 0
-4:0/0/texture_origin = Vector2i(0, -16)
-4:0/0/z_index = 2
-4:2/size_in_atlas = Vector2i(1, 2)
-4:2/0 = 0
-4:2/0/texture_origin = Vector2i(0, -16)
-4:2/0/z_index = 1
-
-[sub_resource type="TileSet" id="TileSet_hhkc5"]
-tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetAtlasSource_klo21")
 
 [node name="PortUi" type="Control" unique_id=919939360]
 layout_mode = 3
@@ -41,20 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nbqdi")
-
-[node name="TransitionOverlay" type="ColorRect" parent="." unique_id=1398752933]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 160.0
-offset_right = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.58257324, 0.48958796, 0.5981424, 1)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="TransitionOverlay" unique_id=1190800502]
-tile_map_data = PackedByteArray("AAAAAAAAAQAEAAAAAAAAAAEAAQAEAAIAAAAAAAIAAQAAAAAAAAAAAAMAAQABAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAEAAAABAAIAAQAEAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAEAAIAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAAAAQAEAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAEAAAADAAMAAQAEAAIAAAADAAQAAQAAAAAAAAAEAAAAAQABAAAAAAAEAAEAAQAEAAIAAAAEAAIAAQAAAAAAAAAEAAMAAQAEAAAAAAAEAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_hhkc5")
-rendering_quadrant_size = 32

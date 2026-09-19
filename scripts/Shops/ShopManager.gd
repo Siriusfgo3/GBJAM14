@@ -4,7 +4,7 @@ class_name ShopManager
 var player_inventory: Inventory
 
 
-@export var port:Port
+@export var port: Port
 
 @export var player_inventory_ui: InventoryUI
 
@@ -35,15 +35,15 @@ func _ready() -> void:
 	their_scale_inventory.inventory_updated.connect(balance_trade)
 	
 
-func LoadShop(player: Player, boat: Boat) -> void:
+func LoadShop(player: Player, boat_inventory: Inventory) -> void:
 	player_inventory = player.get_inventory()
 	player_inventory_ui.bind_inventory(player_inventory)
 	
-	if boat == null:
+	if boat_inventory == null:
 		return
 	
 	print("Filling boat inventory")
-	their_inventory = boat.GetInventory()
+	their_inventory = boat_inventory
 	their_inventory_ui.bind_inventory(their_inventory)
 
 func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
@@ -73,18 +73,30 @@ func item_trade_value(item_stack: ItemStack) -> int:
 	var _stack_value = (_item_amount * item_stack.item.basevalue)
 	return _stack_value
 
-
 func balance_trade() -> void:
 	if _balancing:
 		return
 	_balancing = true
 
-	var target := port.active_boat.evaluate_inventory(player_scale_inventory)
+	var target: float = 0.0
+	if port:
+		target = port.active_boat.evaluate_inventory(player_scale_inventory)
+	else:
+		target = GetInventoryValue(player_scale_inventory)
 	var delta := target - their_scale_inventory.coins
 	if delta != 0:
 		their_scale_inventory.add_money(delta)
 
 	_balancing = false
+	
+func GetInventoryValue(_inventory: Inventory) -> float:
+	var _value := 0.0
+	for slot in _inventory.slots:
+		if slot.is_empty(): continue
+		var _stack := slot.stack
+		if _stack:
+			_value += _stack.item.basevalue * _stack.amount
+	return _value
 	
 func _on_trade_button_pressed() -> void:
 	#TO-DO MOVE MONEY AS WELL + CHECK TRADE VALIDITY

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhqdefugyssdd"]
 
 [ext_resource type="Script" uid="uid://c7tnpojcb8n1u" path="res://scripts/Inventory/inv_ui_slot.gd" id="1_dmkqm"]
+[ext_resource type="FontFile" uid="uid://b5oqmqsfjok1g" path="res://fonts/Early GameBoy.ttf" id="2_dmkqm"]
 
 [node name="inventory_ui_slot" type="Control" unique_id=836233189 node_paths=PackedStringArray("texture_rect", "amount_label", "button")]
 self_modulate = Color(1, 1, 1, 0)
@@ -34,6 +35,8 @@ stretch_mode = 4
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("2_dmkqm")
 theme_override_font_sizes/font_size = 8
 
 [connection signal="pressed" from="SlotUIButton" to="." method="_on_button_pressed"]
