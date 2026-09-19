@@ -26,18 +26,20 @@ var active_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_player.shop_exit.connect(_on_player_exit)
 	PierZone.body_entered.connect(OnPierZoneEntered)
 	EnterShopZone.body_entered.connect(OnShopEntered)
 
 func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		EnterShopZone.set_deferred("monitoring", false)
+		_player.shop_exit.connect(_on_player_exit)
 		_player.OnShopEntered()
 		port_ui.MoveShopIntoView()
-		player_entered_shop.emit()
+		#player_entered_shop.emit()
 		if active_boat == null:
 			active_boat = next_boat_from_queue()
-		shop.LoadShop(_player, active_boat)
+		if active_boat != null:
+			shop.LoadShop(_player, active_boat.GetInventory())
 
 func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -57,12 +59,14 @@ func OnPierZoneEntered(body: Node2D) -> void:
 
 func _onBoatKill(boat: Boat)-> void:
 	boat_queue.erase(boat)
-		
 
 func _on_player_exit()-> void:
+	_player.shop_exit.disconnect(_on_player_exit)
 	port_ui.MoveShopOutOfView()
-	_player.OnShopExit(exit_location.global_position)
+	var target: Vector2 = Vector2(global_position.x - 100, 0)
 	_dismiss_active_boat()
+	await _player.OnShopExit(target, false, true)
+	EnterShopZone.set_deferred("monitoring", true)
 	
 func _dismiss_active_boat() -> void:
 	if active_boat != null:

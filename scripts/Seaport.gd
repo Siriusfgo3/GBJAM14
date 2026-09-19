@@ -1,24 +1,32 @@
 extends Node2D
 class_name Seaport
 
-signal seaport_entered
-signal seaport_exited
+@export var EnterZone: Area2D
+@export var _player: Player
+@export var seaport_ui: PortUI
+@export var seashop: ShopManager
 
-@export var collider: CollisionShape2D
+@export var exit_location: Marker2D
+
+var seashop_inventory: Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Area2D.body_entered.connect(_on_body_entered)
-	$Area2D.body_exited.connect(_on_body_exit)
+	EnterZone.body_entered.connect(OnShopEntered)
 
-func _on_body_exit(body: Node2D) -> void:
+func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		seaport_exited.emit()
+		EnterZone.set_deferred("monitoring", false)
+		_player.shop_exit.connect(_on_player_exit)
+		print("[Seaport]: Player entered area2d")
+		_player.OnShopEntered()
+		seaport_ui.MoveShopIntoView()
+		if seashop_inventory != null:
+			seashop.LoadShop(_player, seashop_inventory)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		seaport_entered.emit()
-	pass
-	
-func get_collider() -> CollisionShape2D:
-	return collider
+func _on_player_exit()-> void:
+	_player.shop_exit.disconnect(_on_player_exit)
+	seaport_ui.MoveShopOutOfView()
+	var target: Vector2 = Vector2(0, 72)
+	await _player.OnShopExit(target, true, false)
+	EnterZone.set_deferred("monitoring", true)
