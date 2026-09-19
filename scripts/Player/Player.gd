@@ -29,11 +29,8 @@ func _handleLootPickUp(area: Area2D) -> void:
 			player_inventory.add_item(item.item_resource, item.amount)
 			item.DespawnItem()
 		else:
-			print('timer bliver startet')
 			await get_tree().create_timer(0.62).timeout
-			print('timer bliver færdig')
 			if loot_pickup.overlaps_area(item):
-				print('oh no')
 				_handleLootPickUp(item)
 	return
 

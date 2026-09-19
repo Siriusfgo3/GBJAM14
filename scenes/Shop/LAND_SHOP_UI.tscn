@@ -283,7 +283,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="NPC_TRADE_INV" type="GridContainer" parent="." unique_id=169670058]
+[node name="NPC_TRADE_INV" type="GridContainer" parent="." unique_id=169670058 node_paths=PackedStringArray("coinStack")]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 78.0
@@ -293,6 +293,7 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
 script = ExtResource("4_f5hn5")
+coinStack = NodePath("../NPC_coins")
 
 [node name="inventory_ui_slot" parent="NPC_TRADE_INV" unique_id=930936324 instance=ExtResource("3_885ui")]
 custom_minimum_size = Vector2(20, 20)
@@ -310,7 +311,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 
-[node name="PLAYER_TRADE_INV" type="GridContainer" parent="." unique_id=695477252]
+[node name="PLAYER_TRADE_INV" type="GridContainer" parent="." unique_id=695477252 node_paths=PackedStringArray("coinStack")]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 80.0
@@ -320,6 +321,7 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
 script = ExtResource("4_f5hn5")
+coinStack = NodePath("../PLAYER_trade_coins")
 
 [node name="inventory_ui_slot" parent="PLAYER_TRADE_INV" unique_id=929357135 instance=ExtResource("3_885ui")]
 custom_minimum_size = Vector2(16, 16)
@@ -421,5 +423,3 @@ texture_focused = SubResource("AtlasTexture_5o2sn")
 texture_click_mask = ExtResource("9_iei2f")
 
 [connection signal="pressed" from="TRADE_BUTTON" to="." method="_on_trade_button_pressed"]
-
-[editable path="NPC_INV/inventory_ui_slot"]

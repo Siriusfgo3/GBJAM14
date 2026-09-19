@@ -14,6 +14,7 @@ var item_weights: Array = [
 	]
 
 signal inventory_updated
+signal money_changed
 
 func _ready():
 	InitializeSlots()
@@ -40,14 +41,17 @@ func add_money(money: float) -> void:
 		return
 	coins += money
 	inventory_updated.emit()
+	money_changed.emit()
 	
 func take_money(money: float) -> void:
 	coins -= money
 	inventory_updated.emit()
+	money_changed.emit()
 	
 func empty_coffers() -> void:
 	coins = 0
 	inventory_updated.emit()
+	money_changed.emit()
 
 func can_accept(item: Item, amount: int) -> bool:
 	for slot in slots:

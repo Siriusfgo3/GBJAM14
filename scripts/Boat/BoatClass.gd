@@ -53,7 +53,7 @@ func SailToX(target: int) -> void:
 
 func TakeHit() -> void:
 	if allMastsAreDown:
-		Die()
+		Die.call_deferred()
 	else:
 		pass
 

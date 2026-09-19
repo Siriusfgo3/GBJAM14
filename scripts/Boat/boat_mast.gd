@@ -15,8 +15,10 @@ func _ready() -> void:
 	damaged_sprite.visible = false
 
 func DestroyMast() -> void:
+	if isDestroyed: return
 	isDestroyed = true
-	area.disable_mode
+	area.set_deferred("monitorable", false)
+	area.set_deferred("monitoring", false)
 	flag_sprite.visible = false
 	damaged_sprite.visible = true
 	mastContainer.checkMasts()
