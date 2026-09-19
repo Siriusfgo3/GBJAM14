@@ -1,44 +1,30 @@
 [gd_scene format=3 uid="uid://nkfa0imu5l5a"]
 
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_lymcv"]
-[ext_resource type="Texture2D" uid="uid://c3uw6bcqdf1fs" path="res://sprites/Ships/Med_Ship.png" id="2_ye27h"]
-[ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="3_ye27h"]
-[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="4_i1r8m"]
-[ext_resource type="PackedScene" uid="uid://db88xwrylkurq" path="res://scenes/Boat/Cannon.tscn" id="5_3xl7m"]
+[ext_resource type="Texture2D" uid="uid://b6m7hrleyemt3" path="res://sprites/BoatTest/type00.png" id="2_3xl7m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye27h"]
-size = Vector2(30, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m02gi"]
+size = Vector2(70, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpea6"]
-size = Vector2(82, 37)
+size = Vector2(88.5, 13.25)
 
 [node name="Type0Tier0Boat" unique_id=1998020412 instance=ExtResource("1_lymcv")]
 z_index = -2
 z_as_relative = false
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=2003058016]
-visible = false
-position = Vector2(1, 6)
-shape = SubResource("RectangleShape2D_ye27h")
+[node name="BoatVisual" parent="." index="0" unique_id=196437451]
+texture = ExtResource("2_3xl7m")
 
-[node name="BoatVisual" parent="." index="1" unique_id=196437451]
-texture = ExtResource("2_ye27h")
+[node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
+shape = SubResource("RectangleShape2D_m02gi")
 
-[node name="BigBoatMast" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="0" unique_id=1430793648 instance=ExtResource("4_i1r8m")]
-position = Vector2(0, -2)
-
-[node name="Small_Boat_Mast" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="1" unique_id=478684962 instance=ExtResource("3_ye27h")]
-position = Vector2(-10, 0)
-
-[node name="Small_Boat_Mast2" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="2" unique_id=547437789 instance=ExtResource("3_ye27h")]
-position = Vector2(11, 0)
-
-[node name="AggroRangeArea" parent="." index="4" unique_id=957004913]
-visible = false
-
-[node name="CollisionShape2D" parent="AggroRangeArea" index="0" unique_id=1247442954]
-visible = false
-position = Vector2(0, 8.5)
+[node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_xpea6")
 
-[node name="Cannon" parent="CannonContainer" parent_id_path=PackedInt32Array(939044637) index="0" unique_id=545218438 instance=ExtResource("5_3xl7m")]
+[node name="BoatFront" parent="." index="8" unique_id=1949357458]
+position = Vector2(35, -7)
+
+[node name="BoatEnd" parent="." index="9" unique_id=464663935]
+position = Vector2(-35, -7)

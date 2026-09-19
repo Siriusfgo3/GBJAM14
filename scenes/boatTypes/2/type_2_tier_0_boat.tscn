@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cj2ttpb7boiip"]
+
+[ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_tb5bk"]
+[ext_resource type="Texture2D" uid="uid://8jlqedvmtjf1" path="res://sprites/BoatTest/type20.png" id="2_8ktgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rri7d"]
+size = Vector2(70, 16)
+
+[node name="type_2_tier_0_boat" unique_id=1998020412 instance=ExtResource("1_tb5bk")]
+
+[node name="BoatVisual" parent="." index="0" unique_id=196437451]
+texture = ExtResource("2_8ktgy")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
+shape = SubResource("RectangleShape2D_rri7d")
+
+[node name="CannonContainer" parent="." index="6" unique_id=939044637]
+position = Vector2(35, -8)
+
+[node name="BoatFront" parent="." index="8" unique_id=1949357458]
+position = Vector2(35, -8)
+
+[node name="BoatEnd" parent="." index="9" unique_id=464663935]
+position = Vector2(-35, -8)

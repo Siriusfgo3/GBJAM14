@@ -16,7 +16,7 @@ var lootTables: Array = [
 	[0,0,0,0,0,0,0,0,0,0]
 ]
 
-var boatSpawnRates: Array= [1.0,0,0,0]
+var boatSpawnRates: Array= [1.0,1.0,1.0,0]
 
 var lootLookup = [
 	# Imperial
@@ -35,9 +35,9 @@ var lootLookup = [
 
 	# Oriental
 	[
-		"Chicken Feet",
-		"Paper",
-		"Tea",
+		"res://resources/inventory/Items/chicken_feet.tres",
+		"res://resources/inventory/Items/paper.tres",
+		"res://resources/inventory/Items/tea.tres",
 		"Winged Armor",
 		"Fancy Lantern",
 		"Silk",
@@ -49,9 +49,9 @@ var lootLookup = [
 
 	# Seafolk
 	[
-		"Seaweed",
-		"Harpoon Heads",
-		"Whale Blood",
+		"res://resources/inventory/Items/seaweed.tres",
+		"res://resources/inventory/Items/harpoon_heads.tres",
+		"res://resources/inventory/Items/whale_blood.tres",
 		"Seapig Armor",
 		"Seapearl",
 		"Clam Necklace",
