@@ -26,13 +26,15 @@ var active_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_player.shop_exit.connect(_on_player_exit)
 	PierZone.body_entered.connect(OnPierZoneEntered)
 	EnterShopZone.body_entered.connect(OnShopEntered)
 
 func OnShopEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		EnterShopZone.set_deferred("monitoring", false)
-		_player.shop_exit.connect(_on_player_exit)
+		if !_player.shop_exit.is_connected(_on_player_exit):
+			_player.shop_exit.connect(_on_player_exit)
 		_player.OnShopEntered()
 		port_ui.MoveShopIntoView()
 		#player_entered_shop.emit()
@@ -46,12 +48,14 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
+
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
 			#print("Boat rejected: port full")
 			return #Port is FULL
 		
+		_boat.SetDocked(true)
 		_boat.SailToX(boat_queue_pos)
 		_boat.boat_dead.connect(_onBoatKill)
 		boat_queue.push_back(body)
@@ -61,7 +65,6 @@ func _onBoatKill(boat: Boat)-> void:
 	boat_queue.erase(boat)
 	print(boat_queue)
 	_advance_queue()
-		
 
 func _on_player_exit()-> void:
 	_player.shop_exit.disconnect(_on_player_exit)
@@ -78,7 +81,7 @@ func _dismiss_active_boat() -> void:
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()
-	
+
 func _advance_queue() -> void:
 	current_queue_spot = 0
 	for boat in boat_queue:
@@ -92,3 +95,9 @@ func next_boat_from_queue() -> Boat:
 
 func PortFull() -> bool:
 	return boat_queue.size() >= max_queue_spots
+	
+func PlayerWantsToSeeNextBoat() -> void:
+	_dismiss_active_boat()
+	active_boat = next_boat_from_queue()
+	shop.LoadShop(_player, active_boat)
+	pass

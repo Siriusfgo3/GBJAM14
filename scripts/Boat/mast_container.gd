@@ -10,6 +10,10 @@ func _ready() -> void:
 			masts.append(mast)
 	checkMasts()
 
+func SetMastsDamageable(damageable: bool) -> void:
+	for mast in masts:
+		mast.SetDamageable(damageable)
+
 func checkMasts():
 	mastsLeft = 0
 	for mast in masts:

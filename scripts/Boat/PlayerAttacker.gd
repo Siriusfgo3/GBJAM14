@@ -15,14 +15,14 @@ func _ready() -> void:
 			cannons.append(child)
 
 func _on_body_entered(body: Node2D) -> void:
-	print("[Ship]: Engaging Player!")
+	#print("[Ship]: Engaging Player!")
 	if body.is_in_group("Player"):
 		ToggleCannons(true)
 		IsAttackable(true)
 		
 		
 func _on_body_exited(body: Node2D) -> void:
-	print("[Ship]: Lost Player...")
+	#print("[Ship]: Lost Player...")
 	if body.is_in_group("Player"):
 		ToggleCannons(false)
 		IsAttackable(false)
@@ -35,5 +35,6 @@ func ToggleCannons(_active: bool) -> void:
 			cannon._deactivate_cannon()
 
 func IsAttackable(_active: bool) -> void:
-	if _active:
-		print("Can be attacked")
+	pass
+	#if _active:
+		#print("Can be attacked")
