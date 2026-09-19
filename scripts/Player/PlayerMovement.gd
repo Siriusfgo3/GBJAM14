@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	
 	_body.move_and_slide()
 	_body.global_position.x = clamp(_body.global_position.x, MIN_X, MAX_X)
-	#_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
+	_body.global_position.y = clamp(_body.global_position.y, MIN_Y, MAX_Y)
 	get_parent().move_animation(direction)
 
 func ToggleMovement(_can_move: bool):

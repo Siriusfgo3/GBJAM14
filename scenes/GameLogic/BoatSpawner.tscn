@@ -4,3 +4,4 @@
 
 [node name="BoatSpawner" type="Node" unique_id=2127383270]
 script = ExtResource("1_nsnhi")
+spawnLocation = Vector2(0, 136)

@@ -209,11 +209,16 @@ MAX_X = 10000
 
 [node name="GameController" parent="Logic" unique_id=1195633560 instance=ExtResource("15_opvkg")]
 
+[node name="boatSpawner" parent="Logic/GameController" index="1" unique_id=874619701]
+spawnLocation = Vector2(0, 130)
+
 [node name="Player" parent="." unique_id=2007000961 instance=ExtResource("15_27b0x")]
-z_index = 1
+z_index = 2
 position = Vector2(69, 111)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=835726917]
 stream = ExtResource("12_s170r")
 autoplay = true
 parameters/looping = true
+
+[editable path="Logic/GameController"]
