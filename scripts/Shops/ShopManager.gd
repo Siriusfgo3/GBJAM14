@@ -119,3 +119,13 @@ func take_stack_from_ui_slot(ui_slot: InventoryUISlot) -> ItemStack:
 	if source_slot == null or source_slot.is_empty():
 		return null
 	return source_slot.take_all()
+	
+func _on_nextBoat_button_pressed() -> void:
+	if !their_scale_inventory._is_empty():
+		for their_scale_slot in their_scale_inventory_ui.ui_slots:
+			_move_from_ui_to_inventory(their_scale_slot, their_inventory)
+	if !player_scale_inventory._is_empty():
+		for player_scale_slot in player_scale_inventory_ui.ui_slots:
+			_move_from_ui_to_inventory(player_scale_slot, player_inventory)
+	port.PlayerWantsToSeeNextBoat()
+	pass

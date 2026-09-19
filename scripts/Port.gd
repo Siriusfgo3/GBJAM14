@@ -61,7 +61,6 @@ func _onBoatKill(boat: Boat)-> void:
 	boat_queue.erase(boat)
 	print(boat_queue)
 	_advance_queue()
-		
 
 func _on_player_exit()-> void:
 	_player.shop_exit.disconnect(_on_player_exit)
@@ -78,7 +77,7 @@ func _dismiss_active_boat() -> void:
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()
-	
+
 func _advance_queue() -> void:
 	current_queue_spot = 0
 	for boat in boat_queue:
@@ -92,3 +91,9 @@ func next_boat_from_queue() -> Boat:
 
 func PortFull() -> bool:
 	return boat_queue.size() >= max_queue_spots
+	
+func PlayerWantsToSeeNextBoat() -> void:
+	_dismiss_active_boat()
+	active_boat = next_boat_from_queue()
+	shop.LoadShop(_player, active_boat)
+	pass

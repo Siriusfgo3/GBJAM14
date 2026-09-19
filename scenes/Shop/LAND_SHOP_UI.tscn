@@ -422,4 +422,5 @@ texture_disabled = SubResource("AtlasTexture_v07a6")
 texture_focused = SubResource("AtlasTexture_5o2sn")
 texture_click_mask = ExtResource("9_iei2f")
 
+[connection signal="pressed" from="PLAYER_INV_BUTTON_RIGHT" to="." method="_on_nextBoat_button_pressed"]
 [connection signal="pressed" from="TRADE_BUTTON" to="." method="_on_trade_button_pressed"]
