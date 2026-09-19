@@ -7,7 +7,7 @@
 script = ExtResource("1_08xgj")
 
 [node name="spawnTimer" type="Timer" parent="." unique_id=263773946]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="boatSpawner" type="Node" parent="." unique_id=874619701 node_paths=PackedStringArray("gameControler")]
