@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cpt7wfv3v3vdd"]
 
 [ext_resource type="Script" uid="uid://bjbvpgc04xorb" path="res://scripts/Boat/boat_mast.gd" id="1_odxcn"]
+[ext_resource type="Texture2D" uid="uid://k2a3cft26jfc" path="res://sprites/Ships/Big_Mast.png" id="2_g6vay"]
 [ext_resource type="Texture2D" uid="uid://cj4rmeohart25" path="res://sprites/Ships/Fisherman.png" id="3_cwybh"]
-[ext_resource type="Texture2D" uid="uid://caml3ici37q8o" path="res://sprites/Ships/Pirate_mast.png" id="4_f56eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgu4t"]
-size = Vector2(10, 12)
+size = Vector2(12, 12)
 
 [node name="BigBoatMast" type="Node2D" unique_id=480987827 node_paths=PackedStringArray("flag_sprite", "damaged_sprite", "area")]
 script = ExtResource("1_odxcn")
@@ -14,7 +14,7 @@ damaged_sprite = NodePath("Damaged_sprite")
 area = NodePath("Area2D")
 
 [node name="Mast_sprite" type="Sprite2D" parent="." unique_id=1384639686]
-texture = ExtResource("4_f56eg")
+texture = ExtResource("2_g6vay")
 
 [node name="Damaged_sprite" type="Sprite2D" parent="." unique_id=1039405763]
 visible = false
@@ -24,5 +24,5 @@ texture = ExtResource("3_cwybh")
 [node name="Area2D" type="Area2D" parent="." unique_id=198773209]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1325044028]
-position = Vector2(-1, -5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_qgu4t")

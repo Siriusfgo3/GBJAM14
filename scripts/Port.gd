@@ -17,7 +17,7 @@ signal player_entered_shop
 
 @export var max_queue_length: int = 400
 @export var queue_start_marker: Marker2D
-@export var queue_spacing: int = 6
+@export var queue_spacing: int = 0
 var current_queue_spot: int = 0
 
 @export var max_queue_spots: int = 5
@@ -47,6 +47,7 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
+		print(_boatLen)
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
@@ -59,6 +60,8 @@ func OnPierZoneEntered(body: Node2D) -> void:
 
 func _onBoatKill(boat: Boat)-> void:
 	boat_queue.erase(boat)
+	_advance_queue()
+		
 
 func _on_player_exit()-> void:
 	_player.shop_exit.disconnect(_on_player_exit)

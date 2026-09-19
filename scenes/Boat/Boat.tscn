@@ -17,14 +17,13 @@ inventory = NodePath("BoatInventory")
 boat_movement = NodePath("BoatMovement")
 world_item_scene = ExtResource("2_th6ns")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
-
 [node name="BoatVisual" type="Sprite2D" parent="." unique_id=196437451]
 
-[node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body", "sailDirectionTimer")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003058016]
+
+[node name="BoatMovement" type="Node" parent="." unique_id=512072170 node_paths=PackedStringArray("_body")]
 script = ExtResource("2_1gyrj")
 _body = NodePath("..")
-sailDirectionTimer = NodePath("RandomSailDirectionTimer")
 
 [node name="RandomSailDirectionTimer" type="Timer" parent="BoatMovement" unique_id=828518960]
 
@@ -44,3 +43,9 @@ cannonContainer = NodePath("../CannonContainer")
 [node name="BoatInventory" type="Node" parent="." unique_id=1660069784]
 script = ExtResource("5_xpea6")
 num_slots = 10
+
+[node name="BoatFront" type="Marker2D" parent="." unique_id=1949357458]
+position = Vector2(22, -4)
+
+[node name="BoatEnd" type="Marker2D" parent="." unique_id=464663935]
+position = Vector2(-22, -4)

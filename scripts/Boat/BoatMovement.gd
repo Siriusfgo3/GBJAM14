@@ -9,20 +9,14 @@ var direction: int = 1
 
 @export var _body: CharacterBody2D
 
-@export var sailDirectionTimer: Timer
 
 var target_x: int = GlobalVariables.OCEAN_WIDTH * 2
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	sailDirectionTimer.one_shot = true
-	sailDirectionTimer.timeout.connect(_on_timeout)
-	_on_timeout()
 
 func _on_timeout() -> void:
 	#direction *= -1
 	_body.velocity.x = direction * speed
-	sailDirectionTimer.start(randf_range(min_dt, max_dt))
 	
 func _physics_process(_delta: float) -> void:
 	if _body.global_position.x > target_x:

@@ -10,11 +10,13 @@ var allMastsAreDown: bool
 
 signal boat_dead(boat: Boat)
 
-@export var boat_length: int = 16
+
 
 @export var boat_movement: BoatMovement
 @export var world_item_scene: PackedScene
-
+@onready var BoatFront = $BoatFront
+@onready var BoatEnd = $BoatEnd
+@onready var boat_length = BoatFront.position.x - BoatEnd.position.x
 var item_type_weights:Array =[
 	[1.0, 1.0, 1.0],
 	[1.0, 1.0, 1.0],
