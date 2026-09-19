@@ -113,8 +113,6 @@ position = Vector2(1121, 1)
 _player = NodePath("../Player")
 shop = NodePath("../UI/PortUi/Land_shop")
 port_ui = NodePath("../UI/PortUi")
-queue_spacing = null
-max_queue_spots = null
 
 [node name="Pier" type="Node2D" parent="Port" unique_id=589687631]
 z_as_relative = false

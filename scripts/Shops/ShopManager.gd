@@ -98,7 +98,11 @@ func balance_trade() -> void:
 		return
 	_balancing = true
 
-	var target := port.active_boat.evaluate_inventory(player_scale_inventory)
+	var target: float = 0.0
+	if port:
+		target = port.active_boat.evaluate_inventory(player_scale_inventory)
+	else:
+		target = GetInventoryValue(player_scale_inventory)
 
 	var delta := target - their_scale_inventory.coins
 	if delta != 0:
