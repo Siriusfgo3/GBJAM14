@@ -47,11 +47,10 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
-		print(_boatLen)
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
-			print("Boat rejected: port full")
+			#print("Boat rejected: port full")
 			return #Port is FULL
 		
 		_boat.SailToX(boat_queue_pos)
@@ -59,7 +58,10 @@ func OnPierZoneEntered(body: Node2D) -> void:
 		boat_queue.push_back(body)
 
 func _onBoatKill(boat: Boat)-> void:
+	print("removing boat")
+	print(boat_queue)
 	boat_queue.erase(boat)
+	print(boat_queue)
 	_advance_queue()
 		
 

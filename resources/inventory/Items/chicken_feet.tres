@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("1_qi8go")
+name = "chicken feet"
 texture = ExtResource("2_qi8go")

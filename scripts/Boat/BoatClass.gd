@@ -45,12 +45,12 @@ func GetInventory() -> Inventory:
 	return inventory
 
 func EnterQueue():
-	print("Boat entered queueu")
+	#print("Boat entered queueu")
 	boat_movement.speed = 10
 	collision_mask |= 1 << 2
 	
 func SailToX(target: int) -> void:
-	print("[Boat]: Setting target x")
+	#print("[Boat]: Setting target x")
 	boat_movement.set_target(target)
 
 func TakeHit() -> void:
