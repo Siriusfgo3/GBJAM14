@@ -42,19 +42,22 @@ func evaluate_inventory(_inventory:Inventory) -> float:
 func loadItem(item:Item, amount:int):
 	inventory.add_item(item, amount)
 
-func _process(delta: float):
-	if allMastsAreDown:
-		if Input.is_action_just_pressed("button_a"):
-			queue_free()
-
 func GetInventory() -> Inventory:
 	return inventory
 
 func EnterQueue():
+<<<<<<< HEAD
+=======
+	#print("Boat entered queueu")
+>>>>>>> 1479a797416657f8037896938a25e699435abb40
 	boat_movement.speed = 10
 	collision_mask |= 1 << 2
 	
 func SailToX(target: int) -> void:
+<<<<<<< HEAD
+=======
+	#print("[Boat]: Setting target x")
+>>>>>>> 1479a797416657f8037896938a25e699435abb40
 	boat_movement.set_target(target)
 	
 func SetDocked(docked: bool) -> void:

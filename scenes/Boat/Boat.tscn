@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://52660td5pm5w" path="res://scripts/Boat/PlayerAttacker.gd" id="6_kohsx"]
 
 [node name="Boat" type="CharacterBody2D" unique_id=1998020412 node_paths=PackedStringArray("sprite", "inventory", "boat_movement") groups=["Boat"]]
-z_index = 2
+z_index = -2
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_g4cen")

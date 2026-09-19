@@ -47,11 +47,14 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 1479a797416657f8037896938a25e699435abb40
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
-			print("Boat rejected: port full")
+			#print("Boat rejected: port full")
 			return #Port is FULL
 		
 		_boat.SetDocked(true)
@@ -62,8 +65,8 @@ func OnPierZoneEntered(body: Node2D) -> void:
 func _onBoatKill(boat: Boat)-> void:
 	boat.boat_dead.disconnect(_onBoatKill)
 	boat_queue.erase(boat)
+	print(boat_queue)
 	_advance_queue()
-		
 
 func _on_player_exit()-> void:
 	_player.shop_exit.disconnect(_on_player_exit)
@@ -80,7 +83,7 @@ func _dismiss_active_boat() -> void:
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()
-	
+
 func _advance_queue() -> void:
 	current_queue_spot = 0
 	for boat in boat_queue:
@@ -94,3 +97,9 @@ func next_boat_from_queue() -> Boat:
 
 func PortFull() -> bool:
 	return boat_queue.size() >= max_queue_spots
+	
+func PlayerWantsToSeeNextBoat() -> void:
+	_dismiss_active_boat()
+	active_boat = next_boat_from_queue()
+	shop.LoadShop(_player, active_boat)
+	pass

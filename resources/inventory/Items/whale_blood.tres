@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("1_nlkga")
+name = "whale blood"
 texture = ExtResource("2_ts5ew")
