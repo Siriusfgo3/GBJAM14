@@ -8,7 +8,7 @@ class_name Seaport
 
 @export var exit_location: Marker2D
 
-var seashop_trader_boat: Boat
+@export var seashop_trader_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

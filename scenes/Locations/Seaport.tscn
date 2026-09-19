@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://b6dvkphne0ylx"]
 
 [ext_resource type="Script" uid="uid://cdo4yv0eictns" path="res://scripts/Seaport.gd" id="1_ddtsl"]
+[ext_resource type="PackedScene" uid="uid://c5ain13tnnbq7" path="res://scenes/Boat/SeaTraderBoat.tscn" id="2_ln0kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
 size = Vector2(1150, 10)
 
-[node name="Seaport" type="Node2D" unique_id=791655370 node_paths=PackedStringArray("EnterZone")]
+[node name="Seaport" type="Node2D" unique_id=791655370 node_paths=PackedStringArray("EnterZone", "seashop_trader_boat")]
 script = ExtResource("1_ddtsl")
 EnterZone = NodePath("Area2D")
+seashop_trader_boat = NodePath("SeatraderBoat")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1936151114]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=243813736]
 shape = SubResource("RectangleShape2D_e77pp")
 debug_color = Color(0.9508659, 0.21023706, 0.2011028, 0.41960785)
+
+[node name="SeatraderBoat" parent="." unique_id=1998020412 instance=ExtResource("2_ln0kr")]
