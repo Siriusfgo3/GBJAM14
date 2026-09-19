@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cyoffqv8j52rb"]
 
 [ext_resource type="Script" uid="uid://fpa6cpityo5p" path="res://scripts/Inventory/inventory_item.gd" id="1_qi8go"]
-[ext_resource type="Texture2D" uid="uid://d3wutonyq2ym4" path="res://sprites/Items/Spr_map.png" id="2_3q68c"]
+[ext_resource type="Texture2D" uid="uid://bpp5w84tgcqjw" path="res://sprites/NPC/Merfolk.png" id="2_qi8go"]
 
 [resource]
 script = ExtResource("1_qi8go")
-name = "chicken_feet"
-texture = ExtResource("2_3q68c")
+texture = ExtResource("2_qi8go")
