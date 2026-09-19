@@ -1,7 +1,8 @@
 extends Node
 
 var favor: Array[float] = [1.5, 1.5, 1.5, 1.5]
-
+var minProgressionLambda: float = 3.3
+var maxProgressionLambda: float = 0.1
 var progression: float = 0
 
 @onready var spawnTimer: Timer = $spawnTimer
@@ -31,7 +32,10 @@ func generateLootTable(lootTables:Array) -> Array:
 	return lootTables
 
 func convertedProgression():
-	return 3 * (1 - progression/1000) + 0.1 * progression/1000
+	return clamp(
+		minProgressionLambda * (1 - progression/1000) 
+		+ maxProgressionLambda * progression/1000, 
+		maxProgressionLambda , minProgressionLambda)
 
 func generateBoatTable(boatTables: Array) -> Array:
 	
