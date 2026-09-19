@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drkig6w8kbesc"
+path="res://.godot/imported/Oriental Shop.mp3-746be79bf5b2000638c402880ac17b17.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Oriental Shop.mp3"
+dest_files=["res://.godot/imported/Oriental Shop.mp3-746be79bf5b2000638c402880ac17b17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
