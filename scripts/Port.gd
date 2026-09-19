@@ -59,6 +59,7 @@ func OnPierZoneEntered(body: Node2D) -> void:
 		boat_queue.push_back(body)
 
 func _onBoatKill(boat: Boat)-> void:
+	boat.boat_dead.disconnect(_onBoatKill)
 	boat_queue.erase(boat)
 	_advance_queue()
 		
@@ -73,6 +74,8 @@ func _on_player_exit()-> void:
 	
 func _dismiss_active_boat() -> void:
 	if active_boat != null:
+		if active_boat.boat_dead.is_connected(_onBoatKill):
+			active_boat.boat_dead.disconnect(_onBoatKill)
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()
