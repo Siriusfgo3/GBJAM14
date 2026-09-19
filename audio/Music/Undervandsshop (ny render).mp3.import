@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d24lrywsyhi2o"
+path="res://.godot/imported/Undervandsshop (ny render).mp3-564f1860dd761a89897d0518c71bafbe.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Undervandsshop (ny render).mp3"
+dest_files=["res://.godot/imported/Undervandsshop (ny render).mp3-564f1860dd761a89897d0518c71bafbe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
