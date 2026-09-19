@@ -47,10 +47,7 @@ func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Boat"):
 		var _boat = body as Boat
 		var _boatLen = _boat.boat_length
-<<<<<<< HEAD
-		
-=======
->>>>>>> 1479a797416657f8037896938a25e699435abb40
+
 		current_queue_spot += _boatLen + queue_spacing
 		var boat_queue_pos = queue_start_marker.global_position.x - current_queue_spot
 		if PortFull():
