@@ -16,7 +16,7 @@ signal boat_dead(boat: Boat)
 @export var world_item_scene: PackedScene
 @export var docked_z_index: int = -4
 var is_docked: bool = false
-var _sailing_z_index: int = -2
+var _sailing_z_index: int = 0
 var _sailing_z_as_relative: bool = true
 
 @onready var mast_container = get_node_or_null("Mast_container")

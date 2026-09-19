@@ -12,5 +12,4 @@ autostart = true
 
 [node name="boatSpawner" type="Node" parent="." unique_id=874619701 node_paths=PackedStringArray("gameControler")]
 script = ExtResource("2_rx82x")
-spawnLocation = Vector2(0, 114)
 gameControler = NodePath("..")
