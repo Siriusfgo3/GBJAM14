@@ -115,6 +115,7 @@ func GetInventoryValue(_inventory: Inventory) -> float:
 	return _value
 
 func _on_trade_button_pressed() -> void:
+	if port.active_boat == null: return
 	#TO-DO MOVE MONEY AS WELL + CHECK TRADE VALIDITY
 	for their_scale_slot in their_scale_inventory_ui.ui_slots:
 		_move_from_ui_to_inventory(their_scale_slot, player_inventory)

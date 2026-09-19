@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="8_512rd"]
 [ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="9_5xuyj"]
 [ext_resource type="BitMap" uid="uid://c6wvfj0x4jxpu" path="res://sprites/UI/bell_bitmap.png" id="10_u0ywr"]
-[ext_resource type="AudioStream" uid="uid://dbkb0lp8wiyac" path="res://audio/Music/Shop UW render.mp3" id="12_kh1ob"]
+[ext_resource type="AudioStream" uid="uid://d24lrywsyhi2o" path="res://audio/Music/Undervandsshop (ny render).mp3" id="13_lo2jd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpc6q"]
 atlas = ExtResource("2_og8nb")
@@ -595,8 +595,16 @@ texture_focused = SubResource("AtlasTexture_nj1xg")
 texture_click_mask = ExtResource("10_u0ywr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1781901594]
-stream = ExtResource("12_kh1ob")
+stream = ExtResource("13_lo2jd")
 autoplay = true
-parameters/looping = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1005565994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [editable path="NPC_INV/inventory_ui_slot"]

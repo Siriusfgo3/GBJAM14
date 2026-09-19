@@ -127,6 +127,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_8nkuq")
 player_inventory_ui = NodePath("ScrollContainer/PLAYER_INV")
 their_inventory_ui = NodePath("NPC_INV")
@@ -422,6 +423,15 @@ texture_hover = SubResource("AtlasTexture_gd8w5")
 texture_disabled = SubResource("AtlasTexture_v07a6")
 texture_focused = SubResource("AtlasTexture_5o2sn")
 texture_click_mask = ExtResource("9_iei2f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1486778538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="PLAYER_INV_BUTTON_RIGHT" to="." method="_on_nextBoat_button_pressed"]
 [connection signal="pressed" from="TRADE_BUTTON" to="." method="_on_trade_button_pressed"]
