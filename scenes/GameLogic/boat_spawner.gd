@@ -39,7 +39,7 @@ var lootLookup = [
 		"res://resources/inventory/Items/paper.tres",
 		"res://resources/inventory/Items/tea.tres",
 		"Winged Armor",
-		"Fancy Lantern",
+		"res://resources/inventory/Items/FancyLantern.tres",
 		"Silk",
 		"res://resources/inventory/Items/Rock.tres",
 		"res://resources/inventory/Items/Rock.tres",
@@ -67,12 +67,12 @@ var lootLookup = [
 		"Eyeballs",
 		"Treasure Maps",
 		"Axehead Armor",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock",
-		"Rock"
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres",
+		"res://resources/inventory/Items/Rock.tres"
 	]
 ]
 
@@ -123,6 +123,10 @@ func load_boat(boatType:int, boatTier:int, boat:Boat):
 	
 	for i in range(loot.size()):
 		if loot[i] <= 0: continue
-		var _item = load(lootLookup[boatType][i]) 
+		var _item_path = lootLookup[boatType][i] 
+		if not ResourceLoader.exists(_item_path):
+			push_warning("Missing loot item resource, skipping" + str(_item_path))
+			continue
+		var _item = load(_item_path)
 		boat.loadItem(_item, loot[i])
 	
