@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g8kamg6cih2k"
+path="res://.godot/imported/Pirate shop.mp3-15a27abae6416ec4f751be6d91ac826c.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/Pirate shop.mp3"
+dest_files=["res://.godot/imported/Pirate shop.mp3-15a27abae6416ec4f751be6d91ac826c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
