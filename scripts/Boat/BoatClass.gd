@@ -72,6 +72,8 @@ func SetDocked(docked: bool) -> void:
 		mast_container.SetMastsDamageable(not docked)
 
 func TakeHit() -> void:
+	if is_docked:
+		return
 	if allMastsAreDown:
 		Die.call_deferred()
 	else:

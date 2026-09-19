@@ -78,6 +78,7 @@ func _dismiss_active_boat() -> void:
 	if active_boat != null:
 		if active_boat.boat_dead.is_connected(_onBoatKill):
 			active_boat.boat_dead.disconnect(_onBoatKill)
+		active_boat.SetDocked(false)
 		active_boat.SailToX(GlobalVariables.OCEAN_WIDTH * 2)
 		active_boat = null
 	_advance_queue()
