@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cbigb8dcxe072" path="res://scripts/Player/PlayerAttack.gd" id="8_khinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e77pp"]
-size = Vector2(20, 40)
+size = Vector2(12, 106)
 
 [sub_resource type="Animation" id="Animation_mdl7e"]
 length = 0.001
@@ -411,16 +411,18 @@ size = Vector2(34.5, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3avvq"]
 radius = 29.017237
 
-[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement", "animation_tree", "loot_pickup") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2007000961 node_paths=PackedStringArray("player_inventory", "player_movement", "animation_tree", "loot_pickup", "stun_timer") groups=["Player"]]
 script = ExtResource("1_70d11")
 player_inventory = NodePath("PlayerInventory")
 player_movement = NodePath("PlayerMovement")
 animation_tree = NodePath("PlayerAnimationTree")
 loot_pickup = NodePath("loot_pickup")
+stun_timer = NodePath("StunTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827297782]
-visible = false
+position = Vector2(-1, 33)
 shape = SubResource("RectangleShape2D_e77pp")
+debug_color = Color(0.86614746, 0.33855644, 0.2963944, 0.41960785)
 
 [node name="PlayerMovement" type="Node" parent="." unique_id=807372878 node_paths=PackedStringArray("_body")]
 script = ExtResource("2_3li8b")
@@ -491,8 +493,13 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_hitbox" unique_id=233664278]
 position = Vector2(13.25, -6)
 shape = SubResource("RectangleShape2D_kbuby")
+debug_color = Color(0.11260446, 0.6479503, 3.85046e-07, 0.41960785)
 
 [node name="loot_pickup" type="Area2D" parent="." unique_id=430288884]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loot_pickup" unique_id=1218054245]
 shape = SubResource("CircleShape2D_3avvq")
+
+[node name="StunTimer" type="Timer" parent="." unique_id=78758984]
+wait_time = 3.0
+one_shot = true

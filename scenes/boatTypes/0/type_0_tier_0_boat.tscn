@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3uw6bcqdf1fs" path="res://sprites/Ships/Med_Ship.png" id="2_ye27h"]
 [ext_resource type="PackedScene" uid="uid://pi5t6qmyuc44" path="res://scenes/Boat/SmallBoatMast.tscn" id="3_ye27h"]
 [ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="4_i1r8m"]
+[ext_resource type="PackedScene" uid="uid://db88xwrylkurq" path="res://scenes/Boat/Cannon.tscn" id="5_3xl7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye27h"]
 size = Vector2(30, 8)
@@ -40,5 +41,4 @@ visible = false
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_xpea6")
 
-[node name="CannonContainer" parent="." index="6" unique_id=939044637]
-visible = false
+[node name="Cannon" parent="CannonContainer" parent_id_path=PackedInt32Array(939044637) index="0" unique_id=545218438 instance=ExtResource("5_3xl7m")]

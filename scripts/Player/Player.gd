@@ -5,8 +5,10 @@ class_name Player
 @export var player_movement: PlayerMovement
 @export var animation_tree: AnimationTree
 @export var loot_pickup: Area2D
+@export var stun_timer: Timer
 
 @onready var state_machine = animation_tree["parameters/playback"]
+
 
 signal shop_exit
 
@@ -15,12 +17,14 @@ enum PlayerState {
 	TRADING,
 	INVENTORY,
 	PAUSED,
+	CC,
 }
 
 var current_state: PlayerState = PlayerState.SWIMMING
 
 func _ready() -> void:
 	loot_pickup.area_entered.connect(_handleLootPickUp)
+	stun_timer.timeout.connect(_stun_ended)
 
 func _handleLootPickUp(area: Area2D) -> void:
 	var item := area as WorldItem
@@ -71,3 +75,21 @@ func move_animation(direction: Vector2) -> void:
 func attack_animation() -> void:
 	state_machine.travel("player_attack_small")
 	
+func stun_animation() -> void:
+	state_machine.travel("player_hurt")
+	
+func GetHit():
+	player_movement.ToggleMovement(false)
+	stun_timer.start()
+	var target = global_position + Vector2.DOWN * 144
+	stun_animation()
+	velocity = Vector2.ZERO
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", target, 1)
+	await tween.finished
+	#change_state(PlayerState.CC)
+	
+func _stun_ended() -> void:
+	#change_state(PlayerState.SWIMMING)
+	player_movement.ToggleMovement(true)
