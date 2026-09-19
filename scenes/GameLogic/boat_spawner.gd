@@ -116,7 +116,7 @@ func spawn_boat() -> void:
 
 func load_boat(boatType:int, boatTier:int, boat:Boat):
 	var loot:Array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	var number_of_items = ((boatTier +1 ) * (boatTier +1)) * ceil(gameControler.favor[boatType])
+	var number_of_items = ((boatTier + 1 ) * (boatTier + 1)) * ceil(gameControler.favor[boatType])
 	for i in range(number_of_items):
 		var _item = weighted_probabilty(lootTables[boatType])
 		loot[_item] += 1
