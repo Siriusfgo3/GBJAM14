@@ -38,8 +38,7 @@ func OnShopEntered(body: Node2D) -> void:
 		#player_entered_shop.emit()
 		if active_boat == null:
 			active_boat = next_boat_from_queue()
-		if active_boat != null:
-			shop.LoadShop(_player, active_boat.GetInventory())
+		shop.LoadShop(_player, active_boat)
 
 func OnPierZoneEntered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

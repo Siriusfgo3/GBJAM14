@@ -34,15 +34,15 @@ func _ready() -> void:
 	their_scale_inventory.inventory_updated.connect(balance_trade)
 	
 
-func LoadShop(player: Player, boat_inventory: Inventory) -> void:
+func LoadShop(player: Player, boat: Boat) -> void:
 	player_inventory = player.get_inventory()
 	player_inventory_ui.bind_inventory(player_inventory)
 	
-	if boat_inventory == null:
+	if boat == null:
 		return
 	
 	print("Filling boat inventory")
-	their_inventory = boat_inventory
+	their_inventory = boat.GetInventory()
 	their_inventory_ui.bind_inventory(their_inventory)
 	
 	#Set focus:
@@ -84,7 +84,7 @@ func balance_trade() -> void:
 	_balancing = true
 
 	var target: float = 0.0
-	if port:
+	if port && port.active_boat != null:
 		target = port.active_boat.evaluate_inventory(player_scale_inventory)
 	else:
 		target = GetInventoryValue(player_scale_inventory)

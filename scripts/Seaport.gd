@@ -8,7 +8,7 @@ class_name Seaport
 
 @export var exit_location: Marker2D
 
-var seashop_inventory: Inventory
+var seashop_trader_boat: Boat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,8 +21,7 @@ func OnShopEntered(body: Node2D) -> void:
 		print("[Seaport]: Player entered area2d")
 		_player.OnShopEntered()
 		seaport_ui.MoveShopIntoView()
-		if seashop_inventory != null:
-			seashop.LoadShop(_player, seashop_inventory)
+		seashop.LoadShop(_player, seashop_trader_boat)
 
 func _on_player_exit()-> void:
 	_player.shop_exit.disconnect(_on_player_exit)
