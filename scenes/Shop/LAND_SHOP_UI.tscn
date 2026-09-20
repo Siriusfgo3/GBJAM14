@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhqdefugyssdd" path="res://scenes/UI/inv_ui_slot.tscn" id="3_885ui"]
 [ext_resource type="Script" uid="uid://dtufkehm3ji26" path="res://scripts/Inventory/inventory_ui.gd" id="4_f5hn5"]
 [ext_resource type="PackedScene" uid="uid://da05l4li2bd5d" path="res://scenes/Shop/COIN.tscn" id="4_ih2ff"]
+[ext_resource type="Texture2D" uid="uid://c7xt7volhilyq" path="res://sprites/NPC/PirateMerchant.png" id="4_k8la4"]
 [ext_resource type="Script" uid="uid://t4o77ojk51wi" path="res://scripts/Inventory/inventory.gd" id="6_xg6ny"]
 [ext_resource type="Texture2D" uid="uid://dkmvmiis5yp4y" path="res://sprites/UI/PLAYER_INV_BUTTONS.png" id="7_invbt"]
 [ext_resource type="Texture2D" uid="uid://ccblt1r546a8v" path="res://sprites/UI/bell.png" id="8_5h3eb"]
@@ -151,6 +152,7 @@ vframes = 2
 frame = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521060213]
+visible = false
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_hhkc5")
 autoplay = "default"
@@ -158,6 +160,10 @@ frame = 2
 frame_progress = 0.34361246
 speed_scale = 0.5
 centered = false
+
+[node name="PirateMerchant" type="Sprite2D" parent="." unique_id=1495468942]
+position = Vector2(80, 68)
+texture = ExtResource("4_k8la4")
 
 [node name="Bord" type="Sprite2D" parent="." unique_id=2057829249]
 texture = ExtResource("2_12qih")
