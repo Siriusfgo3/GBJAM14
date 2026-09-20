@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://cd34x6o3wjjqa" path="res://scripts/link_viewport_to_output.gd" id="1_nkerh"]
 [ext_resource type="PackedScene" uid="uid://bbulqmmxm7b5v" path="res://scenes/Locations/ocean.tscn" id="3_5qx0y"]
 [ext_resource type="Script" uid="uid://7iogc408ueuv" path="res://scripts/link_shader_to_palette.gd" id="4_nkerh"]
+[ext_resource type="PackedScene" uid="uid://d0u1y3vvl1div" path="res://scenes/UI/START_MENU.tscn" id="4_qoxju"]
+[ext_resource type="PackedScene" uid="uid://dgklu7ckcfk8u" path="res://scenes/UI/HELP_page.tscn" id="5_o7yic"]
+[ext_resource type="AudioStream" uid="uid://bfvbq24xs4xal" path="res://audio/Music/roaming.mp3" id="7_0gwgv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qx0y"]
 shader = ExtResource("1_bxokd")
@@ -13,12 +16,18 @@ shader_parameter/dark = Color(0, 0, 0, 1)
 shader_parameter/light = Color(0, 0, 0, 1)
 shader_parameter/lightest = Color(0, 0, 0, 1)
 
-[node name="GB_Screen_Control" type="Control" unique_id=1785022912]
+[node name="GB_Screen_Control" type="Control" unique_id=1785022912 node_paths=PackedStringArray("StartButton", "startMenu", "menu_music", "help_page", "back_button", "ocean")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
 offset_bottom = 144.0
 script = ExtResource("1_nkerh")
+StartButton = NodePath("SubViewport/SubViewport/CanvasLayer/Control/VBoxContainer/ButtonSTART")
+startMenu = NodePath("SubViewport/SubViewport/CanvasLayer/Control")
+menu_music = NodePath("AudioStreamPlayer")
+help_page = NodePath("SubViewport/SubViewport/CanvasLayer/HelpPaeg")
+back_button = NodePath("SubViewport/SubViewport/CanvasLayer/HelpPaeg/VBoxContainer/ButtonBACK")
+ocean = NodePath("SubViewport/SubViewport/Ocean")
 
 [node name="SubViewport" type="SubViewportContainer" parent="." unique_id=884962930]
 texture_filter = 1
@@ -33,6 +42,15 @@ render_target_update_mode = 4
 visible = false
 
 [node name="Ocean" parent="SubViewport/SubViewport" unique_id=129563336 instance=ExtResource("3_5qx0y")]
+process_mode = 4
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport/SubViewport" unique_id=445957009]
+
+[node name="Control" parent="SubViewport/SubViewport/CanvasLayer" unique_id=282691185 instance=ExtResource("4_qoxju")]
+
+[node name="HelpPaeg" parent="SubViewport/SubViewport/CanvasLayer" unique_id=1841336242 instance=ExtResource("5_o7yic")]
+visible = false
 
 [node name="Output" type="TextureRect" parent="." unique_id=854136483]
 texture_filter = 1
@@ -45,3 +63,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_nkerh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2106936994]
+stream = ExtResource("7_0gwgv")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="SubViewport/SubViewport/CanvasLayer/Control/VBoxContainer/ButtonSTART" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="SubViewport/SubViewport/CanvasLayer/Control/VBoxContainer/ButtonHELP" to="." method="_on_explanation_button_pressed"]
+[connection signal="pressed" from="SubViewport/SubViewport/CanvasLayer/HelpPaeg/VBoxContainer/ButtonBACK" to="." method="_on_back_button_pressed"]
+
+[editable path="SubViewport/SubViewport/CanvasLayer/Control"]
+[editable path="SubViewport/SubViewport/CanvasLayer/HelpPaeg"]

@@ -59,6 +59,7 @@ animations = [{
 }]
 
 [node name="type_2_tier_0_boat" unique_id=1998020412 instance=ExtResource("1_tb5bk")]
+boatType = 2
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
 position = Vector2(0, -27)

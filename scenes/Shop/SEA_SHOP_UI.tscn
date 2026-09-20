@@ -272,6 +272,7 @@ player_scale_inventory = NodePath("PlayerScaleInventory")
 player_scale_inventory_ui = NodePath("PLAYER_TRADE_INV")
 their_scale_inventory = NodePath("TheirScaleInventory")
 their_scale_inventory_ui = NodePath("NPC_TRADE_INV")
+sea_shop = true
 
 [node name="Layout_explanation" type="TextureRect" parent="." unique_id=666553601]
 visible = false
@@ -596,7 +597,6 @@ texture_click_mask = ExtResource("10_u0ywr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1781901594]
 stream = ExtResource("13_lo2jd")
-autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1005565994]
 layout_mode = 1

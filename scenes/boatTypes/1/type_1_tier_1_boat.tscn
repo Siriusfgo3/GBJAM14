@@ -18,6 +18,8 @@ size = Vector2(138, 30)
 
 [node name="type_1_tier_1_boat" unique_id=1998020412 instance=ExtResource("1_q5kpd")]
 z_index = -2
+boatType = 1
+boatTier = 1
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
 visible = false

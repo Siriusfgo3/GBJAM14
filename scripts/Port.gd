@@ -73,6 +73,7 @@ func _on_player_exit()-> void:
 	_dismiss_active_boat()
 	await _player.OnShopExit(target, false, true)
 	EnterShopZone.set_deferred("monitoring", true)
+	shop.BattleMusic()
 	
 func _dismiss_active_boat() -> void:
 	if active_boat != null:

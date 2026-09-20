@@ -260,7 +260,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Control" type="Control" unique_id=282691185]
+[node name="HelpPaeg" type="Control" unique_id=282691185]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
