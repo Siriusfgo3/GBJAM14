@@ -18,7 +18,21 @@ var their_inventory: Inventory
 @export var their_scale_inventory: Inventory
 @export var their_scale_inventory_ui: InventoryUI
 
+@export var NPCS: Array[Node2D]
+
 var _balancing := false
+
+@export var music_player: AudioStreamPlayer
+var musics: Array[AudioStream] = [
+	preload("res://audio/Music/Oriental Shop.mp3"),
+	preload("res://audio/Music/Pirate shop.mp3"),
+	preload("res://audio/Music/Imperial Shop.mp3"),
+]
+
+@export var sea_shop: bool = false
+var sea_music: AudioStream = preload("res://audio/Music/Undervandsshop (ny render).mp3")
+
+var battle_music: AudioStream = preload("res://audio/Music/Battle_render.mp3")
 
 func _ready() -> void:
 	#Bind scale inventories (they live on ShopUI)
@@ -41,6 +55,17 @@ func LoadShop(player: Player, boat: Boat) -> void:
 	if boat == null:
 		return
 
+	if sea_shop:
+		print("Playing sea shop music")
+		if music_player:
+			music_player.stream = sea_music
+			music_player.play()
+	elif music_player and boat.boatType >= 0 and boat.boatType < musics.size():
+		var next_stream := musics[boat.boatType]
+		if music_player.stream != next_stream:
+			music_player.stream = next_stream
+			music_player.play()
+
 	print("Filling boat inventory")
 	their_inventory = boat.GetInventory()
 	their_inventory_ui.bind_inventory(their_inventory)
@@ -49,6 +74,12 @@ func LoadShop(player: Player, boat: Boat) -> void:
 	if their_inventory_ui.ui_slots.is_empty():
 		return
 	their_inventory_ui.ui_slots[0].button.call_deferred("grab_focus")
+	
+	if NPCS.is_empty(): return
+	for npc in NPCS:
+		npc.visible = false
+	var npc = NPCS[boat.boatType]
+	npc.visible = true
 
 func _on_my_item_pressed(ui_slot: InventoryUISlot) -> void:
 	_move_from_ui_to_inventory(ui_slot, player_scale_inventory)
@@ -145,3 +176,7 @@ func _on_nextBoat_button_pressed() -> void:
 			_move_from_ui_to_inventory(player_scale_slot, player_inventory)
 	port.PlayerWantsToSeeNextBoat()
 	pass
+	
+func BattleMusic():
+	music_player.stream = battle_music
+	music_player.play()

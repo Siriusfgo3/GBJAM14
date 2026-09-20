@@ -10,6 +10,8 @@ size = Vector2(122, 30)
 size = Vector2(132, 30)
 
 [node name="type_2_tier_1_boat" unique_id=1998020412 instance=ExtResource("1_l0u41")]
+boatType = 2
+boatTier = 1
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
 texture = ExtResource("2_sywlj")

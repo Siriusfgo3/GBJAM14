@@ -10,8 +10,6 @@ var allMastsAreDown: bool
 
 signal boat_dead(boat: Boat)
 
-
-
 @export var boat_movement: BoatMovement
 @export var world_item_scene: PackedScene
 @export var docked_z_index: int = -4

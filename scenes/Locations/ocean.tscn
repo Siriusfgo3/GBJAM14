@@ -151,11 +151,12 @@ offset_right = 160.0
 inview_location = Vector2(-96, 0)
 outofview_location = Vector2(160, 0)
 
-[node name="Land_shop" parent="UI/PortUi" unique_id=163730554 node_paths=PackedStringArray("port") instance=ExtResource("8_bdu4t")]
+[node name="Land_shop" parent="UI/PortUi" unique_id=163730554 node_paths=PackedStringArray("port", "music_player") instance=ExtResource("8_bdu4t")]
 layout_mode = 1
 offset_left = 96.0
 offset_right = 95.99959
 port = NodePath("../../../Port")
+music_player = NodePath("../../../AudioStreamPlayer")
 
 [node name="TransitionOverlay" type="ColorRect" parent="UI/PortUi" unique_id=1992796344]
 layout_mode = 1
@@ -177,10 +178,11 @@ offset_bottom = 144.0
 inview_location = Vector2(0, -64)
 outofview_location = Vector2(0, 144)
 
-[node name="Sea_shop" parent="UI/SeaPortUI" unique_id=1203866140 instance=ExtResource("10_og8du")]
+[node name="Sea_shop" parent="UI/SeaPortUI" unique_id=1203866140 node_paths=PackedStringArray("music_player") instance=ExtResource("10_og8du")]
 layout_mode = 1
 offset_top = 64.0
 offset_bottom = 64.0
+music_player = NodePath("../../../AudioStreamPlayer")
 
 [node name="TransitionOverlay" type="ColorRect" parent="UI/SeaPortUI" unique_id=1762268163]
 layout_mode = 1
