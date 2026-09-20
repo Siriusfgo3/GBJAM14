@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://gc1v1w0ybm6u"]
 
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_h4fuj"]
-[ext_resource type="Texture2D" uid="uid://dt0mxtnhe11vj" path="res://sprites/BoatTest/type22.png" id="2_jgjp0"]
+[ext_resource type="Texture2D" uid="uid://djpxb3jcg6sbh" path="res://sprites/boat_pirates/boat_type2_tier2.png" id="2_h4fuj"]
+[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="3_jgjp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8prjr"]
 size = Vector2(231, 67)
@@ -14,11 +15,80 @@ boatType = 2
 boatTier = 2
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
-texture = ExtResource("2_jgjp0")
+position = Vector2(0, -62)
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_8prjr")
+
+[node name="Mast1" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="0" unique_id=480987827 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_jgjp0")]
+position = Vector2(0, -60)
+damaged_sprite = NodePath("Dmg_mast")
+
+[node name="Mast_sprite" parent="Mast_container/Mast1" index="0" unique_id=1384639686]
+visible = true
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 3
+
+[node name="Dmg_mast" type="Sprite2D" parent="Mast_container/Mast1" index="1" unique_id=551565231]
+visible = false
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="CollisionShape2D" parent="Mast_container/Mast1/Area2D" parent_id_path=PackedInt32Array(480987827, 198773209) index="0" unique_id=1325044028]
+position = Vector2(-79, -4)
+scale = Vector2(3.6, 4.6000023)
+
+[node name="Mast2" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="1" unique_id=579737151 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_jgjp0")]
+position = Vector2(0, -60)
+damaged_sprite = NodePath("Dmg_mast")
+
+[node name="Mast_sprite" parent="Mast_container/Mast2" index="0" unique_id=1384639686]
+visible = true
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="Dmg_mast" type="Sprite2D" parent="Mast_container/Mast2" index="1" unique_id=45194431]
+visible = false
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 5
+
+[node name="CollisionShape2D" parent="Mast_container/Mast2/Area2D" parent_id_path=PackedInt32Array(579737151, 198773209) index="0" unique_id=1325044028]
+position = Vector2(-25, -26.999992)
+scale = Vector2(7.2799993, 8.480002)
+
+[node name="Mast3" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="2" unique_id=219469497 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_jgjp0")]
+position = Vector2(0, -60)
+damaged_sprite = NodePath("Dmg_mast")
+
+[node name="Mast_sprite" parent="Mast_container/Mast3" index="0" unique_id=1384639686]
+visible = true
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="Dmg_mast" type="Sprite2D" parent="Mast_container/Mast3" index="1" unique_id=880584623]
+visible = false
+texture = ExtResource("2_h4fuj")
+hframes = 4
+vframes = 2
+frame = 6
+
+[node name="CollisionShape2D" parent="Mast_container/Mast3/Area2D" parent_id_path=PackedInt32Array(219469497, 198773209) index="0" unique_id=1325044028]
+position = Vector2(65, -19)
+scale = Vector2(5.759998, 7.5200024)
 
 [node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
 position = Vector2(-1, -2.5)
@@ -29,3 +99,7 @@ position = Vector2(115, -33)
 
 [node name="BoatEnd" parent="." index="9" unique_id=464663935]
 position = Vector2(-115, -33)
+
+[editable path="Mast_container/Mast1"]
+[editable path="Mast_container/Mast2"]
+[editable path="Mast_container/Mast3"]
