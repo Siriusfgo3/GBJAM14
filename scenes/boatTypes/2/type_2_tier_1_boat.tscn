@@ -3,58 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_l0u41"]
 [ext_resource type="Texture2D" uid="uid://hdcpbyjro8fn" path="res://sprites/boat_pirates/boat_type2_tier1.png" id="2_1toyh"]
 [ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="3_1sr36"]
-[ext_resource type="Texture2D" uid="uid://d17og1i0v5df4" path="res://sprites/boat_pirates/boat_type2_tier0.png" id="4_h0dda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vcsy"]
 size = Vector2(122, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2frvl"]
-atlas = ExtResource("4_h0dda")
-region = Rect2(70, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t60fn"]
-atlas = ExtResource("4_h0dda")
-region = Rect2(0, 70, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aycpo"]
-atlas = ExtResource("4_h0dda")
-region = Rect2(140, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhg52"]
-atlas = ExtResource("2_1toyh")
-region = Rect2(0, 0, 120, 144)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjgbr"]
-atlas = ExtResource("2_1toyh")
-region = Rect2(120, 0, 120, 144)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fxq7j"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2frvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t60fn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aycpo")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jhg52")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rjgbr")
-}],
-"loop": 1,
-"name": &"new_animation",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlirh"]
 size = Vector2(132, 30)
@@ -80,15 +31,9 @@ position = Vector2(0, -57)
 
 [node name="Mast_sprite" parent="Mast_container/BigBoatMast" index="0" unique_id=1384639686]
 visible = true
-texture = ExtResource("4_h0dda")
-hframes = 3
+texture = ExtResource("2_1toyh")
+hframes = 2
 vframes = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mast_container/BigBoatMast/Mast_sprite" index="0" unique_id=2078246611]
-sprite_frames = SubResource("SpriteFrames_fxq7j")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.45375323
 
 [node name="Damaged_sprite" parent="Mast_container/BigBoatMast" index="1" unique_id=1039405763]
 texture = ExtResource("2_1toyh")
