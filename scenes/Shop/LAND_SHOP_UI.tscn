@@ -697,7 +697,6 @@ texture_hover = SubResource("AtlasTexture_nv37t")
 texture_focused = SubResource("AtlasTexture_r4uv7")
 
 [node name="TRADE_BUTTON" type="TextureButton" parent="." unique_id=1816792692]
-visible = false
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 0
