@@ -1,10 +1,47 @@
 [gd_scene format=3 uid="uid://nkfa0imu5l5a"]
 
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_lymcv"]
-[ext_resource type="Texture2D" uid="uid://b6m7hrleyemt3" path="res://sprites/BoatTest/type00.png" id="2_3xl7m"]
+[ext_resource type="Texture2D" uid="uid://cp3sns31oie8j" path="res://sprites/boat_imperial/boat_type0_tier0.png" id="2_h3sgu"]
+[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="3_6k6lu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m02gi"]
 size = Vector2(70, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xl7m"]
+atlas = ExtResource("2_h3sgu")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyl82"]
+atlas = ExtResource("2_h3sgu")
+region = Rect2(0, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8mdv"]
+atlas = ExtResource("2_h3sgu")
+region = Rect2(160, 144, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1da6"]
+atlas = ExtResource("2_h3sgu")
+region = Rect2(320, 144, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhkc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xl7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyl82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8mdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1da6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpea6"]
 size = Vector2(88.5, 13.25)
@@ -12,10 +49,42 @@ size = Vector2(88.5, 13.25)
 [node name="Type0Tier0Boat" unique_id=1998020412 instance=ExtResource("1_lymcv")]
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
-texture = ExtResource("2_3xl7m")
+position = Vector2(44, -64)
+texture = ExtResource("2_h3sgu")
+hframes = 3
+vframes = 2
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
 shape = SubResource("RectangleShape2D_m02gi")
+
+[node name="Mast_container" parent="." index="3" unique_id=860835126]
+position = Vector2(44, -64)
+
+[node name="Mast1" parent="Mast_container" index="0" unique_id=480987827 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_6k6lu")]
+damaged_sprite = NodePath("Dmg_mast")
+
+[node name="Mast_sprite" parent="Mast_container/Mast1" index="0" unique_id=1384639686]
+visible = true
+texture = ExtResource("2_h3sgu")
+hframes = 3
+vframes = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mast_container/Mast1/Mast_sprite" index="0" unique_id=495422230]
+sprite_frames = SubResource("SpriteFrames_hhkc5")
+autoplay = "default"
+frame = 2
+frame_progress = 0.5072573
+
+[node name="Dmg_mast" type="Sprite2D" parent="Mast_container/Mast1" index="1" unique_id=1893200636]
+visible = false
+texture = ExtResource("2_h3sgu")
+hframes = 3
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" parent="Mast_container/Mast1/Area2D" parent_id_path=PackedInt32Array(480987827, 198773209) index="0" unique_id=1325044028]
+position = Vector2(-46, 31)
+scale = Vector2(5.960004, 4.6000023)
 
 [node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
 position = Vector2(0, -1)
@@ -26,3 +95,5 @@ position = Vector2(35, -7)
 
 [node name="BoatEnd" parent="." index="9" unique_id=464663935]
 position = Vector2(-35, -7)
+
+[editable path="Mast_container/Mast1"]
