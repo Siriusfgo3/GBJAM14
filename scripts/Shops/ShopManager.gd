@@ -61,6 +61,7 @@ func LoadShop(player: Player, boat: Boat) -> void:
 			music_player.stream = sea_music
 			music_player.play()
 	elif music_player and boat.boatType >= 0 and boat.boatType < musics.size():
+		if boat.boatType == 1: music_player.volume_db = 10.0
 		var next_stream := musics[boat.boatType]
 		if music_player.stream != next_stream:
 			music_player.stream = next_stream
@@ -179,4 +180,5 @@ func _on_nextBoat_button_pressed() -> void:
 	
 func BattleMusic():
 	music_player.stream = battle_music
+	music_player.volume_db = 0.0
 	music_player.play()
