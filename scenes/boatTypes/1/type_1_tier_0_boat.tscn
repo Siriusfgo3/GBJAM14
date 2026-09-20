@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://3rbckpx4o7a2"]
 
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_iyiw0"]
-[ext_resource type="Texture2D" uid="uid://dikdcjri2mkgd" path="res://sprites/BoatTest/type10.png" id="2_63uho"]
+[ext_resource type="Texture2D" uid="uid://b8vja33oocrc2" path="res://sprites/boat_oriential/boat_type1_tier0.png" id="2_55p33"]
+[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="3_m6bct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63uho"]
 size = Vector2(70, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um05c"]
+size = Vector2(52, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th6ns"]
 size = Vector2(77, 16)
@@ -13,10 +17,32 @@ size = Vector2(77, 16)
 boatType = 1
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
-texture = ExtResource("2_63uho")
+texture = ExtResource("2_55p33")
+offset = Vector2(0, -12)
+hframes = 3
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
 shape = SubResource("RectangleShape2D_63uho")
+
+[node name="BigBoatMast" parent="Mast_container" parent_id_path=PackedInt32Array(860835126) index="0" unique_id=480987827 node_paths=PackedStringArray("flag_sprite", "damaged_sprite") instance=ExtResource("3_m6bct")]
+flag_sprite = NodePath("Mast")
+damaged_sprite = NodePath("Dmg_Mast")
+
+[node name="CollisionShape2D" parent="Mast_container/BigBoatMast/Area2D" parent_id_path=PackedInt32Array(480987827, 198773209) index="0" unique_id=1325044028]
+position = Vector2(-5, -15.5)
+shape = SubResource("RectangleShape2D_um05c")
+
+[node name="Mast" type="Sprite2D" parent="Mast_container/BigBoatMast" index="3" unique_id=1697402464]
+texture = ExtResource("2_55p33")
+offset = Vector2(0, -12)
+hframes = 3
+frame = 1
+
+[node name="Dmg_Mast" type="Sprite2D" parent="Mast_container/BigBoatMast" index="4" unique_id=460713128]
+texture = ExtResource("2_55p33")
+offset = Vector2(0, -12)
+hframes = 3
+frame = 2
 
 [node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
 position = Vector2(-0.5, 0)
@@ -30,3 +56,5 @@ position = Vector2(35, -8)
 
 [node name="BoatEnd" parent="." index="9" unique_id=464663935]
 position = Vector2(-35, -8)
+
+[editable path="Mast_container/BigBoatMast"]
