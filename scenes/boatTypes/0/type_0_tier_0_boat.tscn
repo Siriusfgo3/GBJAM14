@@ -61,6 +61,7 @@ shape = SubResource("RectangleShape2D_m02gi")
 position = Vector2(44, -64)
 
 [node name="Mast1" parent="Mast_container" index="0" unique_id=480987827 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_6k6lu")]
+modulate = Color(0.6158285, 0.6158285, 0.6158285, 1)
 damaged_sprite = NodePath("Dmg_mast")
 
 [node name="Mast_sprite" parent="Mast_container/Mast1" index="0" unique_id=1384639686]
