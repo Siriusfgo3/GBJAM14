@@ -14,6 +14,7 @@ damaged_sprite = NodePath("Damaged_sprite")
 area = NodePath("Area2D")
 
 [node name="Mast_sprite" type="Sprite2D" parent="." unique_id=1384639686]
+visible = false
 texture = ExtResource("2_g6vay")
 
 [node name="Damaged_sprite" type="Sprite2D" parent="." unique_id=1039405763]
