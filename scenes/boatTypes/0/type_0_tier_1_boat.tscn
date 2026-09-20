@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dt1w3wrdtlwke"]
 
 [ext_resource type="PackedScene" uid="uid://bdmf1rnqf5dwt" path="res://scenes/Boat/Boat.tscn" id="1_76q7i"]
-[ext_resource type="Texture2D" uid="uid://grn8rl65vbi3" path="res://sprites/BoatTest/type01.png" id="2_4nt22"]
+[ext_resource type="Texture2D" uid="uid://wavhertsy1s5" path="res://sprites/boat_imperial/boat_type0_tier1.png" id="2_4nt22"]
+[ext_resource type="PackedScene" uid="uid://cpt7wfv3v3vdd" path="res://scenes/Boat/BigBoatMast.tscn" id="3_g1e6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb5bk"]
 size = Vector2(120, 30)
@@ -13,10 +14,35 @@ size = Vector2(134, 32)
 boatTier = 1
 
 [node name="BoatVisual" parent="." index="0" unique_id=196437451]
+position = Vector2(0, -56)
 texture = ExtResource("2_4nt22")
+hframes = 3
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=2003058016]
 shape = SubResource("RectangleShape2D_tb5bk")
+
+[node name="Mast_container" parent="." index="3" unique_id=860835126]
+position = Vector2(0, -56)
+
+[node name="Mast1" parent="Mast_container" index="0" unique_id=480987827 node_paths=PackedStringArray("damaged_sprite") instance=ExtResource("3_g1e6l")]
+modulate = Color(0.6158285, 0.6158285, 0.6158285, 1)
+damaged_sprite = NodePath("Dmg_mast")
+
+[node name="Mast_sprite" parent="Mast_container/Mast1" index="0" unique_id=1384639686]
+visible = true
+texture = ExtResource("2_4nt22")
+hframes = 3
+
+[node name="Dmg_mast" type="Sprite2D" parent="Mast_container/Mast1" index="1" unique_id=537879913]
+visible = false
+texture = ExtResource("2_4nt22")
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" parent="Mast_container/Mast1/Area2D" parent_id_path=PackedInt32Array(480987827, 198773209) index="0" unique_id=1325044028]
+position = Vector2(-4, 1)
+scale = Vector2(12.240005, 10.200003)
 
 [node name="CollisionShape2D" parent="AggroRangeArea" parent_id_path=PackedInt32Array(957004913) index="0" unique_id=1247442954]
 shape = SubResource("RectangleShape2D_8ktgy")
@@ -26,3 +52,5 @@ position = Vector2(60, -15)
 
 [node name="BoatEnd" parent="." index="9" unique_id=464663935]
 position = Vector2(-60, -15)
+
+[editable path="Mast_container/Mast1"]
