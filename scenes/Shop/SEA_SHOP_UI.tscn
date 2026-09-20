@@ -254,10 +254,6 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("9_5xuyj")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nj1xg"]
-atlas = ExtResource("9_5xuyj")
-region = Rect2(128, 0, 32, 32)
-
 [node name="Sea_shop" type="Control" unique_id=1203866140 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui")]
 layout_mode = 3
 anchors_preset = 15
@@ -592,7 +588,6 @@ texture_normal = SubResource("AtlasTexture_34kf4")
 texture_pressed = SubResource("AtlasTexture_m3kwt")
 texture_hover = SubResource("AtlasTexture_mkhcy")
 texture_disabled = SubResource("AtlasTexture_4o4c5")
-texture_focused = SubResource("AtlasTexture_nj1xg")
 texture_click_mask = ExtResource("10_u0ywr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1781901594]

@@ -385,10 +385,6 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("8_5h3eb")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5o2sn"]
-atlas = ExtResource("8_5h3eb")
-region = Rect2(128, 0, 32, 32)
-
 [node name="Land_shop" type="Control" unique_id=163730554 node_paths=PackedStringArray("player_inventory_ui", "their_inventory_ui", "player_scale_inventory", "player_scale_inventory_ui", "their_scale_inventory", "their_scale_inventory_ui", "NPCS")]
 layout_mode = 3
 anchors_preset = 15
@@ -708,7 +704,6 @@ texture_normal = SubResource("AtlasTexture_hhkc5")
 texture_pressed = SubResource("AtlasTexture_gyxmp")
 texture_hover = SubResource("AtlasTexture_gd8w5")
 texture_disabled = SubResource("AtlasTexture_v07a6")
-texture_focused = SubResource("AtlasTexture_5o2sn")
 texture_click_mask = ExtResource("9_iei2f")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1486778538]
